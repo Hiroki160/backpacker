@@ -15,5 +15,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   root to: 'homes#top'
   get "homes/about"
+
+  # ユーザー用
+   scope module: :public do
+     resources :guesthouses, only: [:index, :new, :show, :create]
+
+   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
