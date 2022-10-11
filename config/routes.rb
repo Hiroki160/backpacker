@@ -18,6 +18,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   # ユーザー用
    scope module: :public do
+     #旅先一覧
+     get 'places/index'
+
+     #ゲストハウス
      resources :guesthouses, only: [:index, :new, :show, :create]
 
    end
