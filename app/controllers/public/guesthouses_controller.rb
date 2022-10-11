@@ -11,6 +11,7 @@ class Public::GuesthousesController < ApplicationController
     @guesthouse = Guesthouse.new(guesthouse_params)
     @guesthouse.save
     redirect_to guesthouses_path, flash: { notice: '登録に成功しました' }
+    # 後からレビュー画面のパスに設定
   end
 
   def show
@@ -19,7 +20,7 @@ class Public::GuesthousesController < ApplicationController
   private
 
   def guesthouse_params
-    params.require(:guesthouse).permit(:name, :address, :country_id, :customer_id)
+    params.require(:guesthouse).permit(:name, :address, :customer_id)
   end
-  
+
 end
