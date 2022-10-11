@@ -20,7 +20,7 @@ class Public::GuesthousesController < ApplicationController
   private
 
   def guesthouse_params
-    params.require(:guesthouse).permit(:name, :address, :customer_id)
+    params.require(:guesthouse).permit(:name, :address, :country_id, :customer_id)
   end
 
 end

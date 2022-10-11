@@ -16,6 +16,13 @@
         <%= form_with model: @guesthouse, url: guesthouses_path do |f| %>
 
           <div class="row mb-3">
+            <%= f.label :国, class: "col-sm-2 col-form-label" %>
+            <div class="col-sm-10">
+              <%= f.collection_select(:country_id, Country.all, :id, :name) %>
+            </div>
+          </div>
+
+          <div class="row mb-3">
             <%= f.label :ゲストハウス名, class: "col-sm-2 col-form-label" %>
             <div class="col-sm-10">
               <%= f.text_field :name, class: "form-conrol" %>
@@ -28,6 +35,7 @@
               <%= f.text_field :address, class: "form-conrol" %>
             </div>
           </div>
+
 
           <%= f.submit '登録',  class: "btn btn-primary" %>
 

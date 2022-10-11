@@ -3,6 +3,7 @@ class Country < ActiveHash::Base
   
   has_many :guesthouses
   
+  
   self.data = [
     { id: 1, name: '--' }, { id: 2, name: 'フランス' }, { id: 3, name: 'スペイン' },
     { id: 4, name: 'イタリア' }, { id: 5, name: 'トルコ' }, { id: 6, name: 'カンボジア' },
