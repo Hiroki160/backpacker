@@ -6,4 +6,7 @@ class Customer < ApplicationRecord
          
   has_many :guesthouses, dependent: :destroy
   
+    # レビュー機能
+  has_many :guesthouse_reviews, dependent: :destroy
+  
 end

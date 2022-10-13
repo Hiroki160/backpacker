@@ -8,10 +8,13 @@
   </div>
 </section>
 
+
+
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
+        <%= render 'layouts/error_messages' %>
 
         <%= form_with model: @guesthouse, url: guesthouses_path do |f| %>
 
