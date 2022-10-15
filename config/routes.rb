@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
 
+  namespace :public do
+    get 'customers/show'
+    get 'customers/edit'
+    get 'customers/update'
+  end
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -25,6 +30,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      resources :guesthouses, only: [:index, :new, :show, :create] do
        resources :guesthouse_reviews, only: [:index, :create, :new] #ゲストハウス
       end
+
+    #顧客
+    resources :customers, only: [:index, :edit, :update, :show]
+    get 'customers/confirmation'
+    patch 'customers/withdrawal'
 
     #国選択
     resources :places, only: [:index, :create]
