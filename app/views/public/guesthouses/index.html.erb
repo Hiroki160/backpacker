@@ -27,7 +27,7 @@
   <tbody>
     <% @guesthouses.each do |guesthouse| %>
         <tr>
-          <td><%= guesthouse.name %></td>
+          <td><%= link_to guesthouse.name, guesthouse_path(guesthouse.id) %></td>
           <td><%= guesthouse.address %></td>
           <td><%= guesthouse.country.name %></td>
         </tr>

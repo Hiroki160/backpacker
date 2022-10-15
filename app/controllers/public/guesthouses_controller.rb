@@ -25,6 +25,7 @@ class Public::GuesthousesController < ApplicationController
   end
 
   def show
+    @guesthouse = Guesthouse.find(params[:id])
   end
 
   private

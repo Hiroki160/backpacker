@@ -19,13 +19,19 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
   # ユーザー用
    scope module: :public do
-     #旅先一覧
-     get 'places/index'
+
 
      #ゲストハウス
      resources :guesthouses, only: [:index, :new, :show, :create] do
        resources :guesthouse_reviews, only: [:index, :create, :new] #ゲストハウス
       end
+
+    #国選択
+    resources :places, only: [:index, :create]
+
+    #選択画面
+    resources :options, only: [:index, :create]
+
 
 
 
