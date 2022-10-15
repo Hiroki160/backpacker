@@ -8,21 +8,23 @@
   </div>
 </section>
 
-
-
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
 
+        <%= form_with url: country_search_path, method: :get do |f| %>
+
           <div class="row mb-3">
-            <!--%= f.label :国, class: "col-sm-2 col-form-label" %>
+            <%= f.label :国, class: "col-sm-2 col-form-label" %>
             <div class="col-sm-10">
-              <!--%= f.collection_select(:country_id, Country.all, :id, :name) %>
+              <%= f.collection_select(:country_id, Country.all, :id, :name) %>
             </div>
           </div>
-          <%= link_to "選択", country_guesthouses %>
 
+          <%= f.submit '選択', class: "btn btn-primary" %>
+
+        <% end %>
       </div>
     </div>
   </div>

@@ -2,12 +2,11 @@
   <div class="hero-body">
     <div class="container">
       <h3 class="title">
-        What are you looking for?<br><br>
+        <%= @country.name %>
       </h3>
     </div>
   </div>
 </section>
-
 
 <section class="section">
   <div class="container">
@@ -15,10 +14,9 @@
       <div class="column is-6">
 
 <div><%= link_to "ゲストハウス",  country_guesthouses_path(@country) %></div>
-<div>アクティビティ</div>
-<div>レストラン</div>
 
       </div>
     </div>
   </div>
 </section>
+
