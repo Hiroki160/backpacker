@@ -58,5 +58,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 gem 'active_hash'
 group :development, :test do
-  gem 'pry-rails'
+gem 'pry-rails'
+gem 'bulma-rails'
+
 end

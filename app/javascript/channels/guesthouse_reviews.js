@@ -1,0 +1,1 @@
+const stars = document.querySelectors(".ratings").children;

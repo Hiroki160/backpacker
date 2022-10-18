@@ -17,8 +17,8 @@
   <thead class="table-active">
   	<tr>
   		<th>名前</th>
+  		<th>評価</th>
   		<th>住所</th>
-  		<th>国</th>
   		<th>宿泊料金</th>
   		<th>詳細</th>
   	</tr>
@@ -28,8 +28,8 @@
     <% @guesthouses.each do |guesthouse| %>
         <tr>
           <td><%= link_to guesthouse.name, guesthouse_path(guesthouse.id) %></td>
+          <td class="star-rating-front" style="width": %>★★★★★</td>
           <td><%= guesthouse.address %></td>
-          <td><%= guesthouse.country.name %></td>
         </tr>
     <% end %>
   </tbody>

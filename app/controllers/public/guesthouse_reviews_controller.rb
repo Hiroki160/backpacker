@@ -7,6 +7,7 @@ class Public::GuesthouseReviewsController < ApplicationController
 
   def new
     @guesthouse_review = GuesthouseReview.new
+    @guesthouse = Guesthouse.find(params[:guesthouse_id])
   end
 
 end
