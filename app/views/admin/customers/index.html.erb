@@ -1,3 +1,50 @@
-<%= @customers.each do |customer| %>
-<%= customer.name %>
-<% end %>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        会員一覧<br><br>
+      </h3>
+
+
+<table class="table">
+	<thead class="table-active">
+		<tr>
+		  <th></th>
+			<th>名前</th>
+			<th>ユーザーネーム</th>
+			<th>メールアドレス</th>
+			<th>ステータス</th>
+		</tr>
+	</thead>
+
+	<tbody>
+	  <% @customers.each do |customer| %>
+	  <tr>
+	    <td>
+	        <% if customer.image.attached? %>
+            <%= image_tag customer.image, class: "rounded-circle", size: "100x100" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "200x200" %>
+          <% end %>
+	    </td>
+	    <td><%= customer.name %></td>
+	    <td><%= customer.user_name %></td>
+	    <td><%= customer.email %></td>
+	    <td>
+	    <% if customer.is_deleted == true %>
+	    退会
+	    <% else %>
+	    有効
+	    <% end %>
+	    </td>
+	  </tr>
+	  <% end %>
+
+
+	</tbody>
+	</table>
+
+
+    </div>
+  </div>
+</section>

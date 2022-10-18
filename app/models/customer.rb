@@ -10,4 +10,9 @@ class Customer < ApplicationRecord
   has_many :guesthouse_reviews, dependent: :destroy
   has_one_attached :image
 
+  # is_deletedがfalseならtrueを返す
+  def active_for_authentication?
+    super && (is_deleted == false)
+  end
+
 end

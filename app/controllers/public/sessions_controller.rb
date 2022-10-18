@@ -11,6 +11,16 @@ class Public::SessionsController < Devise::SessionsController
   def after_sign_out_path_for(resource)
    root_path
   end
+  
+  def reject_customer
+    @customer = Customer.find_by(name: params[:customer][:name])
+    if @customer.valid_password?(params[:customer][:password]) && (@customer.is_deleted == false)
+      flash[:notice] = "退会済みです"
+      redirect_to new_customer_registration_path
+    else
+      flash[:notice] = "項目を入力してください"
+    end
+  end
   # before_action :configure_sign_in_params, only: [:create]
   # before_action :configure_sign_in_params, only: [:create]
 

@@ -14,7 +14,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
 
-  root to: 'homes#top'
+  # root to: 'homes#top'
+  root to: "homes#about"
   get "homes/about"
   
   #管理者用
@@ -38,8 +39,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     #顧客
     resources :customers, only: [:index, :edit, :update, :show]
-    get 'customers/confirmation'
-    patch 'customers/withdrawal'
+    get 'customers/:id/confirmation' => "customers#confirmation", as: "confirmation"
+    patch 'customers/:id/withdrawal' => "customers#withdrawal", as: "withdrawal"
 
     #国選択
     resources :countries, only: [:index, :create, :show] do
