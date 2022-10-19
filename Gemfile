@@ -60,5 +60,6 @@ gem 'active_hash'
 group :development, :test do
 gem 'pry-rails'
 gem 'bulma-rails'
+gem 'jquery-rails'
 
 end

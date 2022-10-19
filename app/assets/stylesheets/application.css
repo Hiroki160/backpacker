@@ -1,3 +1,8 @@
+/**= require_tree .*/
+/*
+ *= require raty-js/lib/jquery.raty.css
+ */
+
 @import "bulma";
 
 body {
