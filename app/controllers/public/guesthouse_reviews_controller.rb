@@ -3,14 +3,14 @@ class Public::GuesthouseReviewsController < ApplicationController
   end
 
   def create
-    @guesthouse_review = Review.new(review_params)
+    @guesthouse_review = GuesthouseReview.new(review_params)
     @guesthouse_review.customer_id = current_customer.id
     if @guesthouse_review.save
       redirect_to guesthouse_path(@review.guesthouse)
     else
       @guesthouse = Guesthouse.find(params[:guesthouse_id])
       # @ramen_shop = RamenShop.find(params[:ramen_shop_id])
-      render "guesthouses/show"
+      render :index
     end
   end
 
