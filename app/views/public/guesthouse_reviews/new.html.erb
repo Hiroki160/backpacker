@@ -16,9 +16,27 @@
 
         <div class="rating-box mt-3">
           <%= form_with model: @guesthouse_review, url: guesthouse_guesthouse_reviews_path(@guesthouse) do |f| %>
-          <div class="main-rating">
-            <div class="ratings mb-3">
-              <div id="evaluate_stars">評価</div>
+
+              <div id="evaluate_stars">
+                <label style="margin-right: 150px; margin-bottom: 24px;">評価</label>
+              </div>
+
+              <div class="row mb-3">
+                <%= f.label :使用額, class: "col-sm-2 col-form-label" %>
+                <div class="col-sm-10">
+                <%= f.text_field :guesthouse_price, class: "form-conrol" %>円
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <%= f.label :コメント, class: "col-sm-2 col-form-label" %>
+                <div class="col-sm-10">
+                <%= f.text_area :guesthouse_content, class: "form-conrol" %>
+                </div>
+              </div>
+
+              <%= f.submit "保存", class: "button mt-3" %>
+
                 <script>
                   $('#evaluate_stars').raty({
                     starOn: "<%= asset_path('star-on.png') %>",
@@ -33,12 +51,8 @@
                     half: true
                   });
                 </script>
-              </div>
-          </div>
-    <%= f.text_area :guesthouse_content, class: "textarea" %>
-    <%= f.submit "保存", class: "button mt-3" %>
-  <% end %>
-</div>
+            <% end %>
+        </div>
 
       </div>
     </div>

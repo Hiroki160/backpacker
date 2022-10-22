@@ -26,6 +26,7 @@ class Public::GuesthousesController < ApplicationController
 
   def show
     @guesthouse = Guesthouse.find(params[:id])
+    @guesthouse_reviews = GuesthouseReview.all
   end
 
   private

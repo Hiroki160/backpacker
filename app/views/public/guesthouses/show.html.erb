@@ -1,8 +1,7 @@
-<section class="hero is-success">
   <div class="hero-body">
     <div class="container">
       <h3 class="title">
-        Where will you stay?<br><br>
+        <%= @guesthouse.name %><br><br>
       </h3>
     </div>
   </div>
@@ -14,8 +13,10 @@
     <div class="columns is-centered">
       <div class="column is-6">
         <%= @guesthouse.name %>
-
+        <%= @guesthouse.address %>
       </div>
     </div>
   </div>
 </section>
+
+<%= render @guesthouse.review %>
