@@ -1,5 +1,6 @@
 class Public::GuesthousesController < ApplicationController
   def index
+    # @guesthouse_review = GuesthouseReview.find(params[:id])
     # @guesthouses = Guesthouse.all
     if params[:country_id]
       @country = Country.find(params[:country_id])
@@ -17,7 +18,7 @@ class Public::GuesthousesController < ApplicationController
     @guesthouse = Guesthouse.new(guesthouse_params)
     @guesthouse.customer_id = current_customer.id
     if @guesthouse.save
-      redirect_to guesthouses_path(country_id: guesthouse_params[:country_id]), flash: { notice: '登録に成功しました' }
+      redirect_to new_guesthouse_guesthouse_review_path(@guesthouse)
     else
       render :new
     end
@@ -26,13 +27,13 @@ class Public::GuesthousesController < ApplicationController
 
   def show
     @guesthouse = Guesthouse.find(params[:id])
-    @guesthouse_reviews = GuesthouseReview.all
+    @guesthouse_reviews = @guesthouse.guesthouse_reviews
   end
 
   private
 
   def guesthouse_params
-    params.require(:guesthouse).permit(:name, :address, :country_id, :customer_id)
+    params.require(:guesthouse).permit(:name, :address, :country_id, :customer_id, :image)
   end
 
 end

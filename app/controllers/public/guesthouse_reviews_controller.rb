@@ -1,5 +1,7 @@
 class Public::GuesthouseReviewsController < ApplicationController
   def index
+    @guesthouse = Guesthouse.find(params[:id])
+    @guesthouse_reviews = @guesthouse.guesthouse_reviews
   end
 
   def create

@@ -2,6 +2,7 @@
     <div class="container">
       <h3 class="title">
         <%= @guesthouse.name %><br><br>
+
       </h3>
     </div>
   </div>
@@ -12,11 +13,35 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
-        <%= @guesthouse.name %>
         <%= @guesthouse.address %>
       </div>
     </div>
   </div>
 </section>
 
-<%= render @guesthouse.review %>
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        レビュー<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <% @guesthouse_reviews.each do |guesthouse_review| %>
+        <%= guesthouse_review.customer.user_name %>
+        <%= guesthouse_review.guesthouse_score %>
+        <%= guesthouse_review.guesthouse_price %>
+        <%= guesthouse_review.guesthouse_content %>
+        <% end %>
+        <td><%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-secondary text-white" %></td>
+        <td><%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+      </div>
+    </div>
+  </div>
+</section>
+

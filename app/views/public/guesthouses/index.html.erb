@@ -8,35 +8,33 @@
   </div>
 </section>
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
-
-<table class="table">
-  <thead class="table-active">
-  	<tr>
-  		<th>名前</th>
-  		<th>評価</th>
-  		<th>住所</th>
-  		<th>宿泊料金</th>
-  		<th>詳細</th>
-  	</tr>
-  </thead>
-
-  <tbody>
-    <% @guesthouses.each do |guesthouse| %>
-        <tr>
-          <td><%= link_to guesthouse.name, guesthouse_path(guesthouse.id) %></td>
-          <td class="star-rating-front" style="width": %>★★★★★</td>
-          <td><%= guesthouse.address %></td>
-        </tr>
-    <% end %>
-  </tbody>
-
-</table>
-
-      </div>
-    </div>
-  </div>
-</section>
+  <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <% @guesthouses.each do |guesthouse| %>
+              <div class="col-3 mb-5">
+                  <div class="card h-100">
+                      <!-- Product image-->
+                      <div class="card-image" style="text-align: center">
+                        <% if guesthouse.image.attached? %>
+                           <%= image_tag guesthouse.image, size: "200x200" %>
+                        <% else %>
+                           <%= image_tag 'no_image', size: "200x200" %>
+                        <% end %>
+                      </div>
+                      <!-- Product details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Product name-->
+                              <h5 class="fw-bolder"><%= link_to guesthouse.name, guesthouse_path(guesthouse.id) %></h5>
+                              <!-- Product price-->
+                              <%= guesthouse.minimum %>円~
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      <div class="review-button"><%= link_to "レビューを追加する", new_guesthouse_path, class: "btn btn btn-secondary text-white" %></div>
+    </section>
