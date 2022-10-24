@@ -20,6 +20,13 @@
               <div id="evaluate_stars">
                 <label style="margin-right: 150px; margin-bottom: 24px;">評価</label>
               </div>
+              
+              <div class="row mb-3 field">
+                <%= f.label :ゲストハウス画像 %><br />
+                <div class="guesthouse_image col-sm-10">
+                <%= f.file_field :image, placeholder: "ゲストハウス画像", accept: "image/*" %>
+              </div>
+              </div>
 
               <div class="row mb-3">
                 <%= f.label :使用額（１泊）, class: "col-sm-2 col-form-label" %>

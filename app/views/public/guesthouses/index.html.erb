@@ -14,21 +14,26 @@
             <% @guesthouses.each do |guesthouse| %>
               <div class="col-3 mb-5">
                   <div class="card h-100">
-                      <!-- Product image-->
+                      <!-- Guesthouse image-->
                       <div class="card-image" style="text-align: center">
-                        <% if guesthouse.image.attached? %>
-                           <%= image_tag guesthouse.image, size: "200x200" %>
+                        <% guesthouse.guesthouse_reviews.each do |review| %>
+                        <% if review.image.attached? %>
+                           <%= image_tag review.image, size: "200x200" %>
                         <% else %>
                            <%= image_tag 'no_image', size: "200x200" %>
                         <% end %>
+                        <% break %>
+                        <% end %>
                       </div>
-                      <!-- Product details-->
+
+                      <!-- Guesthouse details-->
                       <div class="card-body p-4">
                           <div class="text-center">
-                              <!-- Product name-->
+                              <!-- Guesthouse name-->
                               <h5 class="fw-bolder"><%= link_to guesthouse.name, guesthouse_path(guesthouse.id) %></h5>
-                              <!-- Product price-->
+                              <!--price-->
                               <%= guesthouse.minimum %>円~
+                              <div class="average-review-rating" data-score=<%= @average_review %>></div>
                           </div>
                       </div>
                   </div>
@@ -38,3 +43,13 @@
         </div>
       <div class="review-button"><%= link_to "レビューを追加する", new_guesthouse_path, class: "btn btn btn-secondary text-white" %></div>
     </section>
+
+  <script>
+	$('.average-review-rating').raty({
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+    score: "#{guesthouse.guesthouse_score.average(:rate).to_f.round(1)}",
+	});
+</script>
