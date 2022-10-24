@@ -7,6 +7,7 @@ class Public::GuesthousesController < ApplicationController
       @guesthouses = @country.guesthouses.all
     else
       @guesthouses = Guesthouse.all
+      # @guesthouse_review = GuesthouseReview.find(params[:id])
     end
   end
 
