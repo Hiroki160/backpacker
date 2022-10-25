@@ -1,47 +1,123 @@
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title">
-        <%= @guesthouse.name %><br><br>
-
-      </h3>
-    </div>
-  </div>
-</section>
-
 
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
-        <%= @guesthouse.address %>
+
+<div class="row">
+
+	<div class="col-md-4">
+
+    <% @guesthouse.guesthouse_reviews.each do |review| %>
+    <% if review.image.attached? %>
+       <%= image_tag review.image, size: "200x200" %>
+    <% else %>
+       <%= image_tag 'no_image', size: "200x200" %>
+    <% end %>
+    <% break %>
+    <% end %>
+
+	</div>
+
+	<div class="col-md-8">
+
+		<div class="book-info">
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide" role="group">
+            <% @guesthouse.guesthouse_reviews.each do |review| %>
+              <% if review.image.attached? %>
+                 <%= image_tag review.image, size: "200x200" %>
+              <% else %>
+                 <%= image_tag 'no_image', size: "200x200" %>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
       </div>
-    </div>
-  </div>
-</section>
 
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title">
-        レビュー<br><br>
-      </h3>
-    </div>
-  </div>
-</section>
+			<h2 class="book-title"><%= @guesthouse.name %></h2>
+			<h3 class="book-author"><%= @guesthouse.address %></h3>
+			<h2 class="avg-rating">Average Rating</h2>
+			<div class="average-review-rating" data-score=<%= get_average(@guesthouse) %>></div>
+			<span class="number-of-reviews"><%= @guesthouse.guesthouse_reviews.count %>件のレビュー reviews</span>
 
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
+		</div>
+	</div>
+
+	<div class="row">
+
+	<div class="col-md-4">
+
+		<div class="reviews">
+
+			<!-- Where the reviews/ratings will go -->
+			<h1>Reviews</h1>
         <% @guesthouse_reviews.each do |guesthouse_review| %>
-        <%= guesthouse_review.customer.user_name %>
-        <%= guesthouse_review.guesthouse_score %>
-        <%= guesthouse_review.guesthouse_price %>
-        <%= guesthouse_review.guesthouse_content %>
+        <div><%= guesthouse_review.customer.user_name %></div>
+        <div><%= guesthouse_review.guesthouse_score %></div>
+        <div><%= guesthouse_review.guesthouse_price %></div>
+        <p><%= guesthouse_review.guesthouse_content %></p>
         <% end %>
-        <td><%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-secondary text-white" %></td>
-        <td><%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+
+			<div>
+				<td><%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-secondary text-white" %></td>
+				<td><%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+			</div>
+
+		</div>
+
+	</div>
+
+</div>
+
       </div>
     </div>
   </div>
 </section>
 
+
+
+<!--<section class="section">-->
+<!--  <div class="container">-->
+<!--    <div class="columns is-centered">-->
+<!--      <div class="column is-6">-->
+<!--        <!% @guesthouse_reviews.each do |guesthouse_review| %>-->
+<!--        <!%= guesthouse_review.customer.user_name %>-->
+<!--        <!%= guesthouse_review.guesthouse_score %>-->
+<!--        <!%= guesthouse_review.guesthouse_price %>-->
+<!--        <!%= guesthouse_review.guesthouse_content %>-->
+<!--        <!% end %>-->
+<!--        <td><!%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-secondary text-white" %></td>-->
+<!--        <td><!%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-secondary text-white" %></td>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</section>-->
+
+  <script>
+	$('.average-review-rating').raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+    el: ".swiper-pagination"
+    },
+  });
+</script>
