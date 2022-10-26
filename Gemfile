@@ -61,5 +61,6 @@ group :development, :test do
 gem 'pry-rails'
 gem 'bulma-rails'
 gem 'jquery-rails'
+gem 'kaminari','~> 1.2.1'
 
 end

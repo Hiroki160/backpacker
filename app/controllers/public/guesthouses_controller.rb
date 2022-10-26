@@ -4,9 +4,11 @@ class Public::GuesthousesController < ApplicationController
     # @guesthouses = Guesthouse.all
     if params[:country_id]
       @country = Country.find(params[:country_id])
-      @guesthouses = @country.guesthouses.all
+      @guesthouses = @country.guesthouses.page[params[:page]]
+      # @guesthouses = @country.guesthouses.all
     else
-      @guesthouses = Guesthouse.all
+      @guesthouses = Guesthouse.page[params[:page]]
+      # @guesthouses = Guesthouse.all
       # @guesthouse_review = GuesthouseReview.find(params[:id])
     end
   end
@@ -28,7 +30,10 @@ class Public::GuesthousesController < ApplicationController
 
   def show
     @guesthouse = Guesthouse.find(params[:id])
-    @guesthouse_reviews = @guesthouse.guesthouse_reviews
+    @guesthouse_reviews = GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
+    # binding.pry
+    # @guesthouse_reviews = @guesthouse.guesthouse_reviews
+    # @guesthouse_reviews.page[params[:page]]
   end
 
   private

@@ -30,8 +30,13 @@ a {
   height: 300px;
 }
 
+.reviews {
+  text-align: center;
+}
 
-
+.col-4  {
+  padding-left: 50px;
+}
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
