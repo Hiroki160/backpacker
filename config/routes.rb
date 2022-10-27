@@ -17,7 +17,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # root to: 'homes#top'
   root to: "homes#about"
   get "homes/about"
-  
+
   #管理者用
   namespace :admin do
     #会員
@@ -37,6 +37,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
        resources :guesthouse_reviews, only: [:index, :create, :new] #ゲストハウス
       end
 
+     #レストラン
+    resources :restaurants, only: [:index, :new, :show, :create] do
+      resources :restaurant_reviews, only: [:index, :create, :new]#レストラン
+    end
+
     #顧客
     resources :customers, only: [:index, :edit, :update, :show]
     get 'customers/:id/confirmation' => "customers#confirmation", as: "confirmation"
@@ -45,6 +50,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     #国選択
     resources :countries, only: [:index, :create, :show] do
       resources :guesthouses, only: [:index]
+      resources :restaurants, only: [:index]
     end
     get 'country_search', to: 'countries#search'
 

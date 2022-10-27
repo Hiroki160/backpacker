@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_15_031837) do
+ActiveRecord::Schema.define(version: 2022_10_27_105648) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -79,6 +79,25 @@ ActiveRecord::Schema.define(version: 2022_10_15_031837) do
   end
 
   create_table "guesthouses", force: :cascade do |t|
+    t.integer "country_id"
+    t.integer "customer_id"
+    t.string "name"
+    t.string "address"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "restaurant_reviews", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "restaurant_id"
+    t.integer "restaurant_price"
+    t.integer "restaurant_score"
+    t.integer "restaurant_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "restaurants", force: :cascade do |t|
     t.integer "country_id"
     t.integer "customer_id"
     t.string "name"

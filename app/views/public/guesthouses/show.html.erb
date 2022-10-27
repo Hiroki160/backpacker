@@ -38,13 +38,13 @@
   	<div class="col-8">
   		<div class="reviews">
   			<!-- レビュー-->
-  			<h1>レビュー</h1>
-          <% @guesthouse_reviews.each do |guesthouse_review| %>
-          <p><%= guesthouse_review.customer.user_name %></p>
-          <div class="review-rating" data-score=<%= guesthouse_review.guesthouse_score %>></div>
-          <p><%= guesthouse_review.guesthouse_price %></p>
-          <p><%= guesthouse_review.guesthouse_content %></p>
-          <% end %>
+    			<h1>レビュー</h1>
+            <% @guesthouse_reviews.each do |guesthouse_review| %>
+            <p><%= guesthouse_review.customer.user_name %></p>
+            <div class="review-rating" data-score=<%= guesthouse_review.guesthouse_score %>></div>
+            <p><%= guesthouse_review.guesthouse_price %>円</p>
+            <p><%= guesthouse_review.guesthouse_content %></p>
+            <% end %>
         </div>
   			<div>
   				<td><%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-secondary text-white" %></td>
@@ -52,9 +52,8 @@
   			</div>
 
   		</div>
-  	</div>
 
-  <%= paginate @guesthouse_reviews %>
+  <div style="text-align:center;"><%= paginate @guesthouse_reviews %></div>
 	    </div>
   </div>
 </div>
