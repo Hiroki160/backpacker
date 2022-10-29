@@ -49,7 +49,7 @@
             <% end %>
         </div>
   			<div>
-  				<td><%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-secondary text-white" %></td>
+  				<td><%= link_to "レビューを書く", (@guesthouse), class: "btn btn btn-secondary text-white" %></td>
   				<td><%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-secondary text-white" %></td>
   			</div>
 

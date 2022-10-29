@@ -1,2 +1,95 @@
-<h1>Public::Activities#show</h1>
-<p>Find me in app/views/public/activities/show.html.erb</p>
+
+<div class="container">
+	<div class="row">
+	  <!--<div class="book-review">-->
+		<div class="col-4">
+		  <!--画像-->
+  		<div class="book-info">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <% @activity.activity_reviews.each do |review| %>
+              <div class="swiper-slide" role="group">
+                  <% if review.image.attached? %>
+                     <%= image_tag review.image, size: "300x300" %>
+                  <% else %>
+                     <%= image_tag 'no_image', size: "300x300" %>
+                  <% end %>
+              </div>
+            <% end %>
+          </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+      </div>
+      <!--画像ここまで-->
+      
+      <!--情報ー-->
+      <div style="text-align: center;">
+        <div>【名前】</div>
+        <div class="book-title"><%= @activity.name %></div>
+        <div>【住所】</div>
+  			<div class="book-author"><%= @activity.address %></div>
+  			<div class="avg-rating">【レビュー平均点】</div>
+  			<div class="average-review-rating" data-score=<%= get_average_activity(@activity) %>></div>
+  			<span class="number-of-reviews"><%= @activity.activity_reviews.count %>件のレビュー</span>
+  		</div>
+  		<!--情報ここまで-->
+    </div>
+    
+  	<div class="col-8">
+  		<div class="reviews">
+  			<!-- レビュー-->
+    			<h1>レビュー</h1>
+            <% @activity_reviews.each do |activity_review| %>
+            <p><%= activity_review.customer.user_name %></p>
+            <div class="review-rating" data-score=<%= activity_review.activity_score %>></div>
+            <p><%= activity_review.activity_price %>円</p>
+            <p><%= activity_review.activity_content %></p>
+            <% end %>
+        </div>
+    </div>
+    　<!--レビューここまで-->
+  　<div style="text-align:center;"><%= paginate @activity_reviews %></div>
+	  </div>
+  </div>
+</div>
+  
+      <div class="review-button">
+				<td><%= link_to "レビューを書く", new_activity_activity_review_path(@activity), class: "btn btn btn-secondary text-white" %></td>
+				<td><%= link_to "戻る", activities_path(country_id: @activity[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+			</div>
+</div>
+
+  <script>
+	$('.average-review-rating').raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+    el: ".swiper-pagination"
+    },
+  });
+</script>
+
+  <script>
+	$('.review-rating').raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>

@@ -20,11 +20,10 @@
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
-
         </div>
       </div>
 
-      <!--レビュー-->
+      <!--情報-->
       <div style="text-align: center;">
         <div>【名前】</div>
         <div class="book-title"><%= @restaurant.name %></div>
@@ -34,9 +33,8 @@
   			<div class="average-review-rating" data-score=<%= get_average_restaurant(@restaurant) %>></div>
   			<span class="number-of-reviews"><%= @restaurant.restaurant_reviews.count %>件のレビュー</span>
   		</div>
-
   	</div>
-  	<!--</div>-->
+
   	<div class="col-8">
   		<div class="reviews">
   			<!-- レビュー-->
@@ -47,41 +45,19 @@
             <p><%= restaurant_review.restaurant_price %>円</p>
             <p><%= restaurant_review.restaurant_content %></p>
             <% end %>
-        </div>
-  			<div>
-  		</div>
+          </div>
+    	</div>
 
-  		 <div style="text-align: center;">
-  		  	<td><%= link_to "レビューを書く", new_restaurant_restaurant_review_path(@restaurant), class: "btn btn btn-secondary text-white" %></td>
-  				<td><%= link_to "戻る", restaurants_path(country_id: @restaurant[:country_id]), class: "btn btn btn-secondary text-white" %></td>
-  			</div>
-
-  <div style="text-align:center;"><%= paginate @restaurant_reviews %></div>
+      <div style="text-align:center;"><%= paginate @restaurant_reviews %></div>
 	    </div>
   </div>
 </div>
 
-
-
-
-
-
-<!--<section class="section">-->
-<!--  <div class="container">-->
-<!--    <div class="columns is-centered">-->
-<!--      <div class="column is-6">-->
-<!--        <!% @guesthouse_reviews.each do |guesthouse_review| %>-->
-<!--        <!%= guesthouse_review.customer.user_name %>-->
-<!--        <!%= guesthouse_review.guesthouse_score %>-->
-<!--        <!%= guesthouse_review.guesthouse_price %>-->
-<!--        <!%= guesthouse_review.guesthouse_content %>-->
-<!--        <!% end %>-->
-<!--        <td><!%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-secondary text-white" %></td>-->
-<!--        <td><!%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-secondary text-white" %></td>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+  <div class="review-button">
+  	<td><%= link_to "レビューを書く", new_restaurant_restaurant_review_path(@restaurant), class: "btn btn btn-secondary text-white" %></td>
+		<td><%= link_to "戻る", restaurants_path(country_id: @restaurant[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+	</div>
+</div>
 
   <script>
 	$('.average-review-rating').raty({

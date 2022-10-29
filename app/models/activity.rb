@@ -1,5 +1,9 @@
 class Activity < ApplicationRecord
   
+  def minimum
+    activity_reviews.minimum(:activity_price)
+  end
+  
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to_active_hash :country

@@ -1,2 +1,47 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        What will you do?<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
 
+  <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <% @activities.each do |activity| %>
+              <div class="col-3 mb-5">
+                  <div class="card h-100">
+                      <!-- Activity image-->
+                      <div class="card-image" style="text-align: center">
+                        <% activity.activity_reviews.each do |review| %>
+                        <% if review.image.attached? %>
+                           <%= image_tag review.image, size: "200x200" %>
+                        <% else %>
+                           <%= image_tag 'no_image', size: "200x200" %>
+                        <% end %>
+                        <% break %>
+                        <% end %>
+                      </div>
+
+                      <!-- Guesthouse details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Guesthouse name-->
+                              <h5 class="fw-bolder"><%= link_to activity.name, activity_path(activity.id) %></h5>
+                              <!--price-->
+                              <%= activity.minimum %>円~
+
+                              <div class="average-review-rating" data-score=<%= get_average_activity(activity) %>></div>
+
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+        </div>
       <div class="review-button"><%= link_to "レビューを追加する", new_activity_path, class: "btn btn btn-secondary text-white" %></div>
+    </section>
