@@ -46,6 +46,8 @@
       <div class="review-button"><%= link_to "レビューを追加する", new_guesthouse_path, class: "btn btn btn-secondary text-white" %></div>
     </section>
 
+    <%= paginate @guesthouses %>
+
   <script>
 	$('.average-review-rating').raty({
 	  half: true,

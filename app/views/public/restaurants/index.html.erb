@@ -1,2 +1,59 @@
-<h1>Public::Restaurants#index</h1>
-<p>Find me in app/views/public/restaurants/index.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        What will you eat?<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+  <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <% @restaurants.each do |restaurant| %>
+              <div class="col-3 mb-5">
+                  <div class="card h-100">
+                      <!-- Guesthouse image-->
+                      <div class="card-image" style="text-align: center">
+                        <% restaurant.restaurant_reviews.each do |review| %>
+                        <% if review.image.attached? %>
+                           <%= image_tag review.image, size: "200x200" %>
+                        <% else %>
+                           <%= image_tag 'no_image', size: "200x200" %>
+                        <% end %>
+                        <% break %>
+                        <% end %>
+                      </div>
+
+                      <!-- Guesthouse details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Guesthouse name-->
+                              <h5 class="fw-bolder"><%= link_to restaurant.name, restaurant_path(restaurant.id) %></h5>
+                              <!--price-->
+                              <%= restaurant.minimum %>円~
+
+                              <div class="average-review-rating" data-score=<%= get_average_restaurant(restaurant) %>></div>
+
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+        </div>
+      <div class="review-button"><%= link_to "レビューを追加する", new_restaurant_path, class: "btn btn btn-secondary text-white" %></div>
+    </section>
+
+  <script>
+	$('.average-review-rating').raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>
+
+

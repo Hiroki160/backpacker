@@ -1,6 +1,13 @@
 class Public::RestaurantsController < ApplicationController
   def index
+    if params[:country_id]
+      @country = Country.find(params[:country_id])
+      @restaurants = Restaurant.where(country_id: @country.id).page(params[:page])
+    else
+      @restaurants = Restaurant.page(params[:page])
+    end
   end
+
 
   def new
     @restaurant = Restaurant.new
@@ -17,6 +24,11 @@ class Public::RestaurantsController < ApplicationController
   end
 
   def show
+    @restaurant = Restaurant.find(params[:id])
+    @restaurant_reviews = RestaurantReview.where(retaurant_id: @restaurant.id).page(params[:page])
+
+
+
   end
 
   private
