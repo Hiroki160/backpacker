@@ -35,12 +35,18 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      #ゲストハウス
      resources :guesthouses, only: [:index, :new, :show, :create] do
        resources :guesthouse_reviews, only: [:index, :create, :new] #ゲストハウス
-      end
+     end
 
      #レストラン
     resources :restaurants, only: [:index, :new, :show, :create] do
       resources :restaurant_reviews, only: [:index, :create, :new]#レストラン
-    end
+     end
+    
+     #アクティビティ
+     resources :activities, only: [:index, :new, :show, :create] do
+      resources :activity_reviews, only: [:index, :create, :new]
+     end
+ 
 
     #顧客
     resources :customers, only: [:index, :edit, :update, :show]
