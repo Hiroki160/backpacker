@@ -19,7 +19,7 @@ class Public::RestaurantsController < ApplicationController
     if @restaurant.save
       redirect_to new_restaurant_restaurant_review_path(@restaurant)
     else
-      render:new
+      render :new
     end
   end
 

@@ -2,9 +2,28 @@ class Public::ActivityReviewsController < ApplicationController
   def index
   end
 
-  def new
+  def create
+    @activity_review = ActivityReview.new(review_params)
+    @activity_review.customer_id = current_customer.id
+    @activity_review.activity_id = params[:activity_id]
+    @activity = Activity.find(params[:activity_id])
+    if @activity_review.save
+      redirect_to activity_path(@activity)
+    else
+      @activity = Activity.find(params[:activity_review][:activity_id])
+      render :index
+    end
   end
 
-  def create
+  def new
+    @activity_review = ActivityReview.new
+    @activity = Activity.find(params[:activity_id])
   end
+
+  private
+
+  def review_params
+    params.require(:activity_review).permit(:activity_score, :activity_price, :activity_content, :activity_id, :image)
+  end
+
 end

@@ -41,12 +41,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :restaurants, only: [:index, :new, :show, :create] do
       resources :restaurant_reviews, only: [:index, :create, :new]#レストラン
      end
-    
+
      #アクティビティ
      resources :activities, only: [:index, :new, :show, :create] do
       resources :activity_reviews, only: [:index, :create, :new]
      end
- 
+
 
     #顧客
     resources :customers, only: [:index, :edit, :update, :show]
@@ -57,6 +57,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :countries, only: [:index, :create, :show] do
       resources :guesthouses, only: [:index]
       resources :restaurants, only: [:index]
+      resources :activities, only: [:index]
     end
     get 'country_search', to: 'countries#search'
 

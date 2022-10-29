@@ -3,6 +3,7 @@ class Country < ActiveHash::Base
 
   has_many :guesthouses
   has_many :restaurants
+  has_many :activities
 
 
   self.data = [
