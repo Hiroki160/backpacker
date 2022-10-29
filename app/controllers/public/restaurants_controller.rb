@@ -25,10 +25,7 @@ class Public::RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @restaurant_reviews = RestaurantReview.where(retaurant_id: @restaurant.id).page(params[:page])
-
-
-
+    @restaurant_reviews = RestaurantReview.where(restaurant_id: @restaurant.id).page(params[:page])
   end
 
   private

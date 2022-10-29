@@ -2,13 +2,12 @@ class Public::GuesthousesController < ApplicationController
   def index
     # @guesthouse_review = GuesthouseReview.find(params[:id])
     # @guesthouses = Guesthouse.all
-    if params[:country_id]Public::GuesthousesController
+    if params[:country_id]
       @country = Country.find(params[:country_id])
       @guesthouses = Guesthouse.where(country_id: @country.id).page(params[:page])
       # @guesthouses = @country.guesthouses.all
     else
       @guesthouses = Guesthouse.all
-
       # @guesthouses = Guesthouse.all
       # @guesthouse_review = GuesthouseReview.find(params[:id])
     end
@@ -41,7 +40,6 @@ class Public::GuesthousesController < ApplicationController
 
   def guesthouse_params
     params.require(:guesthouse).permit(:name, :address, :country_id, :customer_id, :image)
-
   end
 
 end
