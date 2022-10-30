@@ -29,9 +29,10 @@ class Public::GuesthousesController < ApplicationController
   end
 
   def show
+    # binding.pry
     @guesthouse = Guesthouse.find(params[:id])
     @guesthouse_reviews = GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
-    
+    # @guesthouse_review = GuesthouseReview.find(params[:guesthouse_review_id])
     # binding.pry
     # @guesthouse_reviews = @guesthouse.guesthouse_reviews
     # @guesthouse_reviews.page[params[:page]]

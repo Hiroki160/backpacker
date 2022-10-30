@@ -51,7 +51,21 @@ a {
   text-align: center;
 }
 
+.card-footer {
+  margin-top: 10px;
+}
 
+.card {
+  gap: 20px;
+  background-color:rgba(0,0,0,0);
+}
+
+.card-detail {
+  background-color: white;
+}
+.card-content {
+  background-color: white;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
