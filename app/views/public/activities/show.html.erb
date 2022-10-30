@@ -54,11 +54,12 @@
 	  </div>
   </div>
 </div>
-  
-      <div class="review-button">
-				<td><%= link_to "レビューを書く", new_activity_activity_review_path(@activity), class: "btn btn btn-secondary text-white" %></td>
-				<td><%= link_to "戻る", activities_path(country_id: @activity[:country_id]), class: "btn btn btn-secondary text-white" %></td>
-			</div>
+
+<div class="review-button">
+	<td><%= link_to "レビューを書く", new_activity_activity_review_path(@activity), class: "btn btn btn-secondary text-white" %></td>
+	<td><%= link_to "戻る", activities_path(country_id: @activity[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+</div>
+
 </div>
 
   <script>

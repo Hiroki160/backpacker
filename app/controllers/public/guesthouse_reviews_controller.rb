@@ -23,6 +23,21 @@ class Public::GuesthouseReviewsController < ApplicationController
     @guesthouse_review = GuesthouseReview.new
     @guesthouse = Guesthouse.find(params[:guesthouse_id])
   end
+  
+  def edit
+    @guesthouse_review = GuesthouseReview.find(params[:id])
+  end
+  
+  def update
+    @guesthouse_review = GuesthouseReview.find(params[:id])
+    @guesthouse = Guesthouse.find(params[:guesthouse_id])
+    if @guesthouse_review.update(review_params)
+      flash[:notice] = "更新しました"
+      redirect_to guesthouse_path(@guesthouse)
+    else
+      render :edit
+    end
+  end
 
   private
 

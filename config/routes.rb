@@ -44,8 +44,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
      #アクティビティ
      resources :activities, only: [:index, :new, :show, :create] do
-      resources :activity_reviews, only: [:index, :create, :new]
+      resources :activity_reviews, only: [:index, :create, :new]#アクティビティ
      end
+
+     #ゲストハウス編集
+     resources :guesthouse_reviews, only: [:edit, :update, :destroy]
 
 
     #顧客
