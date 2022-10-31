@@ -61,7 +61,7 @@
                       <%= link_to "編集する", edit_guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review) %>
                     <% end %>
                     <% if guesthouse_review.customer == current_customer %>
-                      <%= link_to "削除する", guesthouse_review_path(guesthouse_review.id), method: :patch, data: { confirm: "本当に削除しますか？" }  %>
+                      <%= link_to "削除する", guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                     <% end %>
                 </div><!-- card-content end -->
               </div><!-- cardend -->

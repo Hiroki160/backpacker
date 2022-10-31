@@ -43,7 +43,11 @@ class Public::GuesthouseReviewsController < ApplicationController
 
   def destroy
     @guesthouse_review = GuesthouseReview.find(params[:id])
+    @guesthouse = Guesthouse.find(params[:guesthouse_id])
+    @guesthouse_review.destroy
+    redirect_to guesthouse_path(id: @guesthouse.id)
   end
+
 
   private
 
