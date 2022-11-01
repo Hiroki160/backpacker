@@ -33,30 +33,43 @@
   			<div class="average-review-rating" data-score=<%= get_average_restaurant(@restaurant) %>></div>
   			<span class="number-of-reviews"><%= @restaurant.restaurant_reviews.count %>件のレビュー</span>
   		</div>
+
+    <div class="review-button">
+    	<td><%= link_to "レビューを書く", new_restaurant_restaurant_review_path(@restaurant), class: "btn btn btn-secondary text-white" %></td>
+  		<td><%= link_to "戻る", restaurants_path(country_id: @restaurant[:country_id]), class: "btn btn btn-secondary text-white" %></td>
   	</div>
+  </div>
 
   	<div class="col-8">
   		<div class="reviews">
   			<!-- レビュー-->
     			<h1>レビュー</h1>
-            <% @restaurant_reviews.each do |restaurant_review| %>
-            <p><%= restaurant_review.customer.user_name %></p>
-            <div class="review-rating" data-score=<%= restaurant_review.restaurant_score %>></div>
-            <p><%= restaurant_review.restaurant_price %>円</p>
-            <p><%= restaurant_review.restaurant_content %></p>
-            <% end %>
-          </div>
-    	</div>
+    			  <div class="card bg-transparent">
+              <% @restaurant_reviews.each do |restaurant_review| %>
+                <div class="card-detail mb-10">
+                  <header class="card-header">
+                    <h5 class="card-header-title">
+                      <%= restaurant_review.customer.user_name %>
+                    </h5>
+                  </header>
+                  <div class="card-content">
+                    <div class="review-rating" data-score=<%= restaurant_review.restaurant_score %>></div>
+                    <p><%= restaurant_review.restaurant_price %>円</p>
+                    <p><%= restaurant_review.restaurant_content %></p>
+                  </div><!-- card-content end -->
+                </div><!-- cardend -->
+              <% end %>
+              </div>
+           </div>
+        </div>
+      </div>
+  	</div>
 
       <div style="text-align:center;"><%= paginate @restaurant_reviews %></div>
-	    </div>
+	   </div>
   </div>
 </div>
 
-  <div class="review-button">
-  	<td><%= link_to "レビューを書く", new_restaurant_restaurant_review_path(@restaurant), class: "btn btn btn-secondary text-white" %></td>
-		<td><%= link_to "戻る", restaurants_path(country_id: @restaurant[:country_id]), class: "btn btn btn-secondary text-white" %></td>
-	</div>
 </div>
 
   <script>

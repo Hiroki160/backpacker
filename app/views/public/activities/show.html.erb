@@ -23,7 +23,7 @@
         </div>
       </div>
       <!--画像ここまで-->
-      
+
       <!--情報ー-->
       <div style="text-align: center;">
         <div>【名前】</div>
@@ -35,29 +35,41 @@
   			<span class="number-of-reviews"><%= @activity.activity_reviews.count %>件のレビュー</span>
   		</div>
   		<!--情報ここまで-->
+
+        <div class="review-button">
+        	<td><%= link_to "レビューを書く", new_activity_activity_review_path(@activity), class: "btn btn btn-secondary text-white" %></td>
+        	<td><%= link_to "戻る", activities_path(country_id: @activity[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+        </div>
     </div>
-    
+
   	<div class="col-8">
   		<div class="reviews">
   			<!-- レビュー-->
     			<h1>レビュー</h1>
-            <% @activity_reviews.each do |activity_review| %>
-            <p><%= activity_review.customer.user_name %></p>
-            <div class="review-rating" data-score=<%= activity_review.activity_score %>></div>
-            <p><%= activity_review.activity_price %>円</p>
-            <p><%= activity_review.activity_content %></p>
-            <% end %>
+      			<div class="card bg-transparent">
+              <% @activity_reviews.each do |activity_review| %>
+                <div class="card-detail mb-10">
+                  <header class="card-header">
+                    <h5 class="card-header-title">
+                      <p><%= activity_review.customer.user_name %></p>
+                    </h5>
+                  </header>
+                  <div class="card-content">
+                    <div class="review-rating" data-score=<%= activity_review.activity_score %>></div>
+                    <p><%= activity_review.activity_price %>円</p>
+                    <p><%= activity_review.activity_content %></p>
+                  </div><!--card-content end -->
+                </div><!--card end -->
+                <% end %>
+              </div>
+           </div>
         </div>
-    </div>
+      </div>
+  	</div>
     　<!--レビューここまで-->
   　<div style="text-align:center;"><%= paginate @activity_reviews %></div>
 	  </div>
   </div>
-</div>
-
-<div class="review-button">
-	<td><%= link_to "レビューを書く", new_activity_activity_review_path(@activity), class: "btn btn btn-secondary text-white" %></td>
-	<td><%= link_to "戻る", activities_path(country_id: @activity[:country_id]), class: "btn btn btn-secondary text-white" %></td>
 </div>
 
 </div>
