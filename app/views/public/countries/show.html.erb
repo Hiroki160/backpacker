@@ -13,9 +13,9 @@
     <div class="columns is-centered">
       <div class="column is-6">
 
-      <div><%= link_to "ゲストハウスをチェックする",  country_guesthouses_path(@country) %></div>
-      <div><%= link_to "レストランをチェックする",  country_restaurants_path(@country) %></div>
-      <div><%= link_to "アクティビティをチェックする", country_activities_path(@country) %></div>
+      <div class="option"><%= link_to "ゲストハウスをチェックする",  country_guesthouses_path(@country), class: "option-letter" %></div>
+      <div class="option"><%= link_to "レストランをチェックする",  country_restaurants_path(@country), class: "option-letter" %></div>
+      <div class="option"><%= link_to "アクティビティをチェックする", country_activities_path(@country), class: "option-letter" %></div>
 
       </div>
     </div>
