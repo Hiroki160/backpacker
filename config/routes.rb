@@ -39,7 +39,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
      #レストラン
     resources :restaurants, only: [:index, :new, :show, :create] do
-      resources :restaurant_reviews, only: [:index, :create, :new]#レストラン
+      resources :restaurant_reviews, only: [:index, :create, :new, :edit, :update, :destroy]#レストラン
      end
 
      #アクティビティ

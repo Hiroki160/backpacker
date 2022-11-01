@@ -1,0 +1,66 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        レビューを書く<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+
+        <div class="rating-box mt-3">
+          <%= form_with model: @restaurant_review, url: restaurant_restaurant_review_path(@restaurant, @restaurant_review) do |f| %>
+
+              <div id="evaluate_stars">
+                <label style="margin-right: 150px; margin-bottom: 24px;">評価</label>
+              </div>
+
+              <div class="row mb-3 field">
+                <%= f.label :レストラン画像 %><br />
+                <div class="guesthouse_image col-sm-10">
+                <%= f.file_field :image, placeholder: "レストラン画像", accept: "image/*" %>
+              </div>
+              </div>
+
+              <div class="row mb-3">
+                <%= f.label :使用額, class: "col-sm-2 col-form-label" %>
+                <div class="col-sm-10">
+                <%= f.text_field :restaurant_price, class: "form-conrol" %>円
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <%= f.label :コメント, class: "col-sm-2 col-form-label" %>
+                <div class="col-sm-10">
+                <%= f.text_area :restaurant_content, class: "form-conrol" %>
+                </div>
+              </div>
+
+              <%= f.submit "保存", class: "button mt-3" %>
+
+                <script>
+                  $('#evaluate_stars').raty({
+                    starOn: "<%= asset_path('star-on.png') %>",
+                    starOff: "<%= asset_path('star-off.png') %>",
+                    starHalf: "<%= asset_path('star-half.png') %>",
+                    scoreName: 'restaurant_review[restaurant_score]', //登録するモデル名とカラム名を記述
+                    // target: '#rating-value-display',
+                    targetType: 'number',
+                    targetKeep: true,
+                    // precision: true,
+                    round : { down: .4, full: .6, up: 5 },
+                    half: true
+                  });
+                </script>
+            <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

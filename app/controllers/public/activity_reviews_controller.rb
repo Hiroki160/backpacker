@@ -20,6 +20,29 @@ class Public::ActivityReviewsController < ApplicationController
     @activity = Activity.find(params[:activity_id])
   end
 
+  def edit
+    @activity_review = ActivityReview.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
+  end
+
+  def update
+    @activity_review = ActivityReview.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
+    if @activity_review.update(review_params)
+      flash[:notice] = "更新しました"
+      redirect_to activity_path(id: @activity.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @activity_review = ActivityReview.find(params[:id])
+    @activity = Activity.find(params[:activity_id])
+    @activity_review.destroy
+    redirect_to activity_path(id: @activity.id)
+  end
+
   private
 
   def review_params

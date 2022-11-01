@@ -21,6 +21,29 @@ class Public::RestaurantReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
+  def edit
+    @restaurant_review = RestaurantReview.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+  end
+
+  def update
+    @restaurant_review = RestaurantReview.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id]) #paramsをguesthouse_idにする？
+    if @restaurant_review.update(review_params)
+      flash[:notice] = "更新しました"
+      redirect_to restaurant_path(id: @restaurant.id)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @restaurant_review = RestaurantReview.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    @restaurant_review.destroy
+    redirect_to restaurant_path(id: @restaurant.id)
+  end
+
   private
 
   def review_params

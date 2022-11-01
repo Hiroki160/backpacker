@@ -48,7 +48,6 @@ class Public::GuesthouseReviewsController < ApplicationController
     redirect_to guesthouse_path(id: @guesthouse.id)
   end
 
-
   private
 
   def review_params
