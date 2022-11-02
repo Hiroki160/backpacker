@@ -1,0 +1,41 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        日記を投稿する<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+
+        <div class="rating-box mt-3">
+          <%= form_with model: @post, local: true do |f| %>
+
+              <div class="row mb-3">
+                <%= f.label :日記, class: "col-sm-2 col-form-label" %>
+                <div class="col-sm-10">
+                <%= f.text_area :content, class: "form-conrol" %>
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <%= f.label :タグ, class: "col-sm-2 col-form-label" %>
+                <div class="col-sm-10">
+                <%= f.text_field :names, class: "form-conrol" %>
+                </div>
+              </div>
+
+              <%= f.submit "投稿", class: "button mt-3" %>
+            <% end %>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

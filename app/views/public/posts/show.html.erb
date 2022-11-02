@@ -1,0 +1,31 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        投稿
+      </h3>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">本文</h4>
+        <p class="field" style="margin-right:5%;"><%= @post.content %></p>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">タグ</h4>
+          <% @post.tags.each do |tag| %>
+        <p class="field" style="margin-right:5%;">#<%= tag.name %></p>
+          <% end %>
+      </div>
+
+      </div>
+    </div>
+  </div>
+</section>

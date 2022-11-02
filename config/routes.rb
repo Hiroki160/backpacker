@@ -47,6 +47,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       resources :activity_reviews, only: [:index, :create, :new, :edit, :update, :destroy]#アクティビティ
      end
 
+     #投稿
+     resources :posts
+
 
 
     #顧客
