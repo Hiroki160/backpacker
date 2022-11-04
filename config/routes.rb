@@ -23,6 +23,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     #会員
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
 
+    #国選択
+    resources :countries, only: [:index, :show]
+
   end
 
 

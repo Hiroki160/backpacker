@@ -130,8 +130,14 @@ a {
   text-align:center;
 }
 
+.customer-info {
+  color: black;
+}
 
-
+.customer-table {
+  background-color: white;
+  opacity: 0.9;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

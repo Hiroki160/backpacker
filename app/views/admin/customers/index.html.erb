@@ -14,12 +14,13 @@
 			<th>ユーザーネーム</th>
 			<th>メールアドレス</th>
 			<th>ステータス</th>
+			<th></th>
 		</tr>
 	</thead>
 
-	<tbody>
+	<tbody class="customer-table">
 	  <% @customers.each do |customer| %>
-	  <tr>
+	  <tr class="customer-info">
 	    <td>
 	        <% if customer.image.attached? %>
             <%= image_tag customer.image, class: "rounded-circle", size: "100x100" %>
@@ -37,6 +38,7 @@
 	    有効
 	    <% end %>
 	    </td>
+	    <td><%= link_to "削除する", admin_customer_path(customer.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
 	  </tr>
 	  <% end %>
 

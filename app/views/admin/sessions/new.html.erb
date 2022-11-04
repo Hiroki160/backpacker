@@ -1,26 +1,21 @@
-<section class="hero is-success">
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title">
-        管理者ログイン<br><br>
-      </h3>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-6">
+      <div class="column is-5">
+        <div class="login">
+          <h1>
+          管理者ログイン
+          </h1>
+
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
@@ -38,6 +33,7 @@
 
 <%= render "admin/shared/links" %>
 
+        </div>
       </div>
     </div>
   </div>
