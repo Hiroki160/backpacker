@@ -24,7 +24,15 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :customers, only: [:index, :show, :edit, :update, :destroy]
 
     #国選択
-    resources :countries, only: [:index, :show]
+    resources :countries, only: [:index, :show] do
+      resources :guesthouses, only: [:index]
+    end
+
+    #ゲストハウス
+    resources :guesthouses, only: [:index, :new, :show, :create]
+
+    #検索
+    get 'country_search', to: 'countries#search'
 
   end
 

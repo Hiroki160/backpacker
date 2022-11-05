@@ -5,7 +5,7 @@ class Admin::CountriesController < ApplicationController
   end
 
   def search
-    redirect_to country_path(params[:country_id])
+    redirect_to admin_country_path(params[:country_id])
   end
 
   def show
