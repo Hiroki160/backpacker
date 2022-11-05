@@ -29,7 +29,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     end
 
     #ゲストハウス
-    resources :guesthouses, only: [:index, :new, :show, :create]
+    resources :guesthouses, only: [:index, :new, :show, :create, :destroy]
 
     #検索
     get 'country_search', to: 'countries#search'

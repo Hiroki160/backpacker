@@ -1,13 +1,24 @@
 class Admin::GuesthousesController < ApplicationController
   def index
+    if params[:country_id]
+      @country = Country.find(params[:country_id])
+      @guesthouses = Guesthouse.where(country_id: @country.id).page(params[:page])
+    else
+      @guesthouses = Guesthouse.all
+    end
+
   end
 
-  def new
-  end
+  # def new
+  # end
 
   def show
   end
 
   def create
   end
+  
+  def destroy
+  end
+  
 end
