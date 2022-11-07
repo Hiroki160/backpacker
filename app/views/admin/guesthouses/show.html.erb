@@ -1,2 +1,108 @@
-<h1>Admin::Guesthouses#show</h1>
-<p>Find me in app/views/admin/guesthouses/show.html.erb</p>
+
+<div class="container">
+	<div class="row">
+	  <!--<div class="book-review">-->
+		<div class="col-4">
+		  <!--画像-->
+  		<div class="book-info">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <% @guesthouse.guesthouse_reviews.each do |review| %>
+              <div class="swiper-slide" role="group">
+                  <% if review.image.attached? %>
+                     <%= image_tag review.image, size: "300x300" %>
+                  <% else %>
+                     <%= image_tag 'no_image', size: "300x300" %>
+                  <% end %>
+              </div>
+            <% end %>
+          </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+      </div>
+
+            <!--レビュー-->
+      <div style="text-align: center;">
+        <div>【名前】</div>
+        <div class="book-title"><%= @guesthouse.name %></div>
+        <div>【住所】</div>
+  			<div class="book-author"><%= @guesthouse.address %></div>
+  			<div class="avg-rating">【レビュー平均点】</div>
+  			<div class="average-review-rating" data-score=<%= get_average(@guesthouse) %>></div>
+  			<span class="number-of-reviews"><%= @guesthouse.guesthouse_reviews.count %>件のレビュー</span>
+  		</div>
+
+      <div class="review-button">
+      	<td><%= link_to "戻る", admin_guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+      </div>
+
+  	</div>
+  	<!--</div>-->
+  	<div class="col-8">
+  		<div class="reviews">
+  			<!-- レビュー-->
+    			<h5>レビュー</h5>
+    			  <div class="card bg-transparent">
+            <% @guesthouse_reviews.each do |guesthouse_review| %>
+              <div class="card-detail mb-10">
+                <header class="card-header">
+                  <h5 class="card-header-title">
+                    <%= guesthouse_review.customer.user_name %>
+                  </h5>
+                </header>
+                <div class="card-content">
+                  <div class="review-rating" data-score=<%= guesthouse_review.guesthouse_score %>></div>
+                  <p><%= guesthouse_review.guesthouse_price %>円</p>
+                  <p><%= guesthouse_review.guesthouse_content %></p>
+                  <%= link_to "削除する", admin_guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                </div><!-- card-content end -->
+              </div><!-- cardend -->
+            <% end %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+  	</div>
+
+        <div style="text-align:center;"><%= paginate @guesthouse_reviews %></div>
+	    </div>
+  </div>
+</div>
+
+</div>
+
+  <script>
+	$('.average-review-rating').empty().raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+    el: ".swiper-pagination"
+    },
+  });
+</script>
+
+  <script>
+	$('.review-rating').empty().raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>

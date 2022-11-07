@@ -13,6 +13,8 @@ class Admin::GuesthousesController < ApplicationController
   # end
 
   def show
+    @guesthouse = Guesthouse.find(params[:id])
+    @guesthouse_reviews = GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
   end
 
   def create
