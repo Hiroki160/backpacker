@@ -17,8 +17,11 @@ class Admin::GuesthousesController < ApplicationController
 
   def create
   end
-  
+
   def destroy
+    @guesthouse = Guesthouse.find(params[:id])
+    @guesthouse.destroy
+    redirect_to admin_country_guesthouses_path(country_id: @guesthouse[:country_id])
   end
-  
+
 end
