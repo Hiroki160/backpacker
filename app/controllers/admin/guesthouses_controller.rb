@@ -6,19 +6,14 @@ class Admin::GuesthousesController < ApplicationController
     else
       @guesthouses = Guesthouse.all
     end
-
   end
 
-  # def new
-  # end
 
   def show
     @guesthouse = Guesthouse.find(params[:id])
     @guesthouse_reviews = GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
   end
 
-  def create
-  end
 
   def destroy
     @guesthouse = Guesthouse.find(params[:id])

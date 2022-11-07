@@ -1,0 +1,59 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        What will you eat?（管理者用）<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+  <section class="py-5">
+      <div class="container px-4 px-lg-5 mt-5">
+          <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <% @restaurants.each do |restaurant| %>
+              <div class="col-3 mb-5">
+                  <div class="card h-100">
+                      <!-- Guesthouse image-->
+                      <div class="card-image" style="text-align: center">
+                        <% restaurant.restaurant_reviews.each do |review| %>
+                        <% if review.image.attached? %>
+                           <%= image_tag review.image, size: "200x200" %>
+                        <% else %>
+                           <%= image_tag 'no_image', size: "200x200" %>
+                        <% end %>
+                        <% break %>
+                        <% end %>
+                      </div>
+
+                      <!-- Guesthouse details-->
+                      <div class="card-body p-4">
+                          <div class="text-center">
+                              <!-- Guesthouse name-->
+                              <h5 class="fw-bolder"><%= link_to restaurant.name, admin_restaurant_path(restaurant.id) %></h5>
+                              <!--price-->
+                              <%= restaurant.minimum %>円~
+
+                              <div class="average-review-rating" data-score=<%= get_average_restaurant(restaurant) %>></div>
+                              <div><%= link_to "削除する", admin_restaurant_path(restaurant.id), method: :delete, "data-confirm" => "本当に削除しますか？" , class: "btn btn-primary", style: "margin-top: 5px;"%></div>
+
+
+                          </div>
+                      </div>
+                  </div>
+                </div>
+              <% end %>
+          </div>
+        </div>
+    </section>
+
+  <script>
+	$('.average-review-rating').empty().raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>
+

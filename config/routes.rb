@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -25,12 +26,19 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     #国選択
     resources :countries, only: [:index, :show] do
       resources :guesthouses, only: [:index]
+      resources :restaurants, only: [:index]
     end
 
     #ゲストハウス
-    resources :guesthouses, only: [:index, :new, :show, :create, :destroy] do
+    resources :guesthouses, only: [:index, :show, :destroy] do
       resources :guesthouse_reviews, only: [:index, :update, :destroy]
     end
+
+    #レストラン
+    resources :restaurants, only: [:index, :show, :destroy] do
+      resources :restaurant_reviews, only: [:index, :update, :destroy]
+    end
+
     #検索
     get 'country_search', to: 'countries#search'
 
