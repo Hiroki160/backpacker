@@ -1,0 +1,2 @@
+module Admin::ActivityReviewsHelper
+end

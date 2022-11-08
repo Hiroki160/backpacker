@@ -27,6 +27,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :countries, only: [:index, :show] do
       resources :guesthouses, only: [:index]
       resources :restaurants, only: [:index]
+      resources :activities, only: [:index]
     end
 
     #ゲストハウス
@@ -36,6 +37,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     #レストラン
     resources :restaurants, only: [:index, :show, :destroy] do
+      resources :restaurant_reviews, only: [:index, :update, :destroy]
+    end
+
+    resources :activities, only: [:index, :show, :destroy] do
       resources :restaurant_reviews, only: [:index, :update, :destroy]
     end
 
