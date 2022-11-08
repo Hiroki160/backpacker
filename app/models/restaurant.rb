@@ -20,6 +20,10 @@ class Restaurant < ApplicationRecord
   # レビュー機能
   has_many :restaurant_reviews, dependent: :destroy
   has_one_attached :image
+  
+  #タグ
+  has_many :restaurant_relations, dependent: :destroy
+  has_many :restaurant_tags, through: :restaurant_relations
 
   validates :name, presence: true
   validates :address, presence: true

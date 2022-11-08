@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_02_221359) do
+ActiveRecord::Schema.define(version: 2022_11_08_115512) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,12 +49,27 @@ ActiveRecord::Schema.define(version: 2022_11_02_221359) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "activity_relations", force: :cascade do |t|
+    t.integer "activity_id"
+    t.integer "activity_tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["activity_id"], name: "index_activity_relations_on_activity_id"
+    t.index ["activity_tag_id"], name: "index_activity_relations_on_activity_tag_id"
+  end
+
   create_table "activity_reviews", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "activity_id"
     t.integer "activity_price"
     t.integer "activity_score"
     t.string "activity_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "activity_tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -87,12 +102,27 @@ ActiveRecord::Schema.define(version: 2022_11_02_221359) do
     t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
+  create_table "guesthouse_relations", force: :cascade do |t|
+    t.integer "guesthouse_id"
+    t.integer "guesthouse_tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["guesthouse_id"], name: "index_guesthouse_relations_on_guesthouse_id"
+    t.index ["guesthouse_tag_id"], name: "index_guesthouse_relations_on_guesthouse_tag_id"
+  end
+
   create_table "guesthouse_reviews", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "guesthouse_id"
     t.integer "guesthouse_price"
     t.integer "guesthouse_score"
     t.string "guesthouse_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "guesthouse_tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -106,13 +136,6 @@ ActiveRecord::Schema.define(version: 2022_11_02_221359) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "post_tags", force: :cascade do |t|
-    t.integer "post_id"
-    t.integer "tag_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "posts", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "comment_id"
@@ -121,12 +144,27 @@ ActiveRecord::Schema.define(version: 2022_11_02_221359) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "restaurant_relations", force: :cascade do |t|
+    t.integer "restaurant_id"
+    t.integer "restaurant_tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["restaurant_id"], name: "index_restaurant_relations_on_restaurant_id"
+    t.index ["restaurant_tag_id"], name: "index_restaurant_relations_on_restaurant_tag_id"
+  end
+
   create_table "restaurant_reviews", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "restaurant_id"
     t.integer "restaurant_price"
     t.integer "restaurant_score"
     t.string "restaurant_content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "restaurant_tags", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
