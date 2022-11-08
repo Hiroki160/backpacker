@@ -57,7 +57,7 @@
                     <div class="review-rating" data-score=<%= activity_review.activity_score %>></div>
                     <p><%= activity_review.activity_price %>円</p>
                     <p><%= activity_review.activity_content %></p>
-
+                    <%= link_to "削除する", admin_activity_activity_review_path(@activity, activity_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                   </div><!--card-content end -->
                 </div><!--card end -->
                 <% end %>

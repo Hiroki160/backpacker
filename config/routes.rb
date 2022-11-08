@@ -41,7 +41,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     end
 
     resources :activities, only: [:index, :show, :destroy] do
-      resources :restaurant_reviews, only: [:index, :update, :destroy]
+      resources :activity_reviews, only: [:index, :update, :destroy]
     end
 
     #検索
