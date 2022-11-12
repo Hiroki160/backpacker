@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 	  <!--<div class="book-review">-->
-		<div class="col-4">
+		<div class="col-4 info">
 		  <!--画像-->
   		<div class="book-info">
         <div class="swiper mySwiper">
@@ -45,7 +45,7 @@
   		<div class="reviews">
   		  <!--サーチバー-->
   		  <!--%= form_tag guesthouses_path method: :get, class: 'boards__searchForm' do %>-->
-
+        <div class="bar">
   		  <%= form_tag({ :controller => 'guesthouses', :action => 'show' },{ :method => :get}) do %>
   		        <%= select_tag :guesthouse_tag_id, options_from_collection_for_select(GuesthouseTag.all, :id, :name, params[:guesthouse_tag_id]),{
                        prompt: 'トピックで絞り込み検索',
@@ -53,6 +53,7 @@
                      }
               %>
         <% end %>
+        </div>
         <!--サーチバーここまで-->
   			<!-- レビュー-->
     			<h5>レビュー</h5>
@@ -61,7 +62,14 @@
               <div class="card-detail mb-10">
                 <header class="card-header">
                   <h5 class="card-header-title">
-                    <%= guesthouse_review.customer.user_name %>
+                    <div class="user-name">
+                      <% if guesthouse_review.customer.image.attached? %>
+                        <%= image_tag guesthouse_review.customer.image, class: "rounded-circle", size: "100x100" %>
+                      <% else %>
+                        <%= image_tag 'no_image', size: "100x100" %>
+                      <% end %>
+                      <%= guesthouse_review.customer.user_name %>
+                    </div>
                   </h5>
                 </header>
                 <div class="card-content">

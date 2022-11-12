@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 	  <!--<div class="book-review">-->
-		<div class="col-4">
+		<div class="col-4 info">
 		  <!--画像-->
   		<div class="book-info">
         <div class="swiper mySwiper">
@@ -45,6 +45,7 @@
   	<div class="col-8">
   		<div class="reviews">
   		  <!--サーチバー-->
+  		  <div class="bar">
   		  <%= form_tag({ :controller => 'activities', :action => 'show' },{ :method => :get}) do %>
   		        <%= select_tag :activity_tag_id, options_from_collection_for_select(ActivityTag.all, :id, :name, params[:activity_tag_id]),{
                        prompt: 'トピックで絞り込み検索',
@@ -52,15 +53,23 @@
                      }
               %>
         <% end %>
+        </div>
         <!--サーチバーここまで-->
   			<!-- レビュー-->
-    			<h1>レビュー</h1>
+    			<h5>レビュー</h5>
       			<div class="card bg-transparent">
               <% @activity_reviews.each do |activity_review| %>
                 <div class="card-detail mb-10">
                   <header class="card-header">
                     <h5 class="card-header-title">
-                      <p><%= activity_review.customer.user_name %></p>
+                      <div class="user-name">
+                      <% if activity_review.customer.image.attached? %>
+                        <%= image_tag activity_review.customer.image, class: "rounded-circle", size: "100x100" %>
+                      <% else %>
+                        <%= image_tag 'no_image', size: "100x100" %>
+                      <% end %>
+                      <%= activity_review.customer.user_name %>
+                      </div>
                     </h5>
                   </header>
                   <div class="card-content">

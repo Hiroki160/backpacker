@@ -49,7 +49,14 @@
               <div class="card-detail mb-10">
                 <header class="card-header">
                   <h5 class="card-header-title">
-                    <%= guesthouse_review.customer.user_name %>
+                    <div class="user-name">
+                      <% if guesthouse_review.customer.image.attached? %>
+                        <%= image_tag guesthouse_review.customer.image, class: "rounded-circle", size: "100x100" %>
+                      <% else %>
+                        <%= image_tag 'no_image', size: "100x100" %>
+                      <% end %>
+                      <%= guesthouse_review.customer.user_name %>
+                    </div>
                   </h5>
                 </header>
                 <div class="card-content">

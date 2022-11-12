@@ -166,7 +166,17 @@ a {
 	color: #fff;
 }
 
+.user-name {
+  padding-right: 10%;
+}
 
+.info {
+  margin-top: 7.3%;
+}
+
+.bar {
+  text-align: right;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
