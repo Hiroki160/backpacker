@@ -32,6 +32,7 @@ class Public::GuesthousesController < ApplicationController
     # binding.pry
     @guesthouse = Guesthouse.find(params[:id])
     @guesthouse_reviews = GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
+    @guesthouse_reviews = params[:guesthouse_tag_id].present? ? GuesthouseTag.find(params[:guesthouse_tag_id]).guesthouse_reviews.page(params[:page]) : GuesthouseReview.page(params[:page])
     # @guesthouse_review = GuesthouseReview.find(params[:guesthouse_review_id])
     # binding.pry
     # @guesthouse_reviews = @guesthouse.guesthouse_reviews

@@ -55,7 +55,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # ユーザー用
    scope module: :public do
 
-
      #ゲストハウス
      resources :guesthouses, only: [:index, :new, :show, :create] do
        resources :guesthouse_reviews, only: [:index, :create, :new, :edit, :update, :destroy] #ゲストハウス

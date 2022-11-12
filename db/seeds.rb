@@ -1,7 +1,32 @@
 Admin.create!(
-   email: 'admin@admin',
-   password: 'testtest'
+   email: 'admin@a',
+   password: 'testhiroki'
 )
+
+GuesthouseTag.create!([
+  { name: 'サービス'},
+  { name: '清潔感'},
+  { name: '雰囲気'},
+  { name: 'ロケーション'},
+  { name: 'その他'},
+])
+
+RestaurantTag.create!([
+  { name: 'サービス'},
+  { name: '清潔感'},
+  { name: '雰囲気'},
+  { name: '味'},
+  { name: 'ロケーション'},
+  { name: 'その他'},
+ ])
+
+ ActivityTag.create!([
+  { name: 'サービス'},
+  { name: '雰囲気'},
+  { name: 'ロケーション'},
+  { name: 'その他'},
+ ])
+
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).

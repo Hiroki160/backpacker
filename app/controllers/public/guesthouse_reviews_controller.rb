@@ -51,7 +51,7 @@ class Public::GuesthouseReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:guesthouse_review).permit(:guesthouse_score, :guesthouse_price, :guesthouse_content, :guesthouse_id, :image)
+    params.require(:guesthouse_review).permit(:guesthouse_score, :guesthouse_price, :guesthouse_content, :guesthouse_id, :image, guesthouse_tag_ids: [])
   end
 
 

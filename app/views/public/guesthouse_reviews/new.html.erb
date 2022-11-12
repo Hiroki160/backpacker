@@ -42,6 +42,20 @@
                 </div>
               </div>
 
+            <div class="row mb-3">
+              <%= f.label :レビューのトピック, class: "col-sm-2 col-form-label" %>
+              <div class="col-sm-10">
+                <%= f.collection_check_boxes(:guesthouse_tag_ids, GuesthouseTag.all, :id, :name) do |tag| %>
+                <div>
+                  <%= tag.label do %>
+                    <%= tag.check_box %>
+                    <%= tag.text %>
+                  <% end %>
+                </div>
+                <% end %>
+            </div>
+           </div>
+
               <%= f.submit "保存", class: "button mt-3" %>
 
                 <script>

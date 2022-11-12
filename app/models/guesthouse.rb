@@ -21,10 +21,6 @@ class Guesthouse < ApplicationRecord
   has_many :guesthouse_reviews, dependent: :destroy
   has_one_attached :image
 
-  #タグ
-  has_many :guesthouse_relations, dependent: :destroy
-  has_many :guesthouse_tags, through: :guesthouse_relations
-
   validates :name, presence: true
   validates :address, presence: true
 

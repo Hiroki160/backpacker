@@ -42,6 +42,15 @@
 
   	<div class="col-8">
   		<div class="reviews">
+  		  <!--サーチバー-->
+  		  <%= form_tag({ :controller => 'restaurants', :action => 'show' },{ :method => :get}) do %>
+  		        <%= select_tag :restaurant_tag_id, options_from_collection_for_select(RestaurantTag.all, :id, :name, params[:restaurant_tag_id]),{
+                       prompt: 'トピックで絞り込み検索',
+                       onchange: 'submit(this.form);'
+                     }
+              %>
+        <% end %>
+        <!--サーチバーここまで-->
   			<!-- レビュー-->
     			<h1>レビュー</h1>
     			  <div class="card bg-transparent">
@@ -55,13 +64,20 @@
                   <div class="card-content">
                     <div class="review-rating" data-score=<%= restaurant_review.restaurant_score %>></div>
                     <p><%= restaurant_review.restaurant_price %>円</p>
+                    <p class="tag">
+                      <% restaurant_review.restaurant_tags.each do |tag| %>
+                        <%= tag.name %>
+                      <% end %>
+                    </p>
                     <p><%= restaurant_review.restaurant_content %></p>
+                    <div>
                       <% if restaurant_review.customer == current_customer %>
                         <%= link_to "編集する", edit_restaurant_restaurant_review_path(@restaurant, restaurant_review) %>
                       <% end %>
                       <% if restaurant_review.customer == current_customer %>
                         <%= link_to "削除する", restaurant_restaurant_review_path(@restaurant, restaurant_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                       <% end %>
+                    </div>
                   </div><!-- card-content end -->
                 </div><!-- cardend -->
               <% end %>

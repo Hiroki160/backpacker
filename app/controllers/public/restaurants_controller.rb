@@ -26,6 +26,7 @@ class Public::RestaurantsController < ApplicationController
   def show
     @restaurant = Restaurant.find(params[:id])
     @restaurant_reviews = RestaurantReview.where(restaurant_id: @restaurant.id).page(params[:page])
+    @restaurant_reviews = params[:restaurant_tag_id].present? ? RestaurantTag.find(params[:restaurant_tag_id]).restaurant_reviews.page(params[:page]) : RestaurantReview.page(params[:page])
   end
 
   private
