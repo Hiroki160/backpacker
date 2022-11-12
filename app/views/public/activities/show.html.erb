@@ -44,6 +44,15 @@
 
   	<div class="col-8">
   		<div class="reviews">
+  		  <!--サーチバー-->
+  		  <%= form_tag({ :controller => 'activities', :action => 'show' },{ :method => :get}) do %>
+  		        <%= select_tag :activity_tag_id, options_from_collection_for_select(ActivityTag.all, :id, :name, params[:activity_tag_id]),{
+                       prompt: 'トピックで絞り込み検索',
+                       onchange: 'submit(this.form);'
+                     }
+              %>
+        <% end %>
+        <!--サーチバーここまで-->
   			<!-- レビュー-->
     			<h1>レビュー</h1>
       			<div class="card bg-transparent">
@@ -57,6 +66,11 @@
                   <div class="card-content">
                     <div class="review-rating" data-score=<%= activity_review.activity_score %>></div>
                     <p><%= activity_review.activity_price %>円</p>
+                    <p class="tag">
+                      <% activity_review.activity_tags.each do |tag| %>
+                        <%= tag.name %>
+                      <% end %>
+                    </p>
                     <p><%= activity_review.activity_content %></p>
                       <% if activity_review.customer == current_customer %>
                         <%= link_to "編集する", edit_activity_activity_review_path(@activity, activity_review) %>

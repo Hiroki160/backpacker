@@ -46,7 +46,7 @@ class Public::ActivityReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:activity_review).permit(:activity_score, :activity_price, :activity_content, :activity_id, :image)
+    params.require(:activity_review).permit(:activity_score, :activity_price, :activity_content, :activity_id, :image, activity_tag_ids: [])
   end
 
 end
