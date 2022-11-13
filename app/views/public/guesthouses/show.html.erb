@@ -89,10 +89,14 @@
                       <%= link_to "削除する", guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                     <% end %>
                   </div>
+                  <%= link_to guesthouse_review.guesthouse_comments.count, guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, guesthouse_review) %>
+
                 </div><!-- card-content end -->
               </div><!-- cardend -->
             <% end %>
             </div>
+
+
 
           </div>
         </div>

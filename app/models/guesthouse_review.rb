@@ -7,6 +7,7 @@ class GuesthouseReview < ApplicationRecord
   #タグ
   has_many :guesthouse_relations, dependent: :destroy
   has_many :guesthouse_tags, through: :guesthouse_relations
+  has_many :guesthouse_comments, dependent: :destroy
 
     validates :guesthouse_score, numericality: {
     less_than_or_equal_to: 5,

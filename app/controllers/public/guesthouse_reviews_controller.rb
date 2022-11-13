@@ -4,6 +4,9 @@ class Public::GuesthouseReviewsController < ApplicationController
     @guesthouse_reviews = @guesthouse.guesthouse_reviews
   end
 
+  def show
+  end
+
   def create
     # binding.pry
     @guesthouse_review = GuesthouseReview.new(review_params)

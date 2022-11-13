@@ -1,0 +1,26 @@
+            <div>
+              <%= form_with model: [@guesthouse_review, @guesthouse_comment], url: guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review) do |f| %>
+                <%= f.text_area :content, rows: '5', placeholder: "コメントをここに" %>
+                <%= f.submit "送信する" %>
+              <% end %>
+            </div>
+
+            <!--コメント一覧-->
+            <table>
+              <thead>
+                <tr>
+                  <th>コメント投稿者</th>
+                  <th>コメント内容</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @guesthouse_comments.each do |comment| %>
+                  <tr>
+                    <td><%= comment.customer.name %></td>
+                    <td><%= comment.content %></td>
+
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <!--コメント一覧ここまで-->

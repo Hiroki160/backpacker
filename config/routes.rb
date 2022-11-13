@@ -32,7 +32,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     #ゲストハウス
     resources :guesthouses, only: [:index, :show, :destroy] do
-      resources :guesthouse_reviews, only: [:index, :update, :destroy]
+      resources :guesthouse_reviews, only: [:index, :update, :destroy, :show]
     end
 
     #レストラン
@@ -57,8 +57,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
      #ゲストハウス
      resources :guesthouses, only: [:index, :new, :show, :create] do
-       resources :guesthouse_reviews, only: [:index, :create, :new, :edit, :update, :destroy] #ゲストハウス
-     end
+       resources :guesthouse_reviews, only: [:index, :create, :new, :edit, :update, :destroy, :show] do
+        resources :guesthouse_comments, only: [:create, :destroy, :index]#ゲストハウス
+      end
+    end
 
      #レストラン
     resources :restaurants, only: [:index, :new, :show, :create] do
