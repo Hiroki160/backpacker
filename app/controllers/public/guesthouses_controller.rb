@@ -19,7 +19,6 @@ class Public::GuesthousesController < ApplicationController
 
   def create
     @guesthouse = Guesthouse.new(guesthouse_params)
-
     @guesthouse.customer_id = current_customer.id
     if @guesthouse.save
       redirect_to new_guesthouse_guesthouse_review_path(@guesthouse)
@@ -33,7 +32,7 @@ class Public::GuesthousesController < ApplicationController
     # binding.pry
     @guesthouse = Guesthouse.find(params[:id])
     # @guesthouse_reviews = GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
-    @guesthouse_reviews = params[:guesthouse_tag_id].present? ? GuesthouseTag.find(params[:guesthouse_tag_id]).guesthouse_reviews.page(params[:page]) : GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
+    @guesthouse_reviews = params[:guesthouse_tag_id].present? ? GuesthouseTag.find(params[:guesthouse_tag_id]).guesthouse_reviews.where(guesthouse_id: @guesthouse).page(params[:page]) : GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
     # @guesthouse_comments = @guesthouse_reviews.guesthouse_comments
     # @guesthouse_review = GuesthouseReview.find(params[:guesthouse_review_id])
     # binding.pry
