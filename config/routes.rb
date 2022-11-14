@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
 
 
-  namespace :public do
-    get 'restaurant_comments/create'
-    get 'restaurant_comments/destroy'
-    get 'restaurant_comments/index'
-  end
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -76,7 +72,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
      #アクティビティ
      resources :activities, only: [:index, :new, :show, :create] do
-      resources :activity_reviews, only: [:index, :create, :new, :edit, :update, :destroy]#アクティビティ
+      resources :activity_reviews, only: [:index, :create, :new, :edit, :update, :destroy] do
+        resources :activity_commetns, only: [:create, :destroy, :index]
+       end
      end
 
      #投稿
