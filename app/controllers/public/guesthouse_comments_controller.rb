@@ -27,7 +27,8 @@ class Public::GuesthouseCommentsController < ApplicationController
     @guesthouse_comment.destroy
     redirect_to guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review)
   end
-
+  
+  private
 
   def comment_params
     params.require(:guesthouse_comment).permit(:content)
