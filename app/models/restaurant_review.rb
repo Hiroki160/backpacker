@@ -7,6 +7,7 @@ class RestaurantReview < ApplicationRecord
   #タグ
   has_many :restaurant_relations, dependent: :destroy
   has_many :restaurant_tags, through: :restaurant_relations
+  has_many :restaurant_comments, dependent: :destroy
   
     validates :restaurant_score, numericality: {
     less_than_or_equal_to: 5,

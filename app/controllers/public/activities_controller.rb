@@ -25,7 +25,7 @@ class Public::ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
     @activity_reviews = ActivityReview.where(activity_id: @activity.id).page(params[:page])
-    @activity_reviews = params[:activity_tag_id].present? ? ActivityTag.find(params[:activity_tag_id]).activity_reviews.page(params[:page]) : ActivityReview.page(params[:page])
+    @activity_reviews = params[:activity_tag_id].present? ? ActivityTag.find(params[:activity_tag_id]).activity_reviews.where(activity_id: @activity).page(params[:page])  : ActivityReview.where(activity_id: @activity.id).page(params[:page])
   end
 
   private

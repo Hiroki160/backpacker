@@ -87,6 +87,9 @@
                         <%= link_to "削除する", restaurant_restaurant_review_path(@restaurant, restaurant_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                       <% end %>
                     </div>
+                    <div>
+                    コメント件数：<%= link_to restaurant_review.restaurant_comments.count, restaurant_restaurant_review_restaurant_comments_path(@restaurant, restaurant_review) %>
+                    </div>
                   </div><!-- card-content end -->
                 </div><!-- cardend -->
               <% end %>
@@ -104,7 +107,7 @@
 </div>
 
   <script>
-	$('.average-review-rating').raty({
+	$('.average-review-rating').empty().raty({
 	  half: true,
 		readOnly: true,
     starOn: "<%= asset_path('star-on.png') %>",
