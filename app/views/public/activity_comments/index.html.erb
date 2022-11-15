@@ -1,2 +1,83 @@
-<h1>Public::ActivityComments#index</h1>
-<p>Find me in app/views/public/activity_comments/index.html.erb</p>
+<section class="section mt-5">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+
+        <div class="card-content">
+          <%= @activity_review.customer.user_name %>
+          <div class="review-rating" data-score=<%= @activity_review.activity_score %>></div>
+          <%= @activity_review.activity_price %>
+          <% @activity_review.activity_tags.each do |tag| %>
+            <%= tag.name %>
+          <% end %>
+          <%= @activity_review.activity_content %>
+        </div>
+
+            <div class="form-group">
+              <%= form_with model: [@activity_review, @activity_comment], url: activity_activity_review_activity_comments_path(@activity, @activity_review) do |f| %>
+                <%= f.text_area :content, rows: '3', placeholder: "コメントをここに", class: "form-control"  %>
+                <%= f.submit "送信する" %>
+              <% end %>
+            </div>
+
+            <!--コメント-->
+            <table class="table table-primary">
+              <thead>
+                <tr>
+                  <th scope="col">ユーザー名</th>
+                  <th scope="col">コメント</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <% @activity_comments.each do |comment| %>
+                  <tr>
+                    <td><%= comment.customer.name %></td>
+                    <td><%= comment.content %></td>
+                    <td>
+                      <%= link_to "削除する", activity_activity_review_activity_comment_path(@activity, @activity_review, comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                    </td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+            <!--コメントここまで-->
+
+      </div>
+    </div>
+  </div>
+</section>
+
+  <script>
+	$('.average-review-rating').empty().raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>
+
+<script>
+  var swiper = new Swiper(".mySwiper", {
+
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    pagination: {
+    el: ".swiper-pagination"
+    },
+  });
+</script>
+
+  <script>
+	$('.review-rating').empty().raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>

@@ -8,6 +8,7 @@ class ActivityReview < ApplicationRecord
   #タグ
   has_many :activity_relations, dependent: :destroy
   has_many :activity_tags, through: :activity_relations
+  has_many :activity_comments, dependent: :destroy
 
     validates :activity_score, numericality: {
     less_than_or_equal_to: 5,

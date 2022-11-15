@@ -87,6 +87,9 @@
                        <% if activity_review.customer == current_customer %>
                         <%= link_to "削除する", activity_activity_review_path(@activity, activity_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                       <% end %>
+                    <div>
+                    コメント件数：<%= link_to activity_review.activity_comments.count, activity_activity_review_activity_comments_path(@activity, activity_review) %>
+                    </div>
                   </div><!--card-content end -->
                 </div><!--card end -->
                 <% end %>
@@ -104,7 +107,7 @@
 </div>
 
   <script>
-	$('.average-review-rating').raty({
+	$('.average-review-rating').empty().raty({
 	  half: true,
 		readOnly: true,
     starOn: "<%= asset_path('star-on.png') %>",

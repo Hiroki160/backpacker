@@ -73,7 +73,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
      #アクティビティ
      resources :activities, only: [:index, :new, :show, :create] do
       resources :activity_reviews, only: [:index, :create, :new, :edit, :update, :destroy] do
-        resources :activity_commetns, only: [:create, :destroy, :index]
+        resources :activity_comments, only: [:create, :destroy, :index]
        end
      end
 
