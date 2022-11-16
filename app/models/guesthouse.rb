@@ -24,5 +24,8 @@ class Guesthouse < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
 
+  #コミュニティ
+  has_many :guesthouse_communities, dependent: :destroy
+
 
 end
