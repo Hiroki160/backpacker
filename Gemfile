@@ -62,5 +62,7 @@ gem 'pry-rails'
 gem 'bulma-rails'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
+gem "enum_help"
+gem 'rails-i18n'
 
 end

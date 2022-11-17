@@ -1,2 +1,21 @@
-<h1>Public::GuesthouseCommunities#show</h1>
-<p>Find me in app/views/public/guesthouse_communities/show.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        募集中<br><br>
+      </h3>
+    </div>
+  </div>
+</section>
+
+<section class="section mt-5">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <% @guesthouse_communities.each do |community| %>
+          <%= community.body %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

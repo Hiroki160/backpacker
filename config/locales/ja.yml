@@ -1,0 +1,8 @@
+  ja:
+    enums:
+      guesthouse_apply:
+        status:
+          accept: "承認済み"
+          decline: "却下されました"
+          waiting: "申請中"
+

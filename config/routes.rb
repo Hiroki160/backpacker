@@ -61,16 +61,22 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
         resources :guesthouse_comments, only: [:create, :destroy, :index]
       end
     end
-    
+
     #コミュニティ機能
     resources :guesthouses, only: [:index, :new, :show, :create] do
-      resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update]
+      resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new]
     end
-    
-    resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update] do
+
+    resources :guesthouses do
+      resources :customers do
+        resources :guesthouse_communities, only: [:show]
+      end
+    end
+
+    resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new] do
       resources :guesthouse_applies, only: [:show, :create, :destroy]
     end
-    
+
      #レストラン
     resources :restaurants, only: [:index, :new, :show, :create] do
       resources :restaurant_reviews, only: [:index, :create, :new, :edit, :update, :destroy] do
