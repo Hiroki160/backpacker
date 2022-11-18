@@ -14,7 +14,7 @@ class Public::GuesthouseCommunitiesController < ApplicationController
     @guesthouse_community.customer_id = current_customer.id
     @guesthouse_community.guesthouse_id = params[:guesthouse_id]
     @guesthouse = Guesthouse.find(params[:guesthouse_id])
-    if @guesthouse_community.save!
+    if @guesthouse_community.save
       redirect_to guesthouse_customer_guesthouse_community_path(@guesthouse, @guesthouse_community.customer_id, @guesthouse_community.id)
     else
       render :new
