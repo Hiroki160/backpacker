@@ -21,7 +21,7 @@ class Guesthouse < ApplicationRecord
   has_many :guesthouse_reviews, dependent: :destroy
   has_one_attached :image
 
-  validates :name, presence: true
+  validates :name, presence: true 
   validates :address, presence: true
 
   #コミュニティ

@@ -58,6 +58,9 @@
                     <p><%= activity_review.activity_price %>円</p>
                     <p><%= activity_review.activity_content %></p>
                     <%= link_to "削除する", admin_activity_activity_review_path(@activity, activity_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                    <div>
+                    コメント件数：<%= link_to activity_review.activity_comments.count, admin_activity_activity_review_activity_comments_path(@activity, activity_review) %>
+                    </div>
                   </div><!--card-content end -->
                 </div><!--card end -->
                 <% end %>

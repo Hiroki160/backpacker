@@ -16,9 +16,9 @@ class Public::GuesthouseReviewsController < ApplicationController
     if @guesthouse_review.save
       redirect_to guesthouse_path(@guesthouse)
     else
-      @guesthouse = Guesthouse.find(params[:guesthouse_review][:guesthouse_id])
+      # @guesthouse = Guesthouse.find(params[:guesthouse_review][:guesthouse_id])
       # @ramen_shop = RamenShop.find(params[:ramen_shop_id])
-      render :index
+      render :new
     end
   end
 

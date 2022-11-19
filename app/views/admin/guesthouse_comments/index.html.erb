@@ -2,7 +2,6 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
-
         <div class="card-content">
           <%= @guesthouse_review.customer.user_name %>
           <div class="review-rating" data-score=<%= @guesthouse_review.guesthouse_score %>></div>
@@ -12,13 +11,6 @@
           <% end %>
           <%= @guesthouse_review.guesthouse_content %>
         </div>
-
-            <div class="form-group">
-              <%= form_with model: [@guesthouse_review, @guesthouse_comment], url: guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review) do |f| %>
-                <%= f.text_area :content, rows: '3', placeholder: "コメントをここに", class: "form-control"  %>
-                <%= f.submit "送信する" %>
-              <% end %>
-            </div>
 
             <!--コメント-->
             <table class="table table-primary">
@@ -36,7 +28,7 @@
                     <td><%= comment.customer.name %></td>
                     <td><%= comment.content %></td>
                     <td>
-                      <%= link_to "削除する", guesthouse_guesthouse_review_guesthouse_comment_path(@guesthouse, @guesthouse_review, comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                      <%= link_to "削除する", admin_guesthouse_guesthouse_review_guesthouse_comment_path(@guesthouse, @guesthouse_review, comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                     </td>
                   </tr>
                 <% end %>

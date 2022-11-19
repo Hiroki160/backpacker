@@ -12,7 +12,7 @@ class Public::RestaurantReviewsController < ApplicationController
       redirect_to restaurant_path(@restaurant)
     else
       # @restaurant = Restaurant.find(params[:restaurant_review][:restaurant_id])
-      render :index
+      render :new
     end
   end
 

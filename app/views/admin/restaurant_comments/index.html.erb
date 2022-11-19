@@ -13,13 +13,6 @@
           <%= @restaurant_review.restaurant_content %>
         </div>
 
-            <div class="form-group">
-              <%= form_with model: [@restaurant_review, @restaurant_comment], url: restaurant_restaurant_review_restaurant_comments_path(@restaurant, @restaurant_review) do |f| %>
-                <%= f.text_area :content, rows: '3', placeholder: "コメントをここに", class: "form-control"  %>
-                <%= f.submit "送信する" %>
-              <% end %>
-            </div>
-
             <!--コメント-->
             <table class="table table-primary">
               <thead>
@@ -36,9 +29,7 @@
                     <td><%= comment.customer.name %></td>
                     <td><%= comment.content %></td>
                     <td>
-                      <% if customer = current_customer %>
                       <%= link_to "削除する", admin_restaurant_restaurant_review_restaurant_comment_path(@restaurant, @restaurant_review, comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-                      <% end %>
                     </td>
                   </tr>
                 <% end %>

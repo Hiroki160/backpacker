@@ -15,4 +15,9 @@ class ActivityReview < ApplicationRecord
     greater_than_or_equal_to: 1
   }, presence: true
 
+  validates :activity_price, presence: true
+  validates :activity_score, presence: true
+  validates :activity_content, presence: true
+  validates :image, presence: true
+
 end

@@ -64,6 +64,9 @@
                   <p><%= guesthouse_review.guesthouse_price %>円</p>
                   <p><%= guesthouse_review.guesthouse_content %></p>
                   <%= link_to "削除する", admin_guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                   <div>
+                  コメント件数：<%= link_to guesthouse_review.guesthouse_comments.count, admin_guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, guesthouse_review) %>
+                  </div>
                 </div><!-- card-content end -->
               </div><!-- cardend -->
             <% end %>

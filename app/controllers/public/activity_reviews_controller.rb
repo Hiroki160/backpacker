@@ -10,8 +10,8 @@ class Public::ActivityReviewsController < ApplicationController
     if @activity_review.save
       redirect_to activity_path(@activity)
     else
-      @activity = Activity.find(params[:activity_review][:activity_id])
-      render :index
+      # @activity = Activity.find(params[:activity_review][:activity_id])
+      render :new
     end
   end
 

@@ -17,6 +17,8 @@
         <div class="rating-box mt-3">
           <%= form_with model: @guesthouse_review, url: guesthouse_guesthouse_reviews_path(@guesthouse) do |f| %>
 
+          <%= render 'errors', guesthouse_reviews: @guesthouse_reviews %>
+
               <div id="evaluate_stars">
                 <label style="margin-right: 150px; margin-bottom: 24px;">評価</label>
               </div>

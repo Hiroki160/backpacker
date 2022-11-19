@@ -39,11 +39,16 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     #レストラン
     resources :restaurants, only: [:index, :show, :destroy] do
-      resources :restaurant_reviews, only: [:index, :update, :destroy]
+      resources :restaurant_reviews, only: [:index, :update, :destroy] do
+        resources :restaurant_comments, only: [:index, :destroy]
+      end
     end
 
+    #アクティビティ
     resources :activities, only: [:index, :show, :destroy] do
-      resources :activity_reviews, only: [:index, :update, :destroy]
+      resources :activity_reviews, only: [:index, :update, :destroy] do
+        resources :activity_comments, only: [:index, :destroy]
+      end
     end
 
     #検索
