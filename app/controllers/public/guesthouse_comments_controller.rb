@@ -15,7 +15,8 @@ class Public::GuesthouseCommentsController < ApplicationController
     if @guesthouse_comment.save
       redirect_to guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review)
     else
-      render 'guesthouses/show'
+      @guesthouse_comments = @guesthouse_review.guesthouse_comments
+      render :index
     end
   end
 
@@ -27,7 +28,7 @@ class Public::GuesthouseCommentsController < ApplicationController
     @guesthouse_comment.destroy
     redirect_to guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review)
   end
-  
+
   private
 
   def comment_params

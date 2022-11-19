@@ -1,20 +1,38 @@
-<section class="section mt-5">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
+<div class="container">
+  <div class="row">
+      <div class="col-4 info">
+        <div class="card bg-transparent">
+          <div class="card-detail mb-10">
+            <header class="card-header">
+              <h5 class="card-header-title">
+                <div class="user-name">
+            <% if @guesthouse_review.customer.image.attached? %>
+              <%= image_tag @guesthouse_review.customer.image, class: "rounded-circle", size: "100x100" %>
+            <% else %>
+              <%= image_tag 'no_image', size: "100x100" %>
+            <% end %>
+            <%= @guesthouse_review.customer.user_name %>
+                </div>
+              </h5>
+            </header>
 
-        <div class="card-content">
-          <%= @guesthouse_review.customer.user_name %>
-          <div class="review-rating" data-score=<%= @guesthouse_review.guesthouse_score %>></div>
-          <%= @guesthouse_review.guesthouse_price %>
-          <% @guesthouse_review.guesthouse_tags.each do |tag| %>
-            <%= tag.name %>
-          <% end %>
-          <%= @guesthouse_review.guesthouse_content %>
+            <div class="review-rating" data-score=<%= @guesthouse_review.guesthouse_score %>></div>
+            <p><%= @guesthouse_review.guesthouse_price %></p>
+            <p class="tag">
+              <% @guesthouse_review.guesthouse_tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
+            </p>
+            <p><%= @guesthouse_review.guesthouse_content %></p>
+          </div>
         </div>
+       </div>
 
-            <div class="form-group">
+          <div class="col-8">
+            <div class="form-group" style="margin-top: 80px;">
               <%= form_with model: [@guesthouse_review, @guesthouse_comment], url: guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review) do |f| %>
+
+
                 <%= f.text_area :content, rows: '3', placeholder: "コメントをここに", class: "form-control"  %>
                 <%= f.submit "送信する" %>
               <% end %>
@@ -44,12 +62,12 @@
                 <% end %>
               </tbody>
             </table>
+          </div>
             <!--コメントここまで-->
 
       </div>
     </div>
-  </div>
-</section>
+
 
   <script>
 	$('.average-review-rating').empty().raty({

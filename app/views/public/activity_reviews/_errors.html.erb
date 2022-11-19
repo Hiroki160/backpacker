@@ -1,0 +1,8 @@
+<% if @activity_review.errors.any? %>
+ <%= @activity_review.errors.count %>件のエラーが発生しました
+<ul>
+<% @activity_review.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+<% end %>
+</ul>
+<% end %>
