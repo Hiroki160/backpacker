@@ -7,6 +7,7 @@ class Public::GuesthouseCommunitiesController < ApplicationController
 
   def index
      @guesthouse = Guesthouse.find(params[:guesthouse_id])
+    # @guesthouse_apply = GuesthouseApply.find(params[:guesthouse_apply_id])
      @gueshouse_communities = @guesthouse.guesthouse_communities.all
   end
 

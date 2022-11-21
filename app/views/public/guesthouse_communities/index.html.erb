@@ -1,4 +1,11 @@
+
 <h1><%= link_to "募集する", new_guesthouse_guesthouse_community_path(@guesthouse) %></h1>
+
+<div>
 <% @gueshouse_communities.each do |community| %>
 <div><%= community.body %></div>
-<% end %>
+
+
+  <%= link_to '加入申請', guesthouse_community_guesthouse_applies_path(community.id), method: :post, class: "mini-green-link-btn font-bold text-line-none" %>
+</div>
+<% end %> <!--each文終わり--!>
