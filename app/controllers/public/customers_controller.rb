@@ -3,6 +3,8 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    @guesthouse_community = GuesthouseCommunity.where(customer_id:params[:customer_id])
+    @guesthouse = Guesthouse.where(customer_id:params[:customer_id])
   end
 
   def edit

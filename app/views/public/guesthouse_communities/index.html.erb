@@ -1,1 +1,4 @@
 <h1><%= link_to "募集する", new_guesthouse_guesthouse_community_path(@guesthouse) %></h1>
+<% @gueshouse_communities.each do |community| %>
+<div><%= community.body %></div>
+<% end %>

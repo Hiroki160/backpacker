@@ -7,6 +7,7 @@ class Public::GuesthouseCommunitiesController < ApplicationController
 
   def index
      @guesthouse = Guesthouse.find(params[:guesthouse_id])
+     @gueshouse_communities = @guesthouse.guesthouse_communities.all
   end
 
   def create
@@ -22,9 +23,7 @@ class Public::GuesthouseCommunitiesController < ApplicationController
   end
 
   def show
-    @customer = Customer.find(params[:customer_id])
-    # @guesthouse_community = GuesthouseCommunity.find(params[:id])
-    @guesthouse_communities = @customer.guesthouse_communities
+    @guesthouse_communities = GuesthouseCommunity.where(customer_id:params[:customer_id])
   end
 
   def destroy
