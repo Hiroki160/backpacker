@@ -6,7 +6,7 @@ class Public::GuesthouseCommunitiesController < ApplicationController
   end
 
   def index
-
+     @guesthouse = Guesthouse.find(params[:guesthouse_id])
   end
 
   def create

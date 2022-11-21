@@ -30,9 +30,7 @@ a {
   height: 300px;
 }
 
-.reviews {
-  text-align: center;
-}
+
 
 .col-4  {
   padding-left: 50px;
@@ -62,6 +60,7 @@ a {
 
 .card-detail {
   background-color: white;
+  text-align: center;
 }
 .card-content {
   background-color: white;
@@ -178,9 +177,7 @@ a {
   text-align: right;
 }
 
-.form-control {
-  margin-bottom: 5px;
-}
+
 
 
 /*
