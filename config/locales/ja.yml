@@ -7,10 +7,5 @@
           waiting: "申請中"
 
 
-ja:
- activerecord:
-  attributes:
-   restaurant_review:
-    images: "画像"
-    restaurant_score: "評価"
+
 

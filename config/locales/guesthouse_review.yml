@@ -1,0 +1,7 @@
+ja:
+ activerecord:
+  attributes:
+   guesthouse_review:
+    guesthouse_score: "評価"
+    guesthouse_price: "使用額"
+    guesthouse_content: "コメント"

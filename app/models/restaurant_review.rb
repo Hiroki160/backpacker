@@ -15,8 +15,8 @@ class RestaurantReview < ApplicationRecord
   }, presence: true
 
   validates :restaurant_price, presence: true
-  validates :restaurant_score, presence: true
+  # validates :restaurant_score, presence: true
   validates :restaurant_content, presence: true
-  validates :image, presence: true
+  # validates :image, presence: true
 
 end

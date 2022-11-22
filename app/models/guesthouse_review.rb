@@ -15,8 +15,6 @@ class GuesthouseReview < ApplicationRecord
   }, presence: true
 
   validates :guesthouse_price, presence: true
-  validates :guesthouse_score, presence: true
   validates :guesthouse_content, presence: true
-  validates :image, presence: true
 
 end

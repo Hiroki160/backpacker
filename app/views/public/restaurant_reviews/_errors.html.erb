@@ -1,5 +1,5 @@
 <% if @restaurant_review.errors.any? %>
- <%= @restaurant_review.errors.count %>件のエラーが発生しました
+
 <ul>
 <% @restaurant_review.errors.full_messages.each do |message| %>
  <li><%= message %></li>

@@ -1,0 +1,10 @@
+ja:
+ activerecord:
+  attributes:
+   restaurant_review:
+    image: "画像"
+    restaurant_score: "評価"
+    restaurant_price: "使用額"
+    restaurant_content: "コメント"
+
+

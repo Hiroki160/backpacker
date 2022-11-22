@@ -16,8 +16,6 @@ class ActivityReview < ApplicationRecord
   }, presence: true
 
   validates :activity_price, presence: true
-  validates :activity_score, presence: true
   validates :activity_content, presence: true
-  validates :image, presence: true
 
 end

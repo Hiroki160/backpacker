@@ -1,0 +1,8 @@
+ja:
+ activerecord:
+  attributes:
+   activity_review:
+    image: "画像"
+    activity_score: "評価"
+    activity_price: "使用額"
+    activity_content: "コメント"
