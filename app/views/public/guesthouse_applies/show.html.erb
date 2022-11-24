@@ -1,2 +1,32 @@
-<h1>Public::GuesthouseApplies#show</h1>
-<p>Find me in app/views/public/guesthouse_applies/show.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        現在申請中<br><br>
+      </h3>
+
+      <table class="table table-primary">
+        <thead class="table-active">
+        	<tr>
+        		<th scope="col">タイトル</th>
+        		<th scope="col">募集内容</th>
+        		<th scope="col">募集開始</th>
+        		<th scope="col">募集終了</th>
+        		<th scope="col"></th>
+        	</tr>
+        </thead>
+
+        <tbody>
+          <% @guesthouse_applies.each do |apply| %>
+            <tr>
+              <td><%= apply.title %></td>
+              <td><%= apply.body %></td>
+              <td><%= apply.start_date %></td>
+              <td><%= apply.end_date %></td>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+</section>

@@ -1,0 +1,7 @@
+  ja:
+    enums:
+      order:
+        payment_method:
+          accept: "承認"
+          decline: "却下"
+          waiting: "承認待ち"
