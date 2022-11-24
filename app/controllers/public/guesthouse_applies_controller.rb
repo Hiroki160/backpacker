@@ -7,15 +7,13 @@ class Public::GuesthouseAppliesController < ApplicationController
 
   def show
     @customer = current_customer
-    @guesthouse_applies = @customer.guesthouse_communities.all
+    @guesthouse_applies = @customer.guesthouse_applies
 
-    if params[:guesthouse_apply][:status] == "accept"
-      @guesthouse_apply.status = 0
-    elsif params[:guesthouse_apply][:status] == "decline"
-      @guesthouse_apply.status = 1
-    else params[:guesthouse_apply][:status] == "waiting"
-      @guesthouse_apply.status = 2
-    end
+    # if params[:guesthouse_apply][:status] == "accept"
+    #   @guesthouse_apply.status = 0
+    # elsif params[:guesthouse_apply][:status] == "decline"
+    #   @guesthouse_apply.status = 1
+    # end
 
   end
 

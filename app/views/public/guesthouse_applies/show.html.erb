@@ -19,10 +19,11 @@
         <tbody>
           <% @guesthouse_applies.each do |apply| %>
             <tr>
-              <td><%= apply.title %></td>
-              <td><%= apply.body %></td>
-              <td><%= apply.start_date %></td>
-              <td><%= apply.end_date %></td>
+              <td><%= apply.guesthouse_community.title %></td>
+              <td><%= apply.guesthouse_community.body %></td>
+              <td><%= apply.guesthouse_community.start_date %></td>
+              <td><%= apply.guesthouse_community.end_date %></td>
+              <td><%= apply.status_i18n %></td>
           <% end %>
         </tbody>
       </table>
