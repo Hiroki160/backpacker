@@ -58,6 +58,12 @@ a {
   background-color:rgba(0,0,0,0);
 }
 
+.community_card {
+  gap: 20px;
+  background-color:rgba(0,0,0,0);
+  text-align: center;
+}
+
 .card-detail {
   background-color: white;
   text-align: center;

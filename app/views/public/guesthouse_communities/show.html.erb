@@ -5,6 +5,28 @@
         自分が募集しているコミュニティ<br><br>
       </h3>
 
+       <div class="container-fluid">
+      	<div class="row">
+      		<div class="col-md-12">
+      			<div class="card" style="text-align :center;">
+      			 <% @guesthouse_communities.each do |community| %>
+      				<h5 class="card-header">
+      					<%= community.title %>
+      				</h5>
+      				<div class="card-body">
+      					<p class="card-text">
+      						<%= community.body %>
+      					</p>
+      				</div>
+      				<div class="card-footer">
+      					<%= community.start_date %>から<%= community.end_date %>まで募集中
+      				</div>
+      				<% end %>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+
 
 <table class="table table-primary">
   <thead class="table-active">
@@ -39,6 +61,8 @@
     <% end %>
   </tbody>
 </table>
+
+
 
     </div>
   </div>
