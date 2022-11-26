@@ -1,11 +1,21 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
 
 <h1><%= link_to "募集する", new_guesthouse_guesthouse_community_path(@guesthouse) %></h1>
 
 <div>
 <% @gueshouse_communities.each do |community| %>
+<div><%= community.title %></div>
 <div><%= community.body %></div>
-
+<div><%= community.customers.name %></div>
 
   <%= link_to '加入申請', guesthouse_community_guesthouse_applies_path(community.id), method: :post, class: "mini-green-link-btn font-bold text-line-none" %>
 </div>
-<% end %> <!--each文終わり--!>
+<% end %>
+
+      </div>
+    </div>
+  </div>
+</section>

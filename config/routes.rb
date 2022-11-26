@@ -74,11 +74,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new]
     end
 
-    resources :guesthouses do
+    # resources :guesthouses do
       resources :customers do
         resources :guesthouse_communities, only: [:show]
       end
-    end
 
     resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new] do
       resources :guesthouse_applies, only: [:show, :create, :destroy]

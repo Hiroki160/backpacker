@@ -3,14 +3,15 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
+    # @guesthouse = Guesthouse.find(params[:guesthouse_id])
     @guesthouse_community = GuesthouseCommunity.where(customer_id:params[:customer_id])
-    @guesthouse = Guesthouse.where(customer_id:params[:customer_id])
+    # @guesthouse = Guesthouse.where(customer_id:params[:customer_id])
   end
 
   def edit
     @customer = Customer.find(params[:id])
   end
-  
+
   def withdrawal
     @customer = Customer.find(params[:id])
     @customer.update(is_deleted: true)

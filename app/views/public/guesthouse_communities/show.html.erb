@@ -28,26 +28,27 @@
       </div>
 
 
-<table class="table table-primary">
+<table class="table table-primary" style="margin-top: 5px;">
   <thead class="table-active">
   	<tr>
-  		<th scope="col">タイトル</th>
-  		<th scope="col">募集内容</th>
-  		<th scope="col">募集開始</th>
-  		<th scope="col">募集終了</th>
+  		<th scope="col">申請者</th>
   		<th scope="col"></th>
   	</tr>
   </thead>
 
   <tbody>
-    <% @guesthouse_communities.each do |community| %>
+    <% @guesthouse_applies.each do |apply| %>
       <tr>
-        <td><%= community.title %></td>
-        <td><%= community.body %></td>
-        <td><%= community.start_date %></td>
-        <td><%= community.end_date %></td>
         <td>
-         <%= form_with model: @guesthouse_apply, url: guesthouse_community_guesthouse_applies_path(community.id) do |f| %>
+        	<% if apply.customer.image.attached? %>
+            <%= image_tag apply.customer.image, class: "rounded-circle", size: "100x100" %>
+          <% else %>
+            <%= image_tag 'no_image', size: "100x100" %>
+          <% end %>
+          <%= link_to apply.customer.user_name, customer_path(@customer) %>
+        </td>
+        <td>
+         <%= form_with model: @guesthouse_apply, url: guesthouse_community_guesthouse_applies_path(@guesthouse_community) do |f| %>
           <div>
           	<%= f.radio_button :status, GuesthouseApply.statuses.key(1) %>
           	<label class="payment-label">承認</label>
@@ -56,6 +57,7 @@
           	<%= f.radio_button :status, GuesthouseApply.statuses.key(2) %>
           	<label class="payment_label">却下</label>
         	</div>
+        	<%= f.submit '決定', class: "btn btn-primary" %>
         	<% end %>
         </td>
     <% end %>
