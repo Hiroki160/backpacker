@@ -36,7 +36,14 @@
       <div class="field form-inline">
         <h4 style="margin-right:5%;">募集中のリスト</h4>
         <% @guesthouse_community.each do |guesthouse_community| %>
-          <p class="field" style="margin-right:5%;"><%= link_to "ゲストハウス", guesthouse_community_path(guesthouse_community) %></p>
+          <p class="field" style="margin-right:5%;"><%= link_to "ゲストハウス", guesthouse_community_path(guesthouse_community), class: "btn btn btn-primary text-white" %></p>
+        <% end %>
+      </div>
+
+      <div class="field form-inline">
+        <h4 style="margin-right:5%;">申請中のリスト</h4>
+        <% @guesthouse_apply.each do |guesthouse_apply| %>
+          <p class="field" style="margin-right:5%;"><%= link_to "ゲストハウス", guesthouse_apply_path(guesthouse_apply), class: "btn btn btn-primary text-white" %></p>
         <% end %>
       </div>
 

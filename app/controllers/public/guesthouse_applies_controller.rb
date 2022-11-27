@@ -8,13 +8,11 @@ class Public::GuesthouseAppliesController < ApplicationController
   def show
     @customer = current_customer
     @guesthouse_applies = @customer.guesthouse_applies
-
     # if params[:guesthouse_apply][:status] == "accept"
     #   @guesthouse_apply.status = 0
     # elsif params[:guesthouse_apply][:status] == "decline"
     #   @guesthouse_apply.status = 1
     # end
-
   end
 
   def update
@@ -22,7 +20,8 @@ class Public::GuesthouseAppliesController < ApplicationController
     apply.update(status: params[:guesthouse_apply][:status])
     pp '----------'
     pp apply
-    redirect_to guesthouse_community_guesthouse_apply_path(apply.guesthouse_community_id, apply.id)
+    redirect_to guesthouse_community_path(apply.guesthouse_community.id), notice: "更新しました！"
+    # redirect_to guesthouse_community_guesthouse_apply_path(apply.guesthouse_community_id, apply.id)
   end
 
   def destroy

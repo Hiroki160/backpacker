@@ -5,6 +5,7 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     # ゲストハウス申請リスト
     @guesthouse_community = GuesthouseCommunity.where(customer_id: params[:id])
+    @guesthouse_apply = GuesthouseApply.where(customer_id: params[:id])
   end
 
   def edit

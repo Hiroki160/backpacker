@@ -84,6 +84,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       resources :guesthouse_applies, only: [:show, :create, :update, :destroy]
     end
 
+    #マイページから申請中のゲストハウスへ
+    resources :guesthouse_applies, only: [:show]
+
     #レストランコミュニティ機能
 
      #レストラン
