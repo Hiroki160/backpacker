@@ -17,13 +17,13 @@
             </header>
 
             <div class="review-rating" data-score=<%= @guesthouse_review.guesthouse_score %>></div>
-            <p><%= @guesthouse_review.guesthouse_price %></p>
+            <p>使用額：<%= @guesthouse_review.guesthouse_price %></p>
             <p class="tag">
-              <% @guesthouse_review.guesthouse_tags.each do |tag| %>
+              トピック：<% @guesthouse_review.guesthouse_tags.each do |tag| %>
               <%= tag.name %>
             <% end %>
             </p>
-            <p><%= @guesthouse_review.guesthouse_content %></p>
+            <p>感想：<%= @guesthouse_review.guesthouse_content %></p>
           </div>
         </div>
        </div>
@@ -31,8 +31,6 @@
           <div class="col-8">
             <div class="form-group" style="margin-top: 80px;">
               <%= form_with model: [@guesthouse_review, @guesthouse_comment], url: guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review) do |f| %>
-
-
                 <%= f.text_area :content, rows: '3', placeholder: "コメントをここに", class: "form-control"  %>
                 <%= f.submit "送信する" %>
               <% end %>
@@ -62,12 +60,12 @@
                 <% end %>
               </tbody>
             </table>
-          </div>
             <!--コメントここまで-->
-
+        <div class="review-button"><%= link_to "戻る",  guesthouse_path(@guesthouse.id), class: "btn btn btn-primary text-white" %></div>
       </div>
     </div>
-
+  </div>
+</section>
 
   <script>
 	$('.average-review-rating').empty().raty({

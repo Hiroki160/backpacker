@@ -25,8 +25,8 @@ class Public::GuesthouseCommunitiesController < ApplicationController
 
   def show
     @guesthouse_communities = GuesthouseCommunity.where(customer_id:params[:customer_id])
-    @guesthouse_community = GuesthouseCommunity.find(params[:id])
-    @guesthouse_applies = @guesthouse_community.guesthouse_applies
+    @guesthouse_community = GuesthouseCommunity.where(customer_id:params[:customer_id])
+    @guesthouse_applies = @guesthouse_communities.guesthouse_applies
     @customer = Customer.find(params[:customer_id])
   end
 

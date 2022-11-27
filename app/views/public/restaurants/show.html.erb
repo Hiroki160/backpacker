@@ -35,10 +35,11 @@
   		</div>
 
     <div class="review-button">
-    	<td><%= link_to "レビューを書く", new_restaurant_restaurant_review_path(@restaurant), class: "btn btn btn-secondary text-white" %></td>
-  		<td><%= link_to "戻る", restaurants_path(country_id: @restaurant[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+    	<td><%= link_to "レビューを書く", new_restaurant_restaurant_review_path(@restaurant), class: "btn btn btn-primary text-white" %></td>
+  		<td><%= link_to "戻る", restaurants_path(country_id: @restaurant[:country_id]), class: "btn btn btn-primary text-white" %></td>
   	</div>
   </div>
+
 
   	<div class="col-8">
   		<div class="reviews">
@@ -72,13 +73,13 @@
                   </header>
                   <div class="card-content">
                     <div class="review-rating" data-score=<%= restaurant_review.restaurant_score %>></div>
-                    <p><%= restaurant_review.restaurant_price %>円</p>
+                    <p>使用額：<%= restaurant_review.restaurant_price %>円</p>
                     <p class="tag">
-                      <% restaurant_review.restaurant_tags.each do |tag| %>
+                      トピック：<% restaurant_review.restaurant_tags.each do |tag| %>
                         <%= tag.name %>
                       <% end %>
                     </p>
-                    <p><%= restaurant_review.restaurant_content %></p>
+                    <p>感想：<%= restaurant_review.restaurant_content %></p>
                     <div>
                       <% if restaurant_review.customer == current_customer %>
                         <%= link_to "編集する", edit_restaurant_restaurant_review_path(@restaurant, restaurant_review) %>
