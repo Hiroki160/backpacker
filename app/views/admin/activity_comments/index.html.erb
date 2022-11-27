@@ -1,20 +1,36 @@
-<section class="section mt-5">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
+<div class="container">
+  <div class="row">
+      <div class="col-4 info">
+        <div class="card bg-transparent">
+          <div class="card-detail mb-10">
+            <header class="card-header">
+              <h5 class="card-header-title">
+                <div class="user-name">
+                  <% if @activity_review.customer.image.attached? %>
+                    <%= image_tag @activity_review.customer.image, class: "rounded-circle", size: "100x100" %>
+                  <% else %>
+                    <%= image_tag 'no_image', size: "100x100" %>
+                  <% end %>
+                  <%= @activity_review.customer.user_name %>
+                </div>
+              </h5>
+            </header>
 
-        <div class="card-content">
-          <%= @activity_review.customer.user_name %>
-          <div class="review-rating" data-score=<%= @activity_review.activity_score %>></div>
-          <%= @activity_review.activity_price %>
-          <% @activity_review.activity_tags.each do |tag| %>
-            <%= tag.name %>
-          <% end %>
-          <%= @activity_review.activity_content %>
+            <div class="review-rating" data-score=<%= @activity_review.activity_score %>></div>
+            <p>使用額：<%= @activity_review.activity_price %></p>
+            <p class="tag">
+              トピック：<% @activity_review.activity_tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
+            </p>
+            <p>感想：<%= @activity_review.activity_content %></p>
+          </div>
         </div>
+       </div>
 
+          <div class="col-8">
             <!--コメント-->
-            <table class="table table-primary">
+            <table class="table table-primary" style="margin-top: 80px;">
               <thead>
                 <tr>
                   <th scope="col">ユーザー名</th>
@@ -36,11 +52,13 @@
               </tbody>
             </table>
             <!--コメントここまで-->
-
+        <div class="review-button"><%= link_to "戻る",  admin_activity_path(@activity.id), class: "btn btn btn-primary text-white" %></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
+
 
   <script>
 	$('.average-review-rating').empty().raty({

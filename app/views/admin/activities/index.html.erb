@@ -44,4 +44,17 @@
               <% end %>
           </div>
         </div>
+          <div class="review-button"><%= link_to "選択画面に戻る", admin_country_path(@country.id), class: "btn btn btn-primary text-white" %></div>
     </section>
+
+    <%= paginate @activities %>
+
+<script>
+	$('.average-review-rating').empty().raty({
+	  half: true,
+		readOnly: true,
+    starOn: "<%= asset_path('star-on.png') %>",
+    starOff: "<%= asset_path('star-off.png') %>",
+    starHalf: "<%= asset_path('star-half.png') %>",
+	});
+</script>

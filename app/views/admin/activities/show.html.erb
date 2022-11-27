@@ -37,14 +37,14 @@
   		<!--情報ここまで-->
 
         <div class="review-button">
-        	<td><%= link_to "戻る", admin_activities_path(country_id: @activity[:country_id]), class: "btn btn btn-secondary text-white" %></td>
+        	<td><%= link_to "戻る", admin_activities_path(country_id: @activity[:country_id]), class: "btn btn btn-primary text-white" %></td>
         </div>
     </div>
 
   	<div class="col-8">
   		<div class="reviews">
   			<!-- レビュー-->
-    			<h1>レビュー</h1>
+    			<h5>レビュー</h5>
       			<div class="card bg-transparent">
               <% @activity_reviews.each do |activity_review| %>
                 <div class="card-detail mb-10">
@@ -78,7 +78,7 @@
 </div>
 
   <script>
-	$('.average-review-rating').raty({
+	$('.average-review-rating').empty().raty({
 	  half: true,
 		readOnly: true,
     starOn: "<%= asset_path('star-on.png') %>",

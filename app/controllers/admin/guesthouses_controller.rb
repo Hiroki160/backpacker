@@ -8,12 +8,10 @@ class Admin::GuesthousesController < ApplicationController
     end
   end
 
-
   def show
     @guesthouse = Guesthouse.find(params[:id])
     @guesthouse_reviews = GuesthouseReview.where(guesthouse_id: @guesthouse.id).page(params[:page])
   end
-
 
   def destroy
     @guesthouse = Guesthouse.find(params[:id])

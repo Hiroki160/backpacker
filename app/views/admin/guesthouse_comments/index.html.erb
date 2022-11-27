@@ -16,8 +16,21 @@
               </h5>
             </header>
 
+            <div class="review-rating" data-score=<%= @guesthouse_review.guesthouse_score %>></div>
+            <p>使用額：<%= @guesthouse_review.guesthouse_price %></p>
+            <p class="tag">
+              トピック：<% @guesthouse_review.guesthouse_tags.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
+            </p>
+            <p>感想：<%= @guesthouse_review.guesthouse_content %></p>
+          </div>
+        </div>
+       </div>
+
+          <div class="col-8">
             <!--コメント-->
-            <table class="table table-primary">
+            <table class="table table-primary" style="margin-top: 80px;">
               <thead>
                 <tr>
                   <th scope="col">ユーザー名</th>
@@ -39,11 +52,12 @@
               </tbody>
             </table>
             <!--コメントここまで-->
-
+            <div class="review-button"><%= link_to "戻る",  admin_guesthouse_path(@guesthouse.id), class: "btn btn btn-primary text-white" %></div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
   <script>
 	$('.average-review-rating').empty().raty({
