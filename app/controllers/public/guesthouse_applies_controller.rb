@@ -17,6 +17,14 @@ class Public::GuesthouseAppliesController < ApplicationController
 
   end
 
+  def update
+    apply = GuesthouseApply.find(params[:id])
+    apply.update(status: params[:guesthouse_apply][:status])
+    pp '----------'
+    pp apply
+    redirect_to guesthouse_community_guesthouse_apply_path(apply.guesthouse_community_id, apply.id)
+  end
+
   def destroy
   end
 

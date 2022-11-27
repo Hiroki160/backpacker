@@ -24,10 +24,11 @@ class Public::GuesthouseCommunitiesController < ApplicationController
   end
 
   def show
-    @guesthouse_communities = GuesthouseCommunity.where(customer_id:params[:customer_id])
-    @guesthouse_community = GuesthouseCommunity.where(customer_id:params[:customer_id])
-    @guesthouse_applies = @guesthouse_communities.guesthouse_applies
-    @customer = Customer.find(params[:customer_id])
+    @guesthouse_communities = GuesthouseCommunity.where(customer_id: current_customer.id)
+    # @guesthouse_community = GuesthouseCommunity.find_by(customer_id: current_customer.id)
+    # @guesthouse_applies = @guesthouse_communities.guesthouse_applies
+    @customer = Customer.find(current_customer.id)
+    @guesthouse_apply = GuesthouseApply.new
   end
 
   def destroy

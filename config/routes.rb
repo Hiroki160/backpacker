@@ -81,9 +81,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     end
 
     resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new] do
-      resources :guesthouse_applies, only: [:show, :create, :destroy]
+      resources :guesthouse_applies, only: [:show, :create, :update, :destroy]
     end
-    
+
     #レストランコミュニティ機能
 
      #レストラン
