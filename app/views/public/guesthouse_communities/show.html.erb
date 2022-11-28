@@ -24,9 +24,9 @@
                             <div class="card">
                               <div class="card-text">
                                 <% if apply.customer.image.attached? %>
-                                  <%= image_tag apply.customer.image, class: "rounded-circle", size: "100x100" %>
+                                  <%= image_tag apply.customer.image, class: "rounded-circle", size: "50x50" %>
                                 <% else %>
-                                  <%= image_tag 'no_image', size: "100x100" %>
+                                  <%= image_tag 'no_image', size: "50x50" %>
                                 <% end %>
                                 <%= link_to apply.customer.user_name, customer_path(@customer) %>
                                 <hr>

@@ -33,6 +33,7 @@
         <p class="field" style="margin-right:5%;"><%= @customer.introduction %></p>
       </div>
 
+      <% if @customer == current_customer %>
       <div class="field form-inline">
         <h4 style="margin-right:5%;">募集中のリスト</h4>
           <p class="field" style="margin-right:5%;"><%= link_to "ゲストハウス", guesthouse_community_path, class: "btn btn btn-primary text-white" %></p>
@@ -42,8 +43,6 @@
         <h4 style="margin-right:5%;">申請中のリスト</h4>
           <p class="field" style="margin-right:5%;"><%= link_to "ゲストハウス", guesthouse_apply_path, class: "btn btn btn-primary text-white" %></p>
       </div>
-
-      <% if customer = current_customer %>
       <%= link_to "編集する", edit_customer_path(current_customer.id), class: "btn btn-success" %>
       <%= link_to "退会する", confirmation_path(current_customer.id), class: "btn btn-success" %>
       <% end %>

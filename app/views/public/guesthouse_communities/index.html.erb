@@ -4,12 +4,17 @@
       <h1><%= @guesthouse.name %></h1>
         <div>
           <% @gueshouse_communities.each do |community| %>
-           <h3 class="title">
-             <%= community.customer.user_name %>
-           </h3>
         		<div class="col-md-12">
         	    <div class="card mb-2" style="text-align :center;">
-        		    <h5 class="card-header"><%= community.title %> </h5>
+      		    <h5 class="card-header">
+            		  <% if community.customer.image.attached? %>
+                    <%= image_tag community.customer.image, class: "rounded-circle", size: "50x50" %>
+                  <% else %>
+                    <%= image_tag 'no_image', size: "200x200" %>
+                  <% end %>
+                  <%= link_to community.customer.user_name, customer_path(community.customer.id) %>
+        		    　【<%= community.title %>】
+        		    </h5>
           				<div class="card-body">
           					<div class="card-text">
           						<%= simple_format(community.body) %>
