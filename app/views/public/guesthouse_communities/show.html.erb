@@ -11,7 +11,7 @@
       		<div class="col-md-12">
       			<div class="card mb-2" style="text-align :center;">
       				<h5 class="card-header">
-      					<%= community.title %>
+      					【<%= community.guesthouse.name %>】<%= community.title %>
       				</h5>
       				<div class="card-body">
       					<div class="card-text">
@@ -19,7 +19,6 @@
       						<div class="">
       						  <h5>申請者</h5>
         						<div class="row">
-
         						    <% community.guesthouse_applies.each do |apply| %>
           						    <div class="col-md-4">
                             <div class="card">
@@ -48,6 +47,7 @@
       						</div>
       					</div>
       				</div>
+      				<div><%= link_to "削除する", guesthouse_guesthouse_community_path(community.guesthouse_id, community.id), method: :delete, "data-confirm" => "本当に削除しますか？" %> </div>
       				<div class="card-footer">
       					<%= community.start_date %>から<%= community.end_date %>まで募集中
       				</div>
@@ -58,5 +58,8 @@
       	</div>
       </div>
     </div>
+  </div>
+  <div class="review-button">
+  	<td><%= link_to "マイページへ戻る", customer_path(@customer.id), class: "btn btn btn-primary text-white" %></td>
   </div>
 </section>

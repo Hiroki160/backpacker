@@ -1,21 +1,26 @@
-<section class="section">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-6">
-
-<h1><%= link_to "募集する", new_guesthouse_guesthouse_community_path(@guesthouse) %></h1>
-
-<div>
-<% @gueshouse_communities.each do |community| %>
-<div><%= community.title %></div>
-<div><%= community.body %></div>
-<div><%= community.customers.name %></div>
-
-  <%= link_to '加入申請', guesthouse_community_guesthouse_applies_path(community.id), method: :post, class: "mini-green-link-btn font-bold text-line-none" %>
-</div>
-<% end %>
-
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1><%= @guesthouse.name %></h1>
+        <div>
+          <% @gueshouse_communities.each do |community| %>
+           <h3 class="title">
+             <%= community.customer.user_name %>
+           </h3>
+        		<div class="col-md-12">
+        	    <div class="card mb-2" style="text-align :center;">
+        		    <h5 class="card-header"><%= community.title %> </h5>
+          				<div class="card-body">
+          					<div class="card-text">
+          						<%= simple_format(community.body) %>
+          						<%= link_to '加入申請', guesthouse_community_guesthouse_applies_path(community.id), method: :post, class: "mini-green-link-btn font-bold text-line-none" %>
+          					</div>
+        		  </div>
+        		</div>
+          </div>
+          <% end %>
+          <div class="text-center"><%= link_to "募集する", new_guesthouse_guesthouse_community_path(@guesthouse), class: "btn btn-primary" %></div>
+        </div>
       </div>
     </div>
-  </div>
 </section>

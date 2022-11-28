@@ -32,6 +32,10 @@ class Public::GuesthouseCommunitiesController < ApplicationController
   end
 
   def destroy
+    @guesthouse_community = GuesthouseCommunity.find(params[:id])
+    @guesthouse_community.destroy
+    @guesthouse = Guesthouse.find(params[:guesthouse_id])
+    redirect_to guesthouse_customer_guesthouse_community_path(@guesthouse, @guesthouse_community.customer_id, @guesthouse_community.id)
   end
 
   def edit

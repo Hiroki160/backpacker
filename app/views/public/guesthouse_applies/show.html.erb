@@ -1,33 +1,48 @@
-<section class="hero is-success">
-  <div class="hero-body">
-    <div class="container">
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5 apply">
       <h3 class="title">
         現在申請中<br><br>
       </h3>
 
-      <table class="table table-primary">
+      <table class="table table-primary" style="width: 110%; padding-right: 10px;">
         <thead class="table-active">
         	<tr>
-        		<th scope="col">タイトル</th>
-        		<th scope="col">募集内容</th>
-        		<th scope="col">募集開始</th>
-        		<th scope="col">募集終了</th>
-        		<th scope="col"></th>
+        	  <th>ゲストハウス名</th>
+        		<th>タイトル</th>
+        		<th>募集内容</th>
+        		<th>募集開始</th>
+        		<th>募集終了</th>
+        		<th>ステータス</th>
+        		<th></th>
         	</tr>
         </thead>
 
         <tbody>
           <% @guesthouse_applies.each do |apply| %>
             <tr>
+              <td><%= apply.guesthouse_community.guesthouse.name %></td>
               <td><%= apply.guesthouse_community.title %></td>
-              <td><%= apply.guesthouse_community.body %></td>
+              <td><%= simple_format(apply.guesthouse_community.body) %></td>
               <td><%= apply.guesthouse_community.start_date %></td>
               <td><%= apply.guesthouse_community.end_date %></td>
               <td><%= apply.status_i18n %></td>
+              <td>
+                <% if apply.status == "accept" %>
+                  <%= link_to 'コミュニティに参加', guesthouse_community_guesthouse_community_comments_path(apply.id) %>
+                <% end %>
+              </td>
+            </tr>
           <% end %>
         </tbody>
       </table>
 
     </div>
+  </div>
+  <div class="review-button">
+  	<td><%= link_to "マイページへ戻る", customer_path(@customer.id), class: "btn btn btn-primary text-white" %></td>
+  	</div>
+  	</div>
   </div>
 </section>

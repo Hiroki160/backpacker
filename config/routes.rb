@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -74,18 +73,25 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new]
     end
 
+    #ゲストハウスコミュニティ詳細
     resources :guesthouses do
       resources :customers do
         resources :guesthouse_communities, only: [:show]
       end
     end
 
+    #ゲストハウスコミュニティ申請画面
     resources :guesthouse_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new] do
       resources :guesthouse_applies, only: [:show, :create, :update, :destroy]
     end
 
     #マイページから申請中のゲストハウスへ
     resources :guesthouse_applies, only: [:show]
+
+    #ゲストハウスコミュニティ掲示板
+    resources :guesthouse_communities do
+      resources :guesthouse_community_comments, only: [:index, :create, :destroy]
+    end
 
     #レストランコミュニティ機能
 

@@ -1,0 +1,2 @@
+class GuesthouseCommunityComment < ApplicationRecord
+end
