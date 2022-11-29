@@ -30,7 +30,7 @@
               <td><%= apply.status_i18n %></td>
               <td>
                 <% if apply.status == "accept" %>
-                  <%= link_to 'コミュニティに参加', guesthouse_community_guesthouse_community_comments_path(apply.id) %>
+                  <%= link_to 'コミュニティに参加', guesthouse_community_guesthouse_community_comments_path(apply.guesthouse_community.id) %>
                 <% end %>
               </td>
             </tr>
