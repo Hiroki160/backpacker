@@ -36,11 +36,13 @@
 
     <div class="review-button">
     	<td><%= link_to "レビューを書く", new_restaurant_restaurant_review_path(@restaurant), class: "btn btn btn-primary text-white" %></td>
+      <td><%= link_to "仲間募集", restaurant_restaurant_communities_path(@restaurant), class: "btn btn btn-primary text-white" %></td>
+    </div>
+    <div class="review-button" style="margin-top: 5px;">
   		<td><%= link_to "戻る", restaurants_path(country_id: @restaurant[:country_id]), class: "btn btn btn-primary text-white" %></td>
   	</div>
-  </div>
 
-
+    </div>
   	<div class="col-8">
   		<div class="reviews">
   		  <!--サーチバー-->

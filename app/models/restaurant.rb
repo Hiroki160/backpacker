@@ -27,5 +27,8 @@ class Restaurant < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
+  
+  #コミュニティ
+  has_many :restaurant_communities, dependent: :destroy
 
 end

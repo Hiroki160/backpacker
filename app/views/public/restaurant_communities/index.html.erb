@@ -1,0 +1,31 @@
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1><%= @restaurant.name %></h1>
+        <div>
+          <% @restaurant_communities.each do |community| %>
+        		<div class="col-md-12">
+        	    <div class="card mb-2" style="text-align :center;">
+      		      <h5 class="card-header">
+            		  <% if community.customer.image.attached? %>
+                  <%= image_tag community.customer.image, class: "rounded-circle", size: "50x50" %>
+                  <% else %>
+                  <%= image_tag 'no_image', size: "200x200" %>
+                  <% end %>
+                  <%= link_to community.customer.user_name, customer_path(community.customer.id) %>
+      		    　【<%= community.title %>】
+    		        </h5>
+      				<div class="card-body">
+      					<div class="card-text">
+      						<%= simple_format(community.body) %>
+      						<%#= link_to '加入申請', guesthouse_community_guesthouse_applies_path(community.id), method: :post, class: "mini-green-link-btn font-bold text-line-none" %>
+      					</div>
+        		  </div>
+        		</div>
+          </div>
+        <% end %>
+        <div class="text-center"><%= link_to "募集する", new_restaurant_restaurant_community_path(@restaurant), class: "btn btn-primary" %></div>
+      </div>
+    </div>
+  </div>
+</section>

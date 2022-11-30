@@ -17,6 +17,10 @@ class Customer < ApplicationRecord
   has_many :restaurant_reviews, dependent: :destroy
   has_one_attached :image
   
+  #レストランコミュニティ
+  has_many :restaurant_applies, dependent: :destroy
+  has_many :restaurant_communities, through: :restaurant_applies
+  
   #ゲストハウスコミュニティ
   has_many :guesthouse_applies, dependent: :destroy
   has_many :guesthouse_communities, through: :guesthouse_applies
