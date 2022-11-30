@@ -98,12 +98,20 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       resources :restaurant_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new]
     end
     
-    #ゲストハウスコミュニティ詳細
+    #レストランコミュニティ詳細
     resources :restaurants do
       resources :customers do
         resources :restaurant_communities, only: [:show]
       end
     end
+    
+    #レストランコミュニティ申請画面
+    resources :restaurant_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new] do
+      resources :restaurant_applies, only: [:show, :create, :update, :destroy]
+    end
+
+    #マイページから申請中のレストランへ
+    resources :restaurant_applies, only: [:show]
 
      #レストラン
     resources :restaurants, only: [:index, :new, :show, :create] do

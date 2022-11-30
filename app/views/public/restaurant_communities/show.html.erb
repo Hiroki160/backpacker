@@ -1,2 +1,68 @@
-<h1>Public::RestaurantCommunities#show</h1>
-<p>Find me in app/views/public/restaurant_communities/show.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">
+        自分が募集しているコミュニティ<br><br>
+      </h3>
+
+       <div class="container-fluid">
+      	<div class="row">
+      	  <% @restaurant_communities.each do |community| %>
+      	   <div class="col-md-12">
+      			<div class="card mb-2" style="text-align :center;">
+      				<h5 class="card-header">
+      					【<%= community.restaurant.name %>】<%= community.title %>
+      				</h5>
+      				<div class="card-body">
+      				  <div class="card-text">
+      				    <%= simple_format(community.body) %>
+      				  <div class="">
+      				    <h5>申請者</h5>
+      				    <div class="row">
+      				      <% community.restaurant_applies.each do |apply| %>
+      				      <div class="col-md-4">
+      				        <div class="card">
+      				          <div class="card-text">
+                          <% if apply.customer.image.attached? %>
+                            <%= image_tag apply.customer.image, class: "rounded-circle", size: "50x50" %>
+                          <% else %>
+                            <%= image_tag 'no_image', size: "50x50" %>
+                          <% end %>
+                          <%= link_to apply.customer.user_name, customer_path(@customer) %>
+                          <hr>
+                          <!--申請の記述-->
+                          <%= form_with model: @restaurant_apply, url: restaurant_community_restaurant_apply_path(community.id, apply.id), method: :put do |f| %>
+                            <div>
+                            	<label class="payment-label"><%= f.radio_button :status, RestaurantApply.statuses.key(0) %> 承認</label>
+                            </div>
+                          	<div>
+                            	<label class="payment_label"><%= f.radio_button :status, RestaurantApply.statuses.key(1) %> 却下</label>
+                          	</div>
+                          	<%= f.submit '決定', class: "btn btn-primary" %>
+                          <% end %>
+      				          </div>
+      				        </div>
+      				      </div>
+      				      <% end %>
+      				      </div>
+      				    </div>
+      				  </div>
+      				</div>
+        			<div><%= link_to "削除する", restaurant_restaurant_community_path(community.restaurant_id, community.id), method: :delete, "data-confirm" => "本当に削除しますか？" %> </div>
+      				<div class="card-footer">
+      					<%= community.start_date %>から<%= community.end_date %>まで募集中
+      					<%#= link_to 'コミュニティに参加', guesthouse_community_guesthouse_community_comments_path(community.id) %>
+      				</div>
+      			</div>
+      		</div>
+      	 <% end %>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	 <div class="review-button">
+  	<td><%= link_to "マイページへ戻る", customer_path(@customer.id), class: "btn btn btn-primary text-white" %></td>
+  </div>
+</section>

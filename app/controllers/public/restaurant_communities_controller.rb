@@ -23,6 +23,9 @@ class Public::RestaurantCommunitiesController < ApplicationController
   end
 
   def show
+    @restaurant_communities = RestaurantCommunity.where(customer_id: current_customer.id)
+    @customer = Customer.find(current_customer.id)
+    @restaurant_apply = RestaurantApply.new
   end
 
   def destroy
