@@ -27,6 +27,9 @@ class Customer < ApplicationRecord
   
   #ゲストハウスコミュニティコメント
   has_many :guesthouse_community_comments, dependent: :destroy
+  
+  #レストランコミュニティコメント
+  has_many :restaurant_community_comments, dependent: :destroy
 
   # is_deletedがfalseならtrueを返す
   def active_for_authentication?

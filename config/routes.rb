@@ -112,6 +112,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     #マイページから申請中のレストランへ
     resources :restaurant_applies, only: [:show]
+    
+    #レストランコミュニティ掲示板
+    resources :restaurant_communities do
+      resources :restaurant_community_comments, only: [:index, :create, :destroy]
+    end
 
      #レストラン
     resources :restaurants, only: [:index, :new, :show, :create] do
