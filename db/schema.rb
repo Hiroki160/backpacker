@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_01_094813) do
+ActiveRecord::Schema.define(version: 2022_12_01_215444) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -49,10 +49,37 @@ ActiveRecord::Schema.define(version: 2022_12_01_094813) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "activity_applies", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "activity_community_id"
+    t.integer "status", default: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "activity_comments", force: :cascade do |t|
     t.integer "activity_review_id"
     t.integer "customer_id"
     t.string "content"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "activity_communities", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "activity_id"
+    t.text "body"
+    t.string "title"
+    t.date "start_date"
+    t.date "end_date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "activity_community_comments", force: :cascade do |t|
+    t.integer "customer_id"
+    t.integer "activity_community_id"
+    t.text "body"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

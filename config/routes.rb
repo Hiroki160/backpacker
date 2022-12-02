@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
 # 顧客用
 # URL /customers/sign_in ...
 devise_for :customers,skip: [:passwords], controllers: {
@@ -92,19 +93,19 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :guesthouse_communities do
       resources :guesthouse_community_comments, only: [:index, :create, :destroy]
     end
-    
+
     #レストランコミュニティ機能
     resources :restaurants, only: [:index, :new, :show, :create] do
       resources :restaurant_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new]
     end
-    
+
     #レストランコミュニティ詳細
     resources :restaurants do
       resources :customers do
         resources :restaurant_communities, only: [:show]
       end
     end
-    
+
     #レストランコミュニティ申請画面
     resources :restaurant_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new] do
       resources :restaurant_applies, only: [:show, :create, :update, :destroy]
@@ -112,7 +113,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 
     #マイページから申請中のレストランへ
     resources :restaurant_applies, only: [:show]
-    
+
     #レストランコミュニティ掲示板
     resources :restaurant_communities do
       resources :restaurant_community_comments, only: [:index, :create, :destroy]
@@ -131,6 +132,24 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
         resources :activity_comments, only: [:create, :destroy, :index]
        end
      end
+
+    #アクティビティコミュニティ機能
+    resources :activities, only: [:index, :new, :show, :create] do
+      resources :activity_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new]
+    end
+
+    #アクティビティコミュニティ詳細
+    resources :activities do
+      resources :customers do
+        resources :activity_communities, only: [:show]
+      end
+    end
+
+     #アクティビティコミュニティ掲示板
+    resources :activity_communities do
+      resources :activity_community_comments, only: [:index, :create, :destroy]
+    end
+
 
      #投稿
      resources :posts
