@@ -45,6 +45,7 @@
         <h4 style="margin-right:5%;">申請中のリスト</h4>
           <p class="field" style="margin-right:5%;"><%= link_to "ゲストハウス", guesthouse_apply_path, class: "btn btn btn-primary text-white" %></p>
           <p class="field" style="margin-right:5%;"><%= link_to "レストラン", restaurant_apply_path, class: "btn btn btn-primary text-white" %></p>
+          <p class="field" style="margin-right:5%;"><%= link_to "アクティビティ", activity_apply_path, class: "btn btn btn-primary text-white" %></p>
       </div>
       <%= link_to "編集する", edit_customer_path(current_customer.id), class: "btn btn-success" %>
       <%= link_to "退会する", confirmation_path(current_customer.id), class: "btn btn-success" %>

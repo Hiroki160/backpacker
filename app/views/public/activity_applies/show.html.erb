@@ -1,0 +1,48 @@
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-5 apply">
+      <h3 class="title">
+        現在申請中<br><br>
+      </h3>
+
+      <table class="table table-primary" style="width: 110%; padding-right: 10px;">
+        <thead class="table-active">
+        	<tr>
+        	  <th>レストラン名</th>
+        		<th>タイトル</th>
+        		<th>募集内容</th>
+        		<th>募集開始</th>
+        		<th>募集終了</th>
+        		<th>ステータス</th>
+        		<th></th>
+        	</tr>
+        </thead>
+
+        <tbody>
+          <% @activity_applies.each do |apply| %>
+            <tr>
+              <td><%= apply.activity_community.activity.name %></td>
+              <td><%= apply.activity_community.title %></td>
+              <td><%= simple_format(apply.activity_community.body) %></td>
+              <td><%= apply.activity_community.start_date %></td>
+              <td><%= apply.activity_community.end_date %></td>
+              <td><%= apply.status_i18n %></td>
+              <td>
+                <% if apply.status == "accept" %>
+                  <%#= link_to 'コミュニティに参加', restaurant_community_restaurant_community_comments_path(apply.restaurant_community.id) %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <div class="review-button">
+  	<td><%= link_to "マイページへ戻る", customer_path(@customer.id), class: "btn btn btn-primary text-white" %></td>
+  	</div>
+  	</div>
+  </div>
+</section>

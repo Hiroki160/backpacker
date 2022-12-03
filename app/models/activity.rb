@@ -19,5 +19,8 @@ class Activity < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
+  
+  #コミュニティ
+  has_many :activity_communities, dependent: :destroy
 
 end

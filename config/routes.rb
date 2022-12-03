@@ -145,10 +145,18 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
       end
     end
 
+    #アクティビティコミュニティ申請画面
+    resources :activity_communities, only: [:index, :create, :show, :destroy, :edit, :update, :new] do
+      resources :activity_applies, only: [:show, :create, :update, :destroy]
+    end
+
      #アクティビティコミュニティ掲示板
     resources :activity_communities do
       resources :activity_community_comments, only: [:index, :create, :destroy]
     end
+
+    #マイページから申請中のアクティビティへ
+    resources :activity_applies, only: [:show]
 
 
      #投稿

@@ -14,4 +14,10 @@
           decline: "却下されました"
           waiting: "申請中"
 
-
+  ja:
+    enums:
+      activity_apply:
+        status:
+          accept: "承認済み"
+          decline: "却下されました"
+          waiting: "申請中"
