@@ -1,3 +1,13 @@
+  # ja.enums.guesthouse_apply.status.accept = "承認済み"
+
+  # ja.enums.status.accept
+
+  # ja:
+  #   enums:
+  #     status:
+  #       accept: "承認すみ"
+
+
   ja:
     enums:
       guesthouse_apply:
@@ -6,18 +16,15 @@
           decline: "却下されました"
           waiting: "申請中"
 
-  ja:
-    enums:
       restaurant_apply:
         status:
           accept: "承認済み"
           decline: "却下されました"
           waiting: "申請中"
 
-  ja:
-    enums:
       activity_apply:
         status:
           accept: "承認済み"
           decline: "却下されました"
           waiting: "申請中"
+

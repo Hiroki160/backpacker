@@ -12,8 +12,7 @@
         	  <th>ゲストハウス名</th>
         		<th>タイトル</th>
         		<th>募集内容</th>
-        		<th>募集開始</th>
-        		<th>募集終了</th>
+        		<th>募集期間</th>
         		<th>ステータス</th>
         		<th></th>
         	</tr>
@@ -25,8 +24,13 @@
               <td><%= apply.guesthouse_community.guesthouse.name %></td>
               <td><%= apply.guesthouse_community.title %></td>
               <td><%= simple_format(apply.guesthouse_community.body) %></td>
-              <td><%= apply.guesthouse_community.start_date %></td>
-              <td><%= apply.guesthouse_community.end_date %></td>
+              <td>
+                <% if apply.guesthouse_community.end_date < Date.today %>
+                  募集終了しました
+                <% else %>
+                  <%= apply.guesthouse_community.start_date %> から <%= apply.guesthouse_community.end_date %>
+                <% end %>
+              </td>
               <td><%= apply.status_i18n %></td>
               <td>
                 <% if apply.status == "accept" %>

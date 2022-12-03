@@ -12,8 +12,7 @@
         	  <th>レストラン名</th>
         		<th>タイトル</th>
         		<th>募集内容</th>
-        		<th>募集開始</th>
-        		<th>募集終了</th>
+        		<th>募集期間</th>
         		<th>ステータス</th>
         		<th></th>
         	</tr>
@@ -25,12 +24,17 @@
               <td><%= apply.activity_community.activity.name %></td>
               <td><%= apply.activity_community.title %></td>
               <td><%= simple_format(apply.activity_community.body) %></td>
-              <td><%= apply.activity_community.start_date %></td>
-              <td><%= apply.activity_community.end_date %></td>
+              <td>
+                <% if apply.activity_community.end_date < Date.today %>
+                  募集終了しました
+                <% else %>
+                  <%= apply.activity_community.start_date %> から <%= apply.activity_community.end_date %>
+                <% end %>
+              </td>
               <td><%= apply.status_i18n %></td>
               <td>
                 <% if apply.status == "accept" %>
-                  <%#= link_to 'コミュニティに参加', restaurant_community_restaurant_community_comments_path(apply.restaurant_community.id) %>
+                  <%= link_to 'コミュニティに参加', activity_community_activity_community_comments_path(apply.activity_community.id) %>
                 <% end %>
               </td>
             </tr>
