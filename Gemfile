@@ -5,10 +5,11 @@ ruby '2.6.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails', branch: 'main'
 gem 'rails', '~> 6.1.7'
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3', '~> 1.4'
 # Use Puma as the app server
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
@@ -30,7 +31,8 @@ gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+
 end
 
 group :development do
@@ -57,12 +59,27 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'active_hash'
+
 group :development, :test do
-gem 'pry-rails'
+  gem 'pry-rails'
+
+end
+
 gem 'bulma-rails'
 gem 'jquery-rails'
 gem 'kaminari','~> 1.2.1'
 gem "enum_help"
 gem 'rails-i18n'
 
+
+gem 'dotenv-rails'
+
+group :production do
+  gem 'mysql2'
+   
 end
+
+gem "net-smtp"
+gem "net-pop"
+gem "net-imap"
+
