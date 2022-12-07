@@ -73,7 +73,7 @@ a {
 }
 
 .bg {
-  background-image: url(backpack.png);
+  background-image: url("backpack.png");
   background-size: cover;
 }
 
