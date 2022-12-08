@@ -3,7 +3,7 @@
  *= require raty-js/lib/jquery.raty.css
  */
 
-@import "../../
+@import "../../../node_modules/bulma/bulma.sass";
 
 body {
   min-height: 100vh;
