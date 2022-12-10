@@ -57,6 +57,7 @@ a {
 
 .card-footer {
   margin-top: 10px;
+  justify-content: center;
 }
 
 .card {
