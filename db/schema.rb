@@ -140,9 +140,9 @@ ActiveRecord::Schema.define(version: 2022_12_01_215444) do
   create_table "guesthouse_applies", force: :cascade do |t|
     t.integer "customer_id"
     t.integer "guesthouse_community_id"
+    t.integer "status", default: 2
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "status", default: 2
   end
 
   create_table "guesthouse_comments", force: :cascade do |t|
