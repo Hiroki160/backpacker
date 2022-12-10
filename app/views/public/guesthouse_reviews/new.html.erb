@@ -8,11 +8,10 @@
   </div>
 </section>
 
-
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-6">
+      <div class="column is-5">
 
         <div class="rating-box mt-3">
           <%= form_with model: @guesthouse_review, url: guesthouse_guesthouse_reviews_path(@guesthouse) do |f| %>
@@ -24,28 +23,28 @@
               </div>
 
               <div class="row mb-3 field">
-                <%= f.label :ゲストハウス画像 %><br />
+                <%= f.label :ゲストハウス画像, class: "col-sm-5 col-form-label" %>
                 <div class="guesthouse_image col-sm-10">
                 <%= f.file_field :image, placeholder: "ゲストハウス画像", accept: "image/*" %>
               </div>
               </div>
 
               <div class="row mb-3">
-                <%= f.label :使用額（１泊）, class: "col-sm-2 col-form-label" %>
+                <%= f.label :使用額（１泊）, class: "col-sm-5 col-form-label" %>
                 <div class="col-sm-10">
                 <%= f.text_field :guesthouse_price, class: "form-conrol" %>円
                 </div>
               </div>
 
               <div class="row mb-3">
-                <%= f.label :コメント, class: "col-sm-2 col-form-label" %>
+                <%= f.label :コメント, class: "col-sm-5 col-form-label" %>
                 <div class="col-sm-10">
                 <%= f.text_area :guesthouse_content, class: "form-conrol" %>
                 </div>
               </div>
 
             <div class="row mb-3">
-              <%= f.label :レビューのトピック, class: "col-sm-2 col-form-label" %>
+              <%= f.label :レビューのトピック, class: "col-sm-5 col-form-label" %>
               <div class="col-sm-10">
                 <%= f.collection_check_boxes(:guesthouse_tag_ids, GuesthouseTag.all, :id, :name) do |tag| %>
                 <div>
@@ -61,7 +60,7 @@
               <%= f.submit "保存", class: "button mt-3" %>
 
                 <script>
-                  $('#evaluate_stars').raty({
+                  $('#evaluate_stars').empty().raty({
                     starOn: "<%= asset_path('star-on.png') %>",
                     starOff: "<%= asset_path('star-off.png') %>",
                     starHalf: "<%= asset_path('star-half.png') %>",
@@ -81,3 +80,4 @@
     </div>
   </div>
 </section>
+

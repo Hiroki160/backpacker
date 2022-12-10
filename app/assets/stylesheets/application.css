@@ -23,6 +23,14 @@ a {
   text-align: center;
 }
 
+.col-form-label {
+  color: white;
+}
+
+.col-sm-10 {
+  color: white;
+}
+
 .swiper {
   width: 300px;
   height: 300px;
@@ -71,7 +79,7 @@ a {
 }
 
 .bg {
-  background-image: url("backpack.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("backpack.png");
   background-size: cover;
 }
 
