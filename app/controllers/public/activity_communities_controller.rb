@@ -24,6 +24,10 @@ class Public::ActivityCommunitiesController < ApplicationController
   end
 
   def destroy
+    @activity_community = ActivityCommunity.find(params[:id])
+    @activity_community.destroy
+    @activity = Activity.find(params[:activity_id])
+    redirect_to activity_customer_activity_community_path(@activity, @activity_community.customer_id, @activity_community.id)
   end
 
   def edit

@@ -48,6 +48,8 @@
         <%= link_to "選択画面に戻る", country_path(@country.id), class: "btn btn btn-primary text-white" %>
       </div>
     </section>
+    
+    <%= paginate @restaur %>
 
   <script>
 	$('.average-review-rating').empty().raty({

@@ -1,10 +1,10 @@
 class Public::RestaurantCommunitiesController < ApplicationController
-  
+
   def new
     @restaurant_community = RestaurantCommunity.new
     @restaurant = Restaurant.find(params[:restaurant_id])
   end
-  
+
   def index
     @restaurant = Restaurant.find(params[:restaurant_id])
     @restaurant_communities = @restaurant.restaurant_communities.all
@@ -29,6 +29,10 @@ class Public::RestaurantCommunitiesController < ApplicationController
   end
 
   def destroy
+    @restaurant_community = RestaurantCommunity.find(params[:id])
+    @restaurant_community.destroy
+    @restaurant = Restaurant.find(params[:restaurant_id])
+    redirect_to restaurant_customer_restaurant_community_path(@restaurant, @restaurant_community.customer_id, @restaurant_community.id)
   end
 
   def edit
@@ -36,7 +40,7 @@ class Public::RestaurantCommunitiesController < ApplicationController
 
   def update
   end
-  
+
   private
 
   def community_params

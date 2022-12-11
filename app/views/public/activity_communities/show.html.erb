@@ -51,7 +51,7 @@
         			<div><%= link_to "削除する", activity_activity_community_path(community.activity_id, community.id), method: :delete, "data-confirm" => "本当に削除しますか？" %> </div>
       				<div class="card-footer">
       				  <div>
-      				    <% if communtiy.end_date < Date.today %>
+      				    <% if community.end_date < Date.today %>
       				      募集終了しました
       				    <% else %>
       					    <%= community.start_date %>から<%= community.end_date %>まで募集中
