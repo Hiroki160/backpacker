@@ -40,6 +40,10 @@ a {
   height: 300px;
 }
 
+.hero.is-success {
+  background-color: transparent;
+}
+
 
 
 .col-4  {
