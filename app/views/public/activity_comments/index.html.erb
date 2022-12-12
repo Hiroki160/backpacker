@@ -48,7 +48,7 @@
               <tbody>
                 <% @activity_comments.each do |comment| %>
                   <tr>
-                    <td><%= comment.customer.name %></td>
+                    <td><%= comment.customer.user_name %></td>
                     <td><%= comment.content %></td>
                     <td>
                       <%= link_to "削除する", activity_activity_review_activity_comment_path(@activity, @activity_review, comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>

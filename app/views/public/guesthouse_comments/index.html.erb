@@ -49,7 +49,7 @@
               <tbody>
                 <% @guesthouse_comments.each do |comment| %>
                   <tr>
-                    <td><%= comment.customer.name %></td>
+                    <td><%= comment.customer.user_name %></td>
                     <td><%= comment.content %></td>
                     <td>
                       <% if customer = current_customer %>
