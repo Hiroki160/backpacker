@@ -20,6 +20,7 @@ class Public::GuesthouseCommunityCommentsController < ApplicationController
     if @guesthouse_community_comment.save
       redirect_to guesthouse_community_guesthouse_community_comments_path(@guesthouse_community), notice: "投稿しました！"
     else
+      @guesthouse_community_comments = @guesthouse_community.guesthouse_community_comments.all
       render :index
     end
   end

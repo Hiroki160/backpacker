@@ -20,6 +20,7 @@ class Public::RestaurantCommunityCommentsController < ApplicationController
     if @restaurant_community_comment.save
       redirect_to restaurant_community_restaurant_community_comments_path(@restaurant_community), notice: "投稿しました！"
     else
+      @restaurant_community_comments =  @restaurant_community.restaurant_community_comments
       render :index
     end
   end

@@ -7,7 +7,8 @@ class Public::RestaurantCommentsController < ApplicationController
     if @restaurant_comment.save
       redirect_to restaurant_restaurant_review_restaurant_comments_path(@restaurant, @restaurant_review)
     else
-      render 'restaurants/show'
+      @restaurant_comments = @restaurant_review.restaurant_comments.all
+      render :index
     end
   end
 

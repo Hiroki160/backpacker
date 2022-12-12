@@ -15,7 +15,7 @@ class Public::GuesthouseCommentsController < ApplicationController
     if @guesthouse_comment.save
       redirect_to guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review)
     else
-      @guesthouse_comments = @guesthouse_review.guesthouse_comments
+      @guesthouse_comments = @guesthouse_review.guesthouse_comments.all
       render :index
     end
   end

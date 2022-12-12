@@ -1,4 +1,5 @@
 class Public::ActivityCommentsController < ApplicationController
+
   def create
     @activity_review = ActivityReview.find(params[:activity_review_id])
     @activity = Activity.find(params[:activity_id])
@@ -7,7 +8,8 @@ class Public::ActivityCommentsController < ApplicationController
     if @activity_comment.save
       redirect_to activity_activity_review_activity_comments_path(@activity, @activity_review)
     else
-      render 'activities/show'
+      @activity_comments = @activity_review.activity_comments.all
+      render :index
     end
   end
 

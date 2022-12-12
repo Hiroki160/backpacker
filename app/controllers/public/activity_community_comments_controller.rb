@@ -7,6 +7,7 @@ class Public::ActivityCommunityCommentsController < ApplicationController
     if @activity_community_comment.save
       redirect_to activity_community_activity_community_comments_path(@activity_community), notice: "投稿しました！"
     else
+      @activity_community_comments = @activity_community.activity_community_comments
       render :index
     end
   end
