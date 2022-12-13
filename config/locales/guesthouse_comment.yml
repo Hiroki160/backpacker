@@ -1,0 +1,5 @@
+ja:
+ activerecord:
+  attributes:
+   guesthouse_comment:
+    content: "コメント"

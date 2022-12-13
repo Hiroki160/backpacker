@@ -30,7 +30,11 @@
 
           <div class="col-8">
             <div class="form-group" style="margin-top: 80px;">
+
+              <%= render 'errors' %>
+
               <%= form_with model: [@guesthouse_review, @guesthouse_comment], url: guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review) do |f| %>
+
                 <%= f.text_area :content, rows: '3', placeholder: "コメントをここに", class: "form-control"  %>
                 <%= f.submit "送信する" %>
               <% end %>
