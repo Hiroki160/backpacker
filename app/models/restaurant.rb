@@ -22,8 +22,8 @@ class Restaurant < ApplicationRecord
   has_one_attached :image
   
   #タグ
-  has_many :restaurant_relations, dependent: :destroy
-  has_many :restaurant_tags, through: :restaurant_relations
+  # has_many :restaurant_relations, dependent: :destroy
+  # has_many :restaurant_tags, through: :restaurant_relations
 
   validates :name, presence: true
   validates :address, presence: true

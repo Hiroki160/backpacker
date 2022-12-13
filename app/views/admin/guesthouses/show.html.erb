@@ -43,13 +43,7 @@
   	<div class="col-8">
   		<div class="reviews">
   		  <div class="bar">
-  		  <%= form_tag({ :controller => 'guesthouses', :action => 'show' },{ :method => :get}) do %>
-  		        <%= select_tag :guesthouse_tag_id, options_from_collection_for_select(GuesthouseTag.all, :id, :name, params[:guesthouse_tag_id]),{
-                       prompt: 'トピックで絞り込み検索',
-                       onchange: 'submit(this.form);'
-                     }
-              %>
-        <% end %>
+
         </div>
   			<!-- レビュー-->
     			<h5>レビュー</h5>

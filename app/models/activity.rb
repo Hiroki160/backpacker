@@ -14,8 +14,8 @@ class Activity < ApplicationRecord
   has_one_attached :image
 
   #タグ
-  has_many :activity_relations, dependent: :destroy
-  has_many :activity_tags, through: :activity_relations
+  # has_many :activity_relations, dependent: :destroy
+  # has_many :activity_tags, through: :activity_relations
 
   validates :name, presence: true
   validates :address, presence: true
