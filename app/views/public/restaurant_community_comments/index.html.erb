@@ -14,6 +14,8 @@
     <div class="columns is-centered">
       <div class="column is-6">
 
+        <%= render "errors" %>
+
           <%= form_with model: @restaurant_community_comment, url: restaurant_community_restaurant_community_comments_path(@restaurant_community.id) do |f| %>
 
             <div class="row mb-3">

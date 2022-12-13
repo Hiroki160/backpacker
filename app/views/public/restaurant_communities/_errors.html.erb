@@ -1,0 +1,8 @@
+<% if @restaurant_community.errors.any? %>
+ <%= @restaurant_community.errors.count %>件のエラーが発生しました
+<ul>
+<% @restaurant_community.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+<% end %>
+</ul>
+<% end %>

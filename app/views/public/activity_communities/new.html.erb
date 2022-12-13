@@ -13,6 +13,8 @@
     <div class="columns is-centered">
       <div class="column is-6">
 
+        <%= render "errors" %>
+
           <%= form_with model: @activity_community, url: activity_activity_communities_path(@activity) do |f| %>
 
             <div class="row mb-3">

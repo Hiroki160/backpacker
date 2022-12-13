@@ -1,0 +1,5 @@
+ja:
+ activerecord:
+  attributes:
+   restaurant_community_comment:
+    body: "コメント"

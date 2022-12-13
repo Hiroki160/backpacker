@@ -1,0 +1,6 @@
+ja:
+ activerecord:
+  attributes:
+   activity_community:
+    body: "コメント"
+    title: "募集内容"

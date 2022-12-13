@@ -1,0 +1,8 @@
+<% if @activity_community.errors.any? %>
+ <%= @activity_community.errors.count %>件のエラーが発生しました
+<ul>
+<% @activity_community.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+<% end %>
+</ul>
+<% end %>

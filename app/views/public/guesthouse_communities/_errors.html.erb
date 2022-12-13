@@ -1,0 +1,8 @@
+<% if @guesthouse_community.errors.any? %>
+ <%= @guesthouse_community.errors.count %>件のエラーが発生しました
+<ul>
+<% @guesthouse_community.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+<% end %>
+</ul>
+<% end %>
