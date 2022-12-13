@@ -159,6 +159,11 @@ a {
   opacity: 0.9;
 }
 
+.table tbody tr:last-child td, .table tbody tr:last-child th {
+    border-bottom-width: 0;
+    text-align: left;
+}
+
 .tag {
 	position: relative;
 	display: inline-block;
