@@ -28,7 +28,7 @@
                           <% else %>
                             <%= image_tag 'no_image', size: "50x50" %>
                           <% end %>
-                          <%= link_to apply.customer.user_name, customer_path(@customer) %>
+                          <%= link_to apply.customer.user_name, customer_path(apply.customer_id) %>
                           <hr>
                           <!--申請の記述-->
                           <%= form_with model: @activity_apply, url: activity_community_activity_apply_path(community.id, apply.id), method: :put do |f| %>

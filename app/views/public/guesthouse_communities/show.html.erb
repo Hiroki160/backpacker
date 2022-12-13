@@ -28,7 +28,7 @@
                                 <% else %>
                                   <%= image_tag 'no_image', size: "50x50" %>
                                 <% end %>
-                                <%= link_to apply.customer.user_name, customer_path(@customer) %>
+                                <%= link_to apply.customer.user_name, customer_path(apply.customer_id) %>
                                 <hr>
                                 <%= form_with model: @guesthouse_apply, url: guesthouse_community_guesthouse_apply_path(community.id, apply.id), method: :put do |f| %>
                                   <div>
