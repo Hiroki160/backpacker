@@ -18,14 +18,15 @@
           				<div class="card-body">
           					<div class="card-text">
           						<%= simple_format(community.body) %>
-          						<%= link_to '加入申請', guesthouse_community_guesthouse_applies_path(community.id), method: :post, class: "mini-green-link-btn font-bold text-line-none" %>
+          						  <%= link_to '加入申請', guesthouse_community_guesthouse_applies_path(community.id), method: :post, class: "btn btn-primary text-white" %>
           					</div>
         		  </div>
         		</div>
           </div>
           <% end %>
-          <div class="text-center"><%= link_to "募集する", new_guesthouse_guesthouse_community_path(@guesthouse), class: "btn btn-primary" %></div>
+          <div class="text-center"><%= link_to "募集する", new_guesthouse_guesthouse_community_path(@guesthouse), class: "btn btn-primary text-white" %></div>
         </div>
       </div>
     </div>
 </section>
+

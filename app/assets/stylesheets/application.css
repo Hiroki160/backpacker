@@ -66,6 +66,11 @@ a {
 .card-footer {
   margin-top: 10px;
   justify-content: center;
+  display: flex;
+}
+
+.community {
+  text-align: right;
 }
 
 .card {
