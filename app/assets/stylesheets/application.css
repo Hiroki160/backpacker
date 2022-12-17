@@ -2,7 +2,6 @@
 /*
  *= require raty-js/lib/jquery.raty.css
  */
-
 body {
   min-height: 100vh;
   color: white;
@@ -66,7 +65,7 @@ a {
 .card-footer {
   margin-top: 10px;
   justify-content: center;
-  display: flex;
+  display: inline-block;
 }
 
 .community {
