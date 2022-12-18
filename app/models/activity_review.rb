@@ -15,7 +15,9 @@ class ActivityReview < ApplicationRecord
     greater_than_or_equal_to: 1
   }, presence: true
 
-  validates :activity_price, presence: true
+  # validates :activity_price, presence: true
+  
+  validates :activity_price, numericality: { greater_than_or_equal_to: 0, less_than_or_equal_to: 9_999_999 }, format: { with: /\A[0-9]+\z/ }
   validates :activity_content, presence: true
 
 end
