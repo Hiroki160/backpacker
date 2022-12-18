@@ -52,8 +52,11 @@
                     <td><%= comment.customer.user_name %></td>
                     <td><%= comment.content %></td>
                     <td>
+                      <% if comment.customer == current_customer %>
                       <%= link_to "削除する", activity_activity_review_activity_comment_path(@activity, @activity_review, comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                      <% end %>
                     </td>
+                    
                   </tr>
                 <% end %>
               </tbody>
