@@ -96,6 +96,18 @@ a {
   background-size: cover;
 }
 
+@media screen and (max-width: 425px) {
+  .bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("backpack.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 90%;
+  }
+}
+
+
+
 .letter {
   color: white;
   font-size: 130%;
