@@ -102,10 +102,9 @@ a {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    width: 90%;
+    width: 100%;
   }
 }
-
 
 
 .letter {
@@ -116,6 +115,18 @@ a {
 	line-height:30px;
 	font-weight:bold;
 	text-shadow: 0.02em 0.02em 0.02em rgba(0,0,0,1);
+}
+
+@media screen and (max-width: 425px) {
+  .letter {
+  color: white;
+  font-size: 82%;
+	text-align:center;
+	padding: 180px 0;
+	line-height:30px;
+	font-weight:bold;
+	text-shadow: 0.02em 0.02em 0.02em rgba(0,0,0,1);
+  }
 }
 
 .header-letter {
