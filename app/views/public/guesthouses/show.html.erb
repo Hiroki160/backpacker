@@ -8,7 +8,7 @@
         <div class="swiper mySwiper">
           <div class="swiper-wrapper">
             <% @guesthouse.guesthouse_reviews.each do |review| %>
-              <div class="swiper-slide" role="group">
+              <div class="swiper-slide top-image" role="group">
                   <% if review.image.attached? %>
                      <%= image_tag review.image, size: "300x300" %>
                   <% else %>
@@ -24,7 +24,7 @@
       </div>
 
             <!--レビュー-->
-      <div style="text-align: center;">
+      <div style="text-align: center;" class="explaination">
         <div>【名前】</div>
         <div class="book-title"><%= @guesthouse.name %></div>
         <div>【住所】</div>

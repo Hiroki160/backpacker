@@ -257,6 +257,64 @@ a {
   text-align:center;
 }
 
+@media screen and (max-width: 425px) {
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 0px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .text-center {
+    text-align: center !important;
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .fw-bolder {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+.average-review-rating {
+    font-size: 1px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+.whole-card {
+    flex: 1 0 25%;
+    max-width: 49%;
+    height: 25%;
+  }
+}
+
+.whole-card {
+    margin-right: 10px
+}
+
+.card-image {
+  img{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 425px) {
+.title {
+  font-size: 30px;
+
+  }
+}
+
+
+/*@media screen and (max-width: 425px) {*/
+/*.explaination {*/
+/*    margin-top: -149px;*/
+/*    font-size: 11px;*/
+/*  }*/
+/*}*/
 
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
