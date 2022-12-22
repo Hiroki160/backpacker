@@ -12,7 +12,7 @@
       <div class="container px-4 px-lg-5 mt-5">
           <div class="cards row gx-4 gx-lg-5 row-cols-md-3 row-cols-xl-4 justify-content-center">
             <% @activities.each do |activity| %>
-              <div class="whole-card mb-5">
+              <div class="whole-card mb-5 col-12 ml-2">
                   <div class="card h-100">
                       <!-- Activity image-->
                       <div class="card-image" style="text-align: center">
@@ -48,7 +48,7 @@
         <%= link_to "選択画面に戻る", country_path(@country.id), class: "btn btn btn-primary text-white" %>
       </div>
     </section>
-  
+
   <%= paginate @activities %>
 
   <script>
