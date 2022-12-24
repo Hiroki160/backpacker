@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 	  <!--<div class="book-review">-->
-		<div class="col-4 info">
+		<div class="col-md-4 info">
 		  <!--画像-->
   		<div class="book-info">
         <div class="swiper mySwiper">
@@ -34,17 +34,17 @@
   			<span class="number-of-reviews"><%= @guesthouse.guesthouse_reviews.count %>件のレビュー</span>
   		</div>
 
-      <div class="review-button">
-      	<td><%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-primary text-white" %></td>
-      	<td><%= link_to "仲間募集", guesthouse_guesthouse_communities_path(@guesthouse), class: "btn btn btn-primary text-white" %></td>
+      <div class="review-button my-3">
+      	<td><%= link_to "レビューを書く", new_guesthouse_guesthouse_review_path(@guesthouse), class: "btn btn btn-primary text-white btn-sm" %></td>
+      	<td><%= link_to "仲間募集", guesthouse_guesthouse_communities_path(@guesthouse), class: "btn btn btn-primary text-white btn-sm" %></td>
       </div>
-      <div class="review-button" style="margin-top: 5px;">
-        <td><%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-primary text-white" %></td>
+      <div class="review-button mb-3" style="margin-top: 5px;">
+        <td><%= link_to "戻る", guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-info text-white btn-sm" %></td>
       </div>
 
   	</div>
   	<!--</div>-->
-  	<div class="col-8">
+  	<div class="col-md-8">
   		<div class="reviews">
   		  <!--サーチバー-->
   		  <!--%= form_tag guesthouses_path method: :get, class: 'boards__searchForm' do %>-->
@@ -59,10 +59,10 @@
         </div>
         <!--サーチバーここまで-->
   			<!-- レビュー-->
-    			<h5>レビュー</h5>
+    			<h5 style= "color: white;">レビュー</h5>
     			  <div class="card bg-transparent">
             <% @guesthouse_reviews.each do |guesthouse_review| %>
-              <div class="card-detail mb-10">
+              <div class="card-detail mb-3">
                 <header class="card-header">
                   <h5 class="card-header-title">
                     <div class="user-name">

@@ -180,6 +180,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     #選択画面
     resources :options, only: [:index, :create]
 
+    get 'map/map'
+
 
 
 

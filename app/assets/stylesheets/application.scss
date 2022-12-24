@@ -257,6 +257,10 @@ a {
   text-align:center;
 }
 
+.explaination {
+  color: white;
+}
+
 @media screen and (max-width: 425px) {
   .card-body {
     flex: 1 1 auto;
@@ -304,6 +308,7 @@ a {
 @media screen and (max-width: 425px) {
 .title {
   font-size: 30px;
+  margin-bottom: -80px;
 
   }
 }
@@ -318,7 +323,7 @@ a {
 
 @media screen and (max-width: 425px) {
 .card {
-  margin-top: 280px;
+  // margin-top: 280px;
   }
 }
 
