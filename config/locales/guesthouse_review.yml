@@ -2,6 +2,7 @@ ja:
  activerecord:
   attributes:
    guesthouse_review:
+    image: "画像"
     guesthouse_score: "評価"
     guesthouse_price: "使用額"
     guesthouse_content: "コメント"

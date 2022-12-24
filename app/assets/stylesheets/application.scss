@@ -309,6 +309,26 @@ a {
 }
 
 
+@media screen and (max-width: 425px) {
+.review-text {
+  display: flex;
+  flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 425px) {
+.card {
+  margin-top: 280px;
+  }
+}
+
+// @media screen and (max-width: 425px) {
+//   .review-img {
+//     img{
+//       margin-left: 20px;
+//     }
+//   }
+// }
 
 // @media screen and (max-width: 425px) {
 // .cards {

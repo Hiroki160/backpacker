@@ -6,7 +6,7 @@
 		  <!--画像-->
   		<div class="book-info">
         <div class="swiper mySwiper">
-          <div class="swiper-wrapper">
+          <div class="swiper-wrapper review-img">
             <% @activity.activity_reviews.each do |review| %>
               <div class="swiper-slide" role="group">
                   <% if review.image.attached? %>
@@ -25,7 +25,7 @@
       <!--画像ここまで-->
 
       <!--情報ー-->
-      <div style="text-align: center;">
+      <div class="review-text" style="text-align: center;">
         <div>【名前】</div>
         <div class="book-title"><%= @activity.name %></div>
         <div>【住所】</div>
