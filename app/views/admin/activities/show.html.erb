@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 	  <!--<div class="book-review">-->
-		<div class="col-4">
+		<div class="col-md-4 info">
 		  <!--画像-->
   		<div class="book-info">
         <div class="swiper mySwiper">
@@ -25,7 +25,7 @@
       <!--画像ここまで-->
 
       <!--情報ー-->
-      <div style="text-align: center;">
+      <div style="text-align: center;" class="explaination">
         <div>【名前】</div>
         <div class="book-title"><%= @activity.name %></div>
         <div>【住所】</div>
@@ -36,27 +36,45 @@
   		</div>
   		<!--情報ここまで-->
 
-        <div class="review-button">
-        	<td><%= link_to "戻る", admin_activities_path(country_id: @activity[:country_id]), class: "btn btn btn-primary text-white" %></td>
+        <div class="review-button my-3">
+        	<td><%= link_to "戻る", admin_activities_path(country_id: @activity[:country_id]), class: "btn btn btn-info text-white btn-sm" %></td>
         </div>
     </div>
 
-  	<div class="col-8">
+  	<div class="col-md-8">
   		<div class="reviews">
+  		  <div class="bar">
+
+  		  </div>
+
   			<!-- レビュー-->
-    			<h5>レビュー</h5>
+    			<h5 style="color: white;">レビュー</h5>
       			<div class="card bg-transparent">
               <% @activity_reviews.each do |activity_review| %>
                 <div class="card-detail mb-10">
                   <header class="card-header">
                     <h5 class="card-header-title">
-                      <p><%= activity_review.customer.user_name %></p>
+                      <div class="user-name">
+
+                        <% if activity_review.customer.image.attached? %>
+                          <%= image_tag activity_review.customer.image, class: "rounded-circle", size: "50x50" %>
+                        <% else %>
+                          <%= image_tag 'no_image', size: "100x100" %>
+                        <% end %>
+                        <%= activity_review.customer.user_name %>
+
+                      </div>
                     </h5>
                   </header>
                   <div class="card-content">
                     <div class="review-rating" data-score=<%= activity_review.activity_score %>></div>
-                    <p><%= activity_review.activity_price %>円</p>
-                    <p><%= activity_review.activity_content %></p>
+                    <p>使用額：<%= activity_review.activity_price %>円</p>
+                    <p class="tag">
+                      トピック：<% activity_review.activity_tags.each do |tag| %>
+                        <%= tag.name %>
+                      <% end %>
+                    </p>
+                    <p>感想：<%= activity_review.activity_content %></p>
                     <%= link_to "削除する", admin_activity_activity_review_path(@activity, activity_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
                     <div>
                     コメント件数：<%= link_to activity_review.activity_comments.count, admin_activity_activity_review_activity_comments_path(@activity, activity_review) %>
@@ -65,6 +83,7 @@
                 </div><!--card end -->
                 <% end %>
               </div>
+
            </div>
         </div>
       </div>

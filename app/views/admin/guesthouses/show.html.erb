@@ -2,7 +2,7 @@
 <div class="container">
 	<div class="row">
 	  <!--<div class="book-review">-->
-		<div class="col-4">
+		<div class="col-md-4 info">
 		  <!--画像-->
   		<div class="book-info">
         <div class="swiper mySwiper">
@@ -24,7 +24,7 @@
       </div>
 
             <!--レビュー-->
-      <div style="text-align: center;">
+      <div style="text-align: center;" class="explaination">
         <div>【名前】</div>
         <div class="book-title"><%= @guesthouse.name %></div>
         <div>【住所】</div>
@@ -34,19 +34,19 @@
   			<span class="number-of-reviews"><%= @guesthouse.guesthouse_reviews.count %>件のレビュー</span>
   		</div>
 
-      <div class="review-button">
-      	<td><%= link_to "戻る", admin_guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-primary text-white" %></td>
+      <div class="review-button my-3">
+      	<td><%= link_to "戻る", admin_guesthouses_path(country_id: @guesthouse[:country_id]), class: "btn btn btn-info text-white btn-sm" %></td>
       </div>
 
   	</div>
   	<!--</div>-->
-  	<div class="col-8">
+  	<div class="col-md-8">
   		<div class="reviews">
   		  <div class="bar">
 
         </div>
   			<!-- レビュー-->
-    			<h5>レビュー</h5>
+    			<h5 style="color: white">レビュー</h5>
     			  <div class="card bg-transparent">
             <% @guesthouse_reviews.each do |guesthouse_review| %>
               <div class="card-detail mb-10">
