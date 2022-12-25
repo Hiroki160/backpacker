@@ -323,9 +323,49 @@ a {
 
 @media screen and (max-width: 425px) {
 .table {
-  max-width: 80%;
+  margin-top: 10px;
+  max-width: 400px;
+  margin: 0 auto;
   }
 }
+
+@media screen and (max-width: 425px) {
+.table,
+.table td,
+.table th {
+  border: 1px solid #cbced2;
+  border-collapse: collapse;
+  text-align: center;
+  }
+}
+
+@media screen and (max-width: 425px) {
+.table th {
+  color: #fff;
+  padding: 4px 12px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+.table td {
+  background: #f5f6f8;
+  padding: 4px 12px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+.table td,
+.table th {
+  width: 400px;
+  margin: 0 auto;
+  font-size: 1px;
+  margin-top: 2px;
+  }
+}
+
+
+
+
 
 // @media screen and (max-width: 425px) {
 //   .review-img {
