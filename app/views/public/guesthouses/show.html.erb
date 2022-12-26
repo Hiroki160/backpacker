@@ -29,6 +29,8 @@
         <div class="book-title"><%= @guesthouse.name %></div>
         <div>【住所】</div>
   			<div class="book-author"><%= @guesthouse.address %></div>
+  			<!--#mapの表示-->
+        <div id="map" style="margin: auto;"></div>
   			<div class="avg-rating">【レビュー平均点】</div>
   			<div class="average-review-rating" data-score=<%= get_average(@guesthouse) %>></div>
   			<span class="number-of-reviews"><%= @guesthouse.guesthouse_reviews.count %>件のレビュー</span>
@@ -143,3 +145,48 @@
     starHalf: "<%= asset_path('star-half.png') %>",
 	});
 </script>
+
+<!--google map表示-->
+
+<script type="text/javascript">
+  function initMap() {
+// #latitude,longitudeから位置を特定
+    var test ={lat: <%= @guesthouse.latitude %>, lng: <%= @guesthouse.longitude %>};
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 15,
+              center: test
+              });
+    var transitLayer = new google.maps.TransitLayer();
+    transitLayer.setMap(map);
+
+    var contentString = '住所：<%= @guesthouse.address %>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+// #Map上の指定した位置にピンを挿して表示する
+    var marker = new google.maps.Marker({
+                  position:test,
+                  map: map,
+                  title: contentString
+                 });
+
+     marker.addListener('click', function() {
+       infowindow.open(map, marker);
+     });
+  }
+</script>
+
+<script async defer
+              src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=<%= ENV['GOOGLE_MAP_API_KEY'] %>&callback=initMap">
+</script>
+<!--#表示するmapのcssです。ご自身でカスタマイズしてください。高さが設定されていないと表示されないことがあります。-->
+<style type="text/css">
+  #map { height: 200px;
+         width: 70%;
+         padding-left: 20px;
+  }
+</style>
+
+

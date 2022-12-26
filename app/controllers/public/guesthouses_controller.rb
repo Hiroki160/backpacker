@@ -43,7 +43,7 @@ class Public::GuesthousesController < ApplicationController
   private
 
   def guesthouse_params
-    params.require(:guesthouse).permit(:name, :address, :country_id, :customer_id, :image)
+    params.require(:guesthouse).permit(:name, :address, :latitude, :longitude, :country_id, :customer_id, :image)
   end
 
 end

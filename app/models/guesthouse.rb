@@ -26,6 +26,10 @@ class Guesthouse < ApplicationRecord
 
   #コミュニティ
   has_many :guesthouse_communities, dependent: :destroy
+  
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+  
 
 
 end

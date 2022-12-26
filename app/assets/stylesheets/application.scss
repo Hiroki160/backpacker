@@ -363,8 +363,16 @@ a {
   }
 }
 
+@media screen and (max-width: 425px) {
+#map {
+  max-width: 100%;
+  margin-bottom: 10px;
+  }
+}
 
-
+#map {
+  margin-bottom: 10px;
+  }
 
 
 // @media screen and (max-width: 425px) {
