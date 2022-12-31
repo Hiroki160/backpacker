@@ -19,18 +19,16 @@
             </div>
 
           <div class="field mb-3">
-
             <%= f.label :住所, class: "col-sm-2 col-form-label" %><br />
               <%= f.text_field :address, class: "form-conrol" %>
               <div>
-                <%= f.label :latitude,"緯度" %><br />
-                <%= f.text_field :latitude,:value =>"緯度", id: :lat %>
+                <%= f.label :latitude,"緯度" %>
+                <%= f.text_field :latitude,:value =>"緯度", id: :lat %><br />
               </div>
               <div>
-                <%= f.label :longitude,"経度" %><br />
-                <%= f.text_field :longitude,:value =>"経度", id: :lng %>
+                <%= f.label :longitude,"経度" %>
+                <%= f.text_field :longitude,:value =>"経度", id: :lng %><br />
               </div>
-
           </div>
 
         <h2>Map</h2>

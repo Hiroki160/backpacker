@@ -1,52 +1,34 @@
-<section class="hero is-success">
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title">
-        レストラン情報登録<br><br>
-      </h3>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-6">
-        <%= render 'layouts/reverror_messages' %>
+      <div class="column is-5 login">
+        <h1>レストラン情報登録</h1>
 
+      <div class="post">
+        <%= render 'layouts/reverror_messages' %>
         <%= form_with model: @restaurant, url: restaurants_path do |f| %>
 
-          <div class="row mb-3">
-            <%= f.label :国, class: "col-sm-2 col-form-label" %>
-            <div class="col-sm-10">
-              <%= f.collection_select(:country_id, Country.all, :id, :name) %>
-            </div>
+          <div class="field mb-3">
+            <%= f.label :国, class: "col-sm-2 col-form-label" %><br />
+            <%= f.collection_select(:country_id, Country.all, :id, :name) %>
           </div>
 
-
-
-          <div class="row mb-3">
-            <%= f.label :レストラン名, class: "col-sm-2 col-form-label" %>
-            <div class="col-sm-10">
-              <%= f.text_field :name, class: "form-conrol" %>
-            </div>
+          <div class="field mb-3" style="white-space: nowrap;">
+            <%= f.label :レストラン名, class: "col-sm-2 col-form-label" %><br />
+            <%= f.text_field :name, class: "form-conrol" %>
           </div>
 
-          <div class="row mb-3">
-
-            <div class="col-sm-10">
-            <%= f.label :住所, class: "col-sm-2 col-form-label" %>
+          <div class="field mb-3">
+            <%= f.label :住所, class: "col-sm-2 col-form-label" %><br />
               <%= f.text_field :address, class: "form-conrol" %>
               <div>
-                <%= f.label :latitude,"緯度" %>
+                <%= f.label :latitude,"緯度" %><br />
                 <%= f.text_field :latitude,:value =>"緯度", id: :lat %>
               </div>
               <div>
-                <%= f.label :longitude,"経度" %>
+                <%= f.label :longitude,"経度" %><br />
                 <%= f.text_field :longitude,:value =>"経度", id: :lng %>
               </div>
-
-            </div>
           </div>
 
           <h2>Map</h2>
@@ -57,11 +39,11 @@
           <div id='map'></div>
 
           <%= f.hidden_field :restaurant_id, :value => @restaurant.id %>
-
-
           <%= f.submit '登録', class: "btn btn-primary" %>
 
         <% end %>
+        </div>
+
       </div>
     </div>
   </div>
