@@ -1,51 +1,35 @@
-<section class="hero is-success">
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title">
-        アクティビティ情報登録<br><br>
-      </h3>
-    </div>
-  </div>
-</section>
-
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
-      <div class="column is-6">
+      <div class="column is-5 login">
+        <h1>アクティビティ情報登録</h1>
+
+        <div class="post">
         <%= render 'layouts/acerror_messages' %>
+          <%= form_with model: @activity, url: activities_path do |f| %>
 
-        <%= form_with model: @activity, url: activities_path do |f| %>
-
-          <div class="row mb-3">
-            <%= f.label :国, class: "col-sm-2 col-form-label" %>
-            <div class="col-sm-10">
-              <%= f.collection_select(:country_id, Country.all, :id, :name) %>
-            </div>
+          <div class="field mb-3">
+            <%= f.label :国, class: "col-sm-2 col-form-label" %><br />
+            <%= f.collection_select(:country_id, Country.all, :id, :name) %>
           </div>
 
-          <div class="row mb-3">
-            <%= f.label :アクティビティ名, class: "col-sm-2 col-form-label" %>
-            <div class="col-sm-10">
-              <%= f.text_field :name, class: "form-conrol" %>
-            </div>
+          <div class="field mb-3" style="white-space: nowrap;">
+            <%= f.label :アクティビティ名, class: "col-sm-2 col-form-label" %><br />
+            <%= f.text_field :name, class: "form-conrol" %>
           </div>
 
-          <div class="row mb-3">
-
-            <div class="col-sm-10">
-              <%= f.label :住所, class: "col-sm-2 col-form-label" %>
+            <div class="firld mb-3">
+              <%= f.label :住所, class: "col-sm-2 col-form-label" %><br />
                 <%= f.text_field :address, class: "form-conrol" %>
               <div>
-                <%= f.label :latitude,"緯度" %>
+                <%= f.label :latitude,"緯度" %><br />
                 <%= f.text_field :latitude,:value =>"緯度", id: :lat %>
               </div>
               <div>
-                <%= f.label :longitude,"経度" %>
+                <%= f.label :longitude,"経度" %><br />
                 <%= f.text_field :longitude,:value =>"経度", id: :lng %>
               </div>
-
-          </div>
-        </div>
+            </div>
 
       <h2>Map</h2>
 
@@ -56,8 +40,6 @@
 
           <%= f.hidden_field :activity_id, :value => @activity.id %>
           <%= f.submit '登録', class: "btn btn-primary" %>
-
-
         <% end %>
       </div>
     </div>
