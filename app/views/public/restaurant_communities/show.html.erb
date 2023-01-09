@@ -48,7 +48,7 @@
       				    </div>
       				  </div>
       				</div>
-        			<div><%= link_to "削除する", restaurant_restaurant_community_path(community.restaurant_id, community.id), method: :delete, "data-confirm" => "本当に削除しますか？" %> </div>
+        			<div><%= link_to "削除する", restaurant_restaurant_community_path(community.restaurant_id, community.id), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger text-white" %> </div>
       				<div class="card-footer">
       				  <div>
       				    <% if community.end_date < Date.today %>
