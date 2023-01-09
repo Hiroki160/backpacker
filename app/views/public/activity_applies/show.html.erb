@@ -21,10 +21,10 @@
         <tbody>
           <% @activity_applies.each do |apply| %>
             <tr>
-              <td data-label="タイトル"><%= apply.activity_community.activity.name %></td>
-              <td data-label="募集内容"><%= apply.activity_community.title %></td>
-              <td data-label="募集期間"><%= simple_format(apply.activity_community.body) %></td>
-              <td>
+              <td><%= apply.activity_community.activity.name %></td>
+              <td data-label="タイトル"><%= apply.activity_community.title %></td>
+              <td data-label="募集内容"><%= simple_format(apply.activity_community.body) %></td>
+              <td data-label="募集期間">
                 <% if apply.activity_community.end_date < Date.today %>
                   募集終了しました
                 <% else %>
