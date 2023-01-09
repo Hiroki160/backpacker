@@ -8,7 +8,7 @@
 
       <table class="table table-primary" style="width: 110%; padding-right: 10px;">
         <thead class="table-active">
-        	<tr>
+        	<tr class="table-header">
         	  <th>レストラン名</th>
         		<th>タイトル</th>
         		<th>募集内容</th>
@@ -21,9 +21,9 @@
         <tbody>
           <% @restaurant_applies.each do |apply| %>
             <tr>
-              <td><%= apply.restaurant_community.restaurant.name %></td>
-              <td><%= apply.restaurant_community.title %></td>
-              <td><%= simple_format(apply.restaurant_community.body) %></td>
+              <td data-label="タイトル"><%= apply.restaurant_community.restaurant.name %></td>
+              <td data-label="募集内容"><%= apply.restaurant_community.title %></td>
+              <td data-label="募集期間"><%= simple_format(apply.restaurant_community.body) %></td>
               <td>
                 <% if apply.restaurant_community.end_date < Date.today %>
                   募集終了しました
@@ -31,7 +31,7 @@
                   <%= apply.restaurant_community.start_date %> から <%= apply.restaurant_community.end_date %>
                 <% end %>
               </td>
-              <td><%= apply.status_i18n %></td>
+              <td data-label="ステータス"><%= apply.status_i18n %></td>
               <td>
                 <% if apply.status == "accept" %>
                   <%= link_to 'コミュニティに参加', restaurant_community_restaurant_community_comments_path(apply.restaurant_community.id) %>

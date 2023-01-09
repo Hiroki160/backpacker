@@ -8,7 +8,7 @@
 
       <table class="table table-primary">
         <thead class="table-active">
-        	<tr>
+        	<tr class="table-header">
         	  <th scope="col">ゲストハウス名</th>
         		<th>タイトル</th>
         		<th>募集内容</th>
@@ -22,16 +22,16 @@
           <% @guesthouse_applies.each do |apply| %>
             <tr>
               <td><%= apply.guesthouse_community.guesthouse.name %></td>
-              <td><%= apply.guesthouse_community.title %></td>
-              <td><%= simple_format(apply.guesthouse_community.body) %></td>
-              <td>
+              <td data-label="タイトル"><%= apply.guesthouse_community.title %></td>
+              <td data-label="募集内容"><%= simple_format(apply.guesthouse_community.body) %></td>
+              <td data-label="募集期間">
                 <% if apply.guesthouse_community.end_date < Date.today %>
                   募集終了しました
                 <% else %>
                   <%= apply.guesthouse_community.start_date %> から <%= apply.guesthouse_community.end_date %>
                 <% end %>
               </td>
-              <td><%= apply.status_i18n %></td>
+              <td data-label="ステータス"><%= apply.status_i18n %></td>
               <td>
                 <% if apply.status == "accept" %>
                   <%= link_to 'コミュニティに参加', guesthouse_community_guesthouse_community_comments_path(apply.guesthouse_community.id) %>
