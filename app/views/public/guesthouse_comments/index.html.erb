@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-      <div class="col-4 info">
+      <div class="col-md-4 info">
         <div class="card bg-transparent">
           <div class="card-detail mb-10">
             <header class="card-header">
@@ -28,13 +28,10 @@
         </div>
        </div>
 
-          <div class="col-8">
+          <div class="col-md-8">
             <div class="form-group" style="margin-top: 80px;">
-
               <%= render 'errors' %>
-
               <%= form_with model: [@guesthouse_review, @guesthouse_comment], url: guesthouse_guesthouse_review_guesthouse_comments_path(@guesthouse, @guesthouse_review) do |f| %>
-
                 <%= f.text_area :content, rows: '3', placeholder: "コメントをここに", class: "form-control"  %>
                 <%= f.submit "送信する" %>
               <% end %>
@@ -42,8 +39,8 @@
 
             <!--コメント-->
             <table class="table table-primary">
-              <thead>
-                <tr>
+              <thead class="table-active">
+                <tr class="table-header">
                   <th scope="col">ユーザー名</th>
                   <th scope="col">コメント</th>
                   <th></th>
@@ -54,7 +51,7 @@
                 <% @guesthouse_comments.each do |comment| %>
                   <tr>
                     <td><%= comment.customer.user_name %></td>
-                    <td><%= comment.content %></td>
+                    <td data-label="コメント"><%= comment.content %></td>
                     <td>
                       <% if comment.customer == current_customer %>
                       <%= link_to "削除する", guesthouse_guesthouse_review_guesthouse_comment_path(@guesthouse, @guesthouse_review, comment.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
