@@ -1,23 +1,15 @@
-<section class="hero is-success">
-  <div class="hero-body">
-    <div class="container">
-      <h3 class="title">
-        <%= @customer.name %>さんのプロフィール<br><br>
-          <% if @customer.image.attached? %>
-            <%= image_tag @customer.image, size: "200x200" %>
-          <% else %>
-            <%= image_tag 'no_image.jpg', size: "200x200" %>
-          <% end %>
-      </h3>
-    </div>
-  </div>
-</section>
-
-
 <section class="section">
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-6">
+        <h3 class="mypage-name" style="color: white;">
+          <%= @customer.name %>さんのプロフィール<br><br>
+            <% if @customer.image.attached? %>
+              <%= image_tag @customer.image, size: "200x200" %>
+            <% else %>
+              <%= image_tag 'no_image.jpg', size: "200x200" %>
+            <% end %>
+        </h3>
 
       <div class="field form-inline">
         <h4 style="margin-right:5%;">ユーザーネーム</h4>

@@ -237,6 +237,7 @@ a {
 
 .field {
   color: white;
+
 }
 
 /* 表示しているページ番号のデザイン */
@@ -414,6 +415,13 @@ a {
     }
   }
 }
+
+@media screen and (max-width: 425px) {
+.mypage-name {
+  font-size: 25px;
+  }
+}
+
 
 // @media screen and (max-width: 425px) {
 // .cards {
