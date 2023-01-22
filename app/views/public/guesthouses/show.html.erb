@@ -88,10 +88,10 @@
                   <p>感想：<%= guesthouse_review.guesthouse_content %></p>
                   <div>
                     <% if guesthouse_review.customer == current_customer %>
-                      <%= link_to "編集する", edit_guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review) %>
+                      <%= link_to "編集する", edit_guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review), class: "btn btn-success" %>
                     <% end %>
                     <% if guesthouse_review.customer == current_customer %>
-                      <%= link_to "削除する", guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                      <%= link_to "削除する", guesthouse_guesthouse_review_path(@guesthouse, guesthouse_review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-success" %>
                     <% end %>
                   </div>
                   <div>
