@@ -86,10 +86,10 @@
                     <p>感想：<%= restaurant_review.restaurant_content %></p>
                     <div>
                       <% if restaurant_review.customer == current_customer %>
-                        <%= link_to "編集する", edit_restaurant_restaurant_review_path(@restaurant, restaurant_review), class: "btn btn-success" %>
+                        <%= link_to "編集する", edit_restaurant_restaurant_review_path(@restaurant, restaurant_review), class: "btn btn-primary" %>
                       <% end %>
                       <% if restaurant_review.customer == current_customer %>
-                        <%= link_to "削除する", restaurant_restaurant_review_path(@restaurant, restaurant_review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-success" %>
+                        <%= link_to "削除する", restaurant_restaurant_review_path(@restaurant, restaurant_review), method: :delete, "data-confirm" => "本当に削除しますか？", class: "btn btn-danger" %>
                       <% end %>
                     </div>
                     <div>
