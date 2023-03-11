@@ -33,10 +33,10 @@
                           <!--申請の記述-->
                           <%= form_with model: @activity_apply, url: activity_community_activity_apply_path(community.id, apply.id), method: :put do |f| %>
                             <div>
-                            	<label class="payment-label"><%= f.radio_button :status, ActivityApply.statuses.key(0) %> 承認</label>
+                            	<div class="payment-label"><%= f.radio_button :status, ActivityApply.statuses.key(0) %> 承認</div>
                             </div>
                           	<div>
-                            	<label class="payment_label"><%= f.radio_button :status, ActivityApply.statuses.key(1) %> 却下</label>
+                            	<div class="payment_label"><%= f.radio_button :status, ActivityApply.statuses.key(1) %> 却下</div>
                           	</div>
                           	<%= f.submit '決定', class: "btn btn-primary" %>
                           <% end %>

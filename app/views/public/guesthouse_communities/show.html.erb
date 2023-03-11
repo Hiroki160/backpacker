@@ -32,10 +32,10 @@
                                 <hr>
                                 <%= form_with model: @guesthouse_apply, url: guesthouse_community_guesthouse_apply_path(community.id, apply.id), method: :put do |f| %>
                                   <div>
-                                  	<label class="payment-label"><%= f.radio_button :status, GuesthouseApply.statuses.key(0) %> 承認</label>
+                                  	<div class="payment-label"><%= f.radio_button :status, GuesthouseApply.statuses.key(0) %> 承認</div>
                                   </div>
                                 	<div>
-                                  	<label class="payment_label"><%= f.radio_button :status, GuesthouseApply.statuses.key(1) %> 却下</label>
+                                  	<div class="payment_label"><%= f.radio_button :status, GuesthouseApply.statuses.key(1) %> 却下</div>
                                 	</div>
                                 	<%= f.submit '決定', class: "btn btn-primary" %>
                               	<% end %>
